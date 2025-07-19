@@ -1,0 +1,41 @@
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaGitAlt,
+  FaNodeJs,
+  FaFigma,
+} from 'react-icons/fa';
+import {
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
+  SiWebpack,
+  SiVite,
+  SiEslint,
+  SiPrettier,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiGraphql,
+} from 'react-icons/si';
+
+export const skillIconMapping = {
+  react: FaReact,
+  javascript: SiJavascript,
+  typescript: SiTypescript,
+  html5: FaHtml5,
+  css3: FaCss3Alt,
+  tailwindcss: SiTailwindcss,
+  git: FaGitAlt,
+  webpack: SiWebpack,
+  vite: SiVite,
+  eslint: SiEslint,
+  prettier: SiPrettier,
+  figma: FaFigma,
+  nodejs: FaNodeJs,
+  express: SiExpress,
+  mongodb: SiMongodb,
+  postgresql: SiPostgresql,
+  graphql: SiGraphql,
+};
