@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mohammad Imran Hossain - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.3;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+            color: #333;
+            font-size: 11px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        h2 {
+            color: #34495e;
+            margin: 15px 0 8px 0;
+            font-size: 14px;
+        }
+        h3 {
+            color: #2980b9;
+            margin: 10px 0 5px 0;
+            font-size: 12px;
+        }
+        .contact-info {
+            margin-bottom: 15px;
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        .skills strong {
+            color: #2980b9;
+        }
+        ul {
+            padding-left: 15px;
+            margin: 5px 0;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .project {
+            margin-bottom: 8px;
+            font-size: 10px;
+        }
+        .project-title {
+            font-weight: bold;
+            color: #2980b9;
+        }
+        .project-line {
+            margin: 2px 0;
+        }
+        .two-column {
+            display: flex;
+            gap: 20px;
+        }
+        .left-column {
+            flex: 2;
+        }
+        .right-column {
+            flex: 1;
+        }
+        .compact-section {
+            margin: 10px 0;
+        }
+        @media print {
+            body {
+                font-size: 10px;
+                padding: 10px;
+            }
+            .contact-info {
+                font-size: 9px;
+            }
+            .project {
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Mohammad Imran Hossain</h1>
+    
+    <div class="contact-info">
+        📧 imranhossain16.ctg@gmail.com • 📱 +8801866803833<br>
+        🔗 <a href="https://github.com/imranctg16">GitHub</a> • <a href="https://www.linkedin.com/in/mohammad-imran-hossain-783803135">LinkedIn</a> • <a href="https://imran-react-portfolio.netlify.app">Portfolio</a> • <a href="https://imran-react-portfolio.netlify.app/blog">Blog</a>
+    </div>
+
+    <h2>Summary</h2>
+    <p style="margin: 5px 0;">Technical Lead with almost 7 years building enterprise web platforms. Specialized in migrating legacy monoliths to microservices and optimizing performance (20min → 30sec database queries). Expert in Laravel/Vue.js with proven team leadership across 8+ engineers and 3 development teams. Delivered systems serving millions of records daily at Bangladesh's largest telecom.</p>
+
+    <div class="two-column">
+        <div class="left-column">
+            <h2>Experience</h2>
+            <h3>Technical Lead • Grameenphone Telecom (82M+ subscribers) • Jul 2022 – Present</h3>
+            <ul style="font-size: 10px;">
+                <li>Architected reporting module serving millions of records daily; most-used feature across teams</li>
+                <li>Led monolith-to-microservices migration; standardized API contracts across 11+ services</li>
+                <li>Cut query times 95% (20min → 30sec) via indexing/caching <a href="https://imran-react-portfolio.netlify.app/blog/2">→</a></li>
+                <li>Implemented PLG stack logging/observability; reduced MTTR <a href="https://imran-react-portfolio.netlify.app/blog/4">→</a></li>
+                <li>Rewrote Docker deployment; eliminated external dependencies <a href="https://imran-react-portfolio.netlify.app/blog/3">→</a></li>
+                <li>Mentored 8+ engineers across 3 teams; drove best practices adoption</li>
+            </ul>
+
+            <h3>Senior Software Engineer • Brain Station 23 (800+ employees) • Nov 2018 – Jun 2022</h3>
+            <ul style="font-size: 10px;">
+                <li>Built ERP modules (Accounting, HRM, Training) for Bangladesh Academy of Rural Development</li>
+                <li>Improved performance with query optimization and Redis caching on high-traffic endpoints</li>
+                <li>Piloted Nuxt.js in production; established SSR/SPA integration patterns</li>
+                <li>Owned features end-to-end: requirements → design → implementation → client communication</li>
+            </ul>
+
+            <h2>Selected Projects</h2>
+            <div class="project">
+                <div class="project-title">Dynamic Workflow Engine (DWE) — Enterprise Microservices Platform</div>
+                <div class="project-line"><strong>Why:</strong> Led legacy CakePHP modernization for Bangladesh's largest telecom</div>
+                <div class="project-line"><strong>Stack:</strong> Laravel 9+, Vue 3, MySQL 8, Redis, RabbitMQ, Docker</div>
+                <div class="project-line"><strong>Results:</strong> 95% faster reports, 11+ services, RBAC, dynamic forms • <a href="https://github.com/imranctg16/DWE-Microservice">Code</a></div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">SQL Playground — Interactive Learning Platform</div>
+                <div class="project-line"><strong>Why:</strong> SQL skills getting rusty in ORM era</div>
+                <div class="project-line"><strong>Stack:</strong> Laravel, React 18, TypeScript, MySQL, Docker</div>
+                <div class="project-line"><strong>Results:</strong> Real-time evaluation, progressive challenges, streak tracking • <a href="https://imran-sql-playground.netlify.app">Live</a> • <a href="https://github.com/imranctg16/sql-playground">Code</a></div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">README Reader Pro — Modern Markdown Viewer</div>
+                <div class="project-line"><strong>Why:</strong> Multi-doc reading without losing focus</div>
+                <div class="project-line"><strong>Stack:</strong> React 19, TypeScript, Vite 7, Mermaid 11</div>
+                <div class="project-line"><strong>Results:</strong> Interactive diagrams, multi-tab, 20+ languages • <a href="https://readme-reader.netlify.app">Live</a></div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <h2>Core Skills</h2>
+            <div style="font-size: 10px;">
+                <strong>Languages:</strong> PHP, JavaScript/TypeScript, Python<br><br>
+                <strong>Frameworks:</strong> Laravel, Vue.js, React, Node.js, Nuxt.js<br><br>
+                <strong>Data:</strong> MySQL 8, MongoDB, Redis<br><br>
+                <strong>Infrastructure:</strong> Docker, AWS, Nginx, MinIO<br><br>
+                <strong>DevOps:</strong> GitLab CI/CD, RabbitMQ, Observability<br><br>
+                <strong>Practices:</strong> Microservices, REST APIs, Performance Tuning, Code Review, Mentorship
+            </div>
+
+            <h2>Education</h2>
+            <div style="font-size: 10px;">
+                <strong>B.Sc. Computer Science</strong><br>
+                International Islamic University<br>
+                CGPA: 3.69/4.00 • 2014-2018
+            </div>
+
+            <h2>Awards & Recognition</h2>
+            <div style="font-size: 10px;">
+                • Grameenphone Innovation Lab Q4 Winner<br>
+                • Inter-University App Contest Winner<br>
+                • Co-Author: Phonetic Algorithm (Springer)<br>
+                • IIUC Hackathon Judge<br>
+                • ACM ICPC Regional Participant
+            </div>
+
+            <h2>Portfolio & Writing</h2>
+            <div style="font-size: 10px;">
+                Complete portfolio with project case studies and technical blog posts:<br>
+                <a href="https://imran-react-portfolio.netlify.app">imran-react-portfolio.netlify.app</a>
+            </div>
+
+            <div class="compact-section">
+                <strong style="font-size: 10px;">Company Verification:</strong><br>
+                <div style="font-size: 9px;">
+                <a href="https://www.grameenphone.com/">Grameenphone</a> • <a href="https://brainstation-23.com/">Brain Station 23</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

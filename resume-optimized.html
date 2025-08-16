@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mohammad Imran Hossain - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.2;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 15px;
+            color: #333;
+            font-size: 11px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+        h2 {
+            color: #34495e;
+            margin: 12px 0 5px 0;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        h3 {
+            color: #2980b9;
+            margin: 6px 0 3px 0;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .contact-info {
+            margin-bottom: 12px;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 9px;
+        }
+        ul {
+            padding-left: 12px;
+            margin: 3px 0;
+        }
+        li {
+            margin-bottom: 2px;
+            font-size: 10px;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .project {
+            margin-bottom: 6px;
+            font-size: 9px;
+            border-left: 2px solid #ecf0f1;
+            padding-left: 8px;
+        }
+        .project-title {
+            font-weight: bold;
+            color: #2980b9;
+            font-size: 10px;
+        }
+        .inline-info {
+            display: inline;
+        }
+        .sidebar {
+            font-size: 9px;
+        }
+        .sidebar h2 {
+            font-size: 11px;
+            margin: 8px 0 4px 0;
+        }
+        .sidebar-section {
+            margin-bottom: 8px;
+        }
+        .awards-compact {
+            font-size: 8px;
+            line-height: 1.1;
+        }
+        @media print {
+            body {
+                font-size: 10px;
+                padding: 8px;
+            }
+            .contact-info {
+                font-size: 9px;
+            }
+            .project {
+                font-size: 8px;
+            }
+            .sidebar {
+                font-size: 8px;
+            }
+            h1 {
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 11px;
+                margin: 8px 0 3px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Mohammad Imran Hossain</h1>
+    
+    <div class="contact-info">
+        📧 imranhossain16.ctg@gmail.com • 📱 +8801866803833 • 🔗 <a href="https://github.com/imranctg16">GitHub</a> • <a href="https://www.linkedin.com/in/mohammad-imran-hossain-783803135">LinkedIn</a> • <a href="https://imran-react-portfolio.netlify.app">Portfolio</a> • <a href="https://imran-react-portfolio.netlify.app/blog">Blog</a>
+    </div>
+
+    <h2>Summary</h2>
+    <p style="margin-bottom: 10px; font-size: 10px;">Technical Lead with almost 7 years building enterprise web platforms. Specialized in migrating legacy monoliths to microservices and optimizing performance (20min → 30sec). Expert in Laravel/Vue.js with proven leadership across 8+ engineers. Delivered systems serving millions of records daily at Bangladesh's largest telecom.</p>
+
+    <div class="grid">
+        <div class="main-content">
+            <h2>Experience</h2>
+            
+            <h3>Technical Lead • Grameenphone Telecom (82M+ subscribers) • Jul 2022 – Present</h3>
+            <ul>
+                <li>Architected reporting module serving millions of records daily; most-used feature across teams</li>
+                <li>Led monolith-to-microservices migration; standardized API contracts across 11+ services</li>
+                <li>Cut query times 95% (20min → 30sec) via indexing/caching <a href="https://imran-react-portfolio.netlify.app/blog/2">→ Blog</a></li>
+                <li>Implemented PLG stack logging/observability; reduced MTTR <a href="https://imran-react-portfolio.netlify.app/blog/4">→ Case Study</a></li>
+                <li>Rewrote Docker deployment; eliminated external dependencies <a href="https://imran-react-portfolio.netlify.app/blog/3">→ Deep-dive</a></li>
+                <li>Mentored 8+ engineers across 3 teams; drove best practices adoption</li>
+            </ul>
+
+            <h3>Senior Software Engineer • Brain Station 23 (800+ employees) • Nov 2018 – Jun 2022</h3>
+            <ul>
+                <li>Built ERP modules (Accounting, HRM, Training) for Bangladesh Academy of Rural Development</li>
+                <li>Improved performance with query optimization and Redis caching on high-traffic endpoints</li>
+                <li>Piloted Nuxt.js in production; established SSR/SPA integration patterns</li>
+                <li>Owned features end-to-end: requirements → design → implementation → client communication</li>
+            </ul>
+
+            <h2>Selected Projects</h2>
+            
+            <div class="project">
+                <div class="project-title">Dynamic Workflow Engine (DWE) — Enterprise Microservices Platform</div>
+                <strong>Why:</strong> Led legacy CakePHP modernization for Bangladesh's largest telecom • <strong>Stack:</strong> Laravel 9+, Vue 3, MySQL 8, Redis, RabbitMQ, Docker • <strong>Results:</strong> 95% faster reports, 11+ services, RBAC, dynamic forms • <a href="https://github.com/imranctg16/DWE-Microservice">Code</a>
+            </div>
+
+            <div class="project">
+                <div class="project-title">SQL Playground — Interactive Learning Platform</div>
+                <strong>Why:</strong> SQL skills getting rusty in ORM era • <strong>Stack:</strong> Laravel, React 18, TypeScript, MySQL, Docker • <strong>Results:</strong> Real-time evaluation, progressive challenges, streak tracking • <a href="https://imran-sql-playground.netlify.app">Live</a> • <a href="https://github.com/imranctg16/sql-playground">Code</a>
+            </div>
+
+            <div class="project">
+                <div class="project-title">AWS Exam Prep — Full-Stack Learning Management</div>
+                <strong>Why:</strong> Couldn't find decent free platform with 968+ questions • <strong>Stack:</strong> Laravel, Vue 3.4, MongoDB, Docker • <strong>Results:</strong> Topic quizzes, mock exams, analytics • <a href="https://github.com/imranctg16/aws-exam-prep">Code</a>
+            </div>
+
+            <div class="project">
+                <div class="project-title">README Reader Pro — Modern Markdown Viewer</div>
+                <strong>Why:</strong> Multi-doc reading without losing focus • <strong>Stack:</strong> React 19, TypeScript, Vite 7, Mermaid 11 • <strong>Results:</strong> Interactive diagrams, multi-tab, 20+ languages • <a href="https://readme-reader.netlify.app">Live</a>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div>
+                    <strong>Languages:</strong><br>
+                    PHP, JavaScript/TypeScript, Python<br><br>
+                    <strong>Frameworks:</strong><br>
+                    Laravel, Vue.js, React, Node.js, Nuxt.js<br><br>
+                    <strong>Data:</strong><br>
+                    MySQL 8, MongoDB, Redis
+                </div>
+                <div>
+                    <strong>Infrastructure:</strong><br>
+                    Docker, AWS, Nginx, MinIO<br><br>
+                    <strong>DevOps:</strong><br>
+                    GitLab CI/CD, RabbitMQ, PLG Stack<br><br>
+                    <strong>Practices:</strong><br>
+                    Microservices, REST APIs, Performance Tuning, Code Review, Mentorship
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Education</h2>
+                <strong>B.Sc. Computer Science & Engineering</strong><br>
+                International Islamic University, Chittagong<br>
+                CGPA: 3.69/4.00 • 2014-2018
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Awards & Recognition</h2>
+                <div class="awards-compact">
+                    • Grameenphone Innovation Lab Q4 Winner<br>
+                    • Inter-University App Contest Winner (2017)<br>
+                    • Co-Author: nameGist Algorithm (Springer, 2019)<br>
+                    • IIUC Hackathon Judge (2020)<br>
+                    • ACM ICPC Regional Participant (2015)
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Portfolio & Writing</h2>
+                Complete portfolio with detailed project case studies and technical blog posts:<br>
+                <a href="https://imran-react-portfolio.netlify.app">imran-react-portfolio.netlify.app</a>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Company Verification</h2>
+                <a href="https://www.grameenphone.com/">Grameenphone</a><br>
+                <a href="https://brainstation-23.com/">Brain Station 23</a>
+            </div>
+
+            <div class="sidebar-section" style="margin-top: 15px; padding: 5px; background: #f8f9fa; border-radius: 3px;">
+                <strong style="font-size: 8px; color: #2980b9;">Open to UAE Opportunities</strong><br>
+                <span style="font-size: 7px;">Willing to relocate with visa sponsorship</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

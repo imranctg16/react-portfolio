@@ -178,18 +178,37 @@ const ProjectsPage = () => {
 
                         {/* Motivation Section */}
                         {project.motivation && (
-                          <Box sx={{ mb: 2, p: 1.5, backgroundColor: 'rgba(245, 158, 11, 0.08)', borderRadius: 1.5, border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                            <Typography variant="caption" fontWeight="bold" color="warning.main" sx={{ mb: 0.5, display: 'block' }}>
-                              Motivation:
+                          <Box sx={{ 
+                            mb: 3, 
+                            p: 2.5, 
+                            backgroundColor: 'rgba(245, 158, 11, 0.12)', 
+                            borderRadius: 3, 
+                            border: '2px solid rgba(245, 158, 11, 0.3)',
+                            boxShadow: '0 2px 8px rgba(245, 158, 11, 0.1)',
+                          }}>
+                            <Typography 
+                              variant="subtitle2" 
+                              fontWeight="700" 
+                              color="warning.main" 
+                              sx={{ 
+                                mb: 1.5, 
+                                display: 'block',
+                                fontSize: '0.85rem',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px',
+                              }}
+                            >
+                              💡 Why I Built This
                             </Typography>
                             <Typography 
                               variant="body2" 
                               color="text.primary" 
                               sx={{ 
-                                fontSize: '0.8rem', 
-                                lineHeight: 1.4,
+                                fontSize: '0.9rem', 
+                                lineHeight: 1.6,
+                                fontWeight: 500,
                                 display: '-webkit-box',
-                                WebkitLineClamp: 2,
+                                WebkitLineClamp: 3,
                                 WebkitBoxOrient: 'vertical',
                                 overflow: 'hidden',
                               }}
@@ -312,6 +331,45 @@ const ProjectsPage = () => {
                         <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.875rem', lineHeight: 1.5 }}>
                           {project.description}
                         </Typography>
+
+                        {/* Motivation Section - Compact */}
+                        {project.motivation && (
+                          <Box sx={{ 
+                            p: 1.5, 
+                            backgroundColor: 'rgba(245, 158, 11, 0.08)', 
+                            borderRadius: 2, 
+                            border: '1px solid rgba(245, 158, 11, 0.25)',
+                          }}>
+                            <Typography 
+                              variant="caption" 
+                              fontWeight="600" 
+                              color="warning.main" 
+                              sx={{ 
+                                mb: 0.5, 
+                                display: 'block',
+                                fontSize: '0.75rem',
+                                textTransform: 'uppercase',
+                              }}
+                            >
+                              💡 Motivation
+                            </Typography>
+                            <Typography 
+                              variant="caption" 
+                              color="text.primary" 
+                              sx={{ 
+                                fontSize: '0.8rem', 
+                                lineHeight: 1.4,
+                                fontWeight: 400,
+                                display: '-webkit-box',
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                              }}
+                            >
+                              {project.motivation}
+                            </Typography>
+                          </Box>
+                        )}
 
                         <Stack direction="row" flexWrap="wrap" gap={0.5}>
                           {project.technologies.slice(0, 3).map((tech, techIndex) => (

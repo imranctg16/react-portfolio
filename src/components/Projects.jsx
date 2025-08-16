@@ -247,18 +247,37 @@ const Projects = () => {
 
           {/* Motivation Section */}
           {project.motivation && (
-            <Box sx={{ mb: 3, p: 2, backgroundColor: 'rgba(245, 158, 11, 0.08)', borderRadius: 2, border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-              <Typography variant="caption" fontWeight="bold" color="warning.main" sx={{ mb: 1, display: 'block' }}>
-                Why I Built This:
+            <Box sx={{ 
+              mb: 3, 
+              p: 2.5, 
+              backgroundColor: 'rgba(245, 158, 11, 0.12)', 
+              borderRadius: 3, 
+              border: '2px solid rgba(245, 158, 11, 0.3)',
+              boxShadow: '0 2px 8px rgba(245, 158, 11, 0.1)',
+            }}>
+              <Typography 
+                variant="subtitle2" 
+                fontWeight="700" 
+                color="warning.main" 
+                sx={{ 
+                  mb: 1.5, 
+                  display: 'block',
+                  fontSize: '0.9rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px',
+                }}
+              >
+                💡 Why I Built This
               </Typography>
               <Typography 
                 variant="body2" 
                 color="text.primary" 
                 sx={{ 
-                  fontSize: '0.85rem', 
-                  lineHeight: 1.4,
+                  fontSize: '0.95rem', 
+                  lineHeight: 1.6,
+                  fontWeight: 500,
                   display: '-webkit-box',
-                  WebkitLineClamp: 3,
+                  WebkitLineClamp: 4,
                   WebkitBoxOrient: 'vertical',
                   overflow: 'hidden',
                 }}
