@@ -6,11 +6,7 @@ import {
   Grid,
   Card,
   Stack,
-  Avatar,
 } from '@mui/material';
-import {
-  LocationOn,
-} from '@mui/icons-material';
 import { useInView } from 'react-intersection-observer';
 import { fadeIn, slideIn, zoomIn } from '../utils/motion';
 
@@ -161,7 +157,7 @@ const About = () => {
                   <Stack spacing={3}>
                     <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
                       I specialize in Laravel, Vue.js, React.js, and Express.js, working with both relational and non-relational databases. 
-                      I love creating solutions that make people's lives easier, especially when building mission-critical systems that handle 
+                      I love creating solutions that make people&apos;s lives easier, especially when building mission-critical systems that handle 
                       real-world complexity.
                     </Typography>
                     
@@ -172,7 +168,7 @@ const About = () => {
                     </Typography>
                     
                     <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                      Continuous improvement drives everything I do. I've led migrations from monolithic systems to microservices, 
+                      Continuous improvement drives everything I do. I&apos;ve led migrations from monolithic systems to microservices, 
                       introduced centralized logging with PLG stack, and eliminated external Docker dependencies. I am currently 
                       learning Generative AI and LLMs to explore the latest technology trends.
                     </Typography>
@@ -225,7 +221,7 @@ const About = () => {
                           rel="noopener noreferrer"
                           style={{ color: 'inherit', textDecoration: 'underline', fontWeight: 600 }}
                         >
-                          "nameGist: a novel phonetic algorithm with bilingual support"
+                          &quot;nameGist: a novel phonetic algorithm with bilingual support&quot;
                         </a>
                       </Typography>
                     </Box>

@@ -13,13 +13,11 @@ import ProjectDetailPage from './pages/ProjectDetailPage';
 import ResumePage from './pages/ResumePage';
 import { initGA, trackPageview } from './utils/analytics';
 
+
 function AnalyticsListener() {
   const location = useLocation();
   useEffect(() => {
-    const id = import.meta.env.VITE_GA_ID;
-    if (id && window.gtag) {
-      trackPageview(location.pathname + location.search, document.title);
-    }
+    trackPageview(location.pathname + location.search, document.title);
   }, [location]);
   return null;
 }

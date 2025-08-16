@@ -1,36 +1,45 @@
-# Personal Portfolio
+# Mohammad Imran Hossain — Personal Portfolio
 
-A modern, responsive personal portfolio website built with React.js and Tailwind CSS. This project showcases a clean, professional design with smooth animations, dark/light theme toggle, and optimized performance.
+Modern, performant portfolio built with React, Material UI, Tailwind CSS, and Vite. Includes a projects showcase, detailed case-study blog, interactive UI, dark/light theme, and an online resume optimized for recruiters.
+
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white) ![MUI](https://img.shields.io/badge/Material--UI-7-007FFF?logo=mui&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss&logoColor=white) ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-10-0055FF?logo=framer&logoColor=white)
+
+## 🔗 Quick Links
+
+- Live Site: https://imran-hossain-16.netlify.app/
+- Projects: https://imran-hossain-16.netlify.app/projects
+- Blog (case studies): https://imran-hossain-16.netlify.app/blog
+- Resume (PDF): public/Mohammad_Imran_Hossain_Resume.pdf
+- Resume (Markdown): resume.md
+- LinkedIn: https://www.linkedin.com/in/mohammad-imran-hossain-783803135
+- GitHub: https://github.com/imranctg16
+- Email: mailto:imranhossain16.ctg@gmail.com
+
+## 🎯 What To Review (Hiring Manager Guide)
+
+- Enterprise Microservices Case Study: DWE Platform → projects page, then “Dynamic Workflow Engine (DWE)”. Repo: https://github.com/imranctg16/DWE-Microservice
+- SQL Playground (Full‑stack app) → Live: https://imran-sql-playground.netlify.app/ • Code: https://github.com/imranctg16/sql-playground
+- AWS Exam Prep (LMS) → Code: https://github.com/imranctg16/aws-exam-prep
+- Deep Dive Blog: “MySQL ‘Server Has Gone Away’ — Root Cause & Fix” → https://imran-hossain-16.netlify.app/blog/1
 
 ## 🚀 Features
 
-- **Modern Design**: Clean, professional layout with smooth animations and hover effects
-- **Dark/Light Theme**: Toggle between themes with user preference saved in localStorage
-- **Responsive Design**: Mobile-first approach ensuring perfect display on all devices
-- **Accessibility**: WCAG compliant with proper semantic HTML and ARIA labels
-- **Performance Optimized**: Built with Vite for fast development and optimized production builds
-- **SEO Friendly**: Meta tags, structured data, and semantic HTML for better search engine visibility
-
-### Sections
-
-1. **Header**: Fixed navigation with logo and theme toggle
-2. **Hero**: Introduction with profile photo placeholder and social links
-3. **About**: Personal bio, skills visualization with animated progress bars
-4. **Projects**: Portfolio showcase with project filtering and technology tags
-5. **Resume**: Work experience, education, certifications with PDF download
-6. **Contact**: Contact form (mailto), contact information, and social links
-7. **Footer**: Site links, social media, and back-to-top functionality
+- Modern UI: Glassmorphism design, micro-interactions, smooth page transitions
+- Theming: Dark/light mode with persistence
+- Routing: Multi-page app (Home, Projects, Project Detail, Blog, Blog Post Detail, Resume)
+- Blog: ReactMarkdown + syntax highlighting + case-study structure
+- Performance: Vite build, code-splitting, lazy-loading, optimized assets
+- Accessibility: Keyboard navigation, focus styles, contrast-aware theme
+- Analytics (optional): GA4 with SPA pageview + event tracking
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 18, JavaScript (ES6+)
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Build Tool**: Vite
-- **Linting**: ESLint
-- **Formatting**: Prettier
-- **Development**: Hot Module Replacement (HMR)
+- Frontend: React 18, React Router 7
+- UI: Material UI v7, Tailwind CSS
+- Animation: Framer Motion
+- Content: ReactMarkdown, remark-gfm, react-syntax-highlighter
+- Utilities: react-intersection-observer, lucide-react, react-icons
+- Tooling: Vite 5, ESLint, Prettier
 
 ## 📁 Project Structure
 
@@ -38,189 +47,94 @@ A modern, responsive personal portfolio website built with React.js and Tailwind
 portfolio-project/
 ├── public/
 │   ├── favicon.svg
-│   └── resume.pdf
+│   ├── project-images/           # Public images for README/screenshots
+│   └── Mohammad_Imran_Hossain_Resume.pdf
 ├── src/
-│   ├── components/
-│   │   ├── Header.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Resume.jsx
-│   │   ├── Contact.jsx
-│   │   └── Footer.jsx
-│   ├── contexts/
-│   │   └── ThemeContext.jsx
-│   ├── hooks/
-│   │   └── useScrollAnimation.js
-│   ├── data/
-│   │   ├── skills.js
-│   │   └── projects.js
+│   ├── components/               # Header, Hero, Projects, Resume, Blog, etc.
+│   ├── pages/                    # HomePage, ProjectsPage, ProjectDetailPage, Blog*, ResumePage
+│   ├── data/                     # projects.js, blog.js
+│   ├── utils/                    # analytics.js, motion.js
+│   ├── contexts/                 # ThemeContext
+│   ├── assets/                   # App assets (images, gifs)
 │   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── .eslintrc.js
-├── .prettierrc
+│   └── main.jsx
+├── index.html
 ├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-└── vite.config.js
+└── tailwind.config.js
 ```
 
-## 🚀 Getting Started
+## ⚡ Getting Started
 
-### Prerequisites
+Prerequisites:
+- Node.js 18+ (Vite 5 requires Node >= 18)
+- npm
 
-- Node.js (v14 or higher)
-- npm or yarn
+Install & run:
+```bash
+git clone https://github.com/imranctg16/portfolio-project.git
+cd portfolio-project
+npm install
+npm run dev
+```
 
-### Installation
+Open the URL printed in the terminal (typically http://localhost:5173).
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/portfolio-project.git
-   cd portfolio-project
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser and visit** `http://localhost:3000`
-
-### Build for Production
-
+Build & preview:
 ```bash
 npm run build
-```
-
-The build files will be generated in the `dist` directory.
-
-### Preview Production Build
-
-```bash
 npm run preview
 ```
 
-## 🎨 Customization
+## 🔧 Scripts
 
-### Personal Information
+- `npm run dev`: Start dev server (HMR)
+- `npm run build`: Production build to `dist/`
+- `npm run preview`: Preview the production build
+- `npm run lint`: Lint source files
+- `npm run lint:fix`: Auto-fix lint issues
+- `npm run format`: Prettier format
 
-1. **Update personal details** in the following files:
-   - `src/components/Hero.jsx` - Name, tagline, social links
-   - `src/components/About.jsx` - Bio and personal information
-   - `src/components/Contact.jsx` - Contact information
-   - `src/components/Footer.jsx` - Footer details
+## ⚙️ Environment Variables
 
-2. **Replace the resume PDF** in `public/resume.pdf`
+Optional GA4 analytics:
+- Create `.env` and set `VITE_GA_ID=G-XXXXXXXXXX`
+- See `.env.example` for reference
 
-3. **Update project data** in `src/data/projects.js`
+Analytics implementation tracks initial load and SPA route changes (see `src/utils/analytics.js`).
 
-4. **Modify skills** in `src/data/skills.js`
+## 🧭 Customization
 
-### Styling
+- Personal info & links: `src/components/Hero.jsx`, `src/components/Footer.jsx`, `src/pages/ResumePage.jsx`
+- Projects data: `src/data/projects.js`
+- Blog posts metadata: `src/data/blog.js` (content rendered via markdown fields)
+- Styles/theme: Tailwind in `tailwind.config.js` + MUI theme via `ThemeContext`
+- SEO: Update `index.html` meta, Open Graph, and Twitter tags
 
-- **Colors**: Edit the color palette in `tailwind.config.js`
-- **Fonts**: Update font family in `tailwind.config.js` and add imports in `index.html`
-- **Layout**: Modify component styles in individual component files
+## 🖼️ Featured Project Screenshots
 
-### SEO
+<img src="src/assets/images/sql/sql-dashboard.png" alt="SQL Playground Dashboard" width="600" />
 
-Update meta tags in `index.html`:
-- Title, description, keywords
-- Open Graph tags
-- Twitter Card tags
+<img src="src/assets/images/dwe/dwe-dashboard.png" alt="DWE Dashboard" width="600" />
 
-## 📱 Deployment
+## 🌐 Deployment
 
-### Netlify
+Netlify / Vercel
+- Build command: `npm run build`
+- Publish/output directory: `dist`
 
-1. Connect your GitHub repository to Netlify
-2. Set build command: `npm run build`
-3. Set publish directory: `dist`
-4. Deploy
-
-### Vercel
-
-1. Import your project from GitHub
-2. Framework preset: Vite
-3. Build command: `npm run build`
-4. Output directory: `dist`
-5. Deploy
-
-### Manual Deployment
-
-1. Run `npm run build`
-2. Upload the `dist` folder contents to your web server
-
-## 🔧 Development Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint errors
-- `npm run format` - Format code with Prettier
-
-## 📊 Analytics (optional)
-
-Enable Google Analytics (GA4) page view tracking:
-
-- Create a GA4 property and copy the Measurement ID (looks like `G-XXXXXXXXXX`).
-- Create a `.env` file in the project root with:
-  - `VITE_GA_ID=G-XXXXXXXXXX`
-- Start dev server or build/deploy. SPA route changes are tracked automatically.
-
-See `.env.example` for the variable name.
-
-## 🎯 Performance Features
-
-- **Code Splitting**: Automatic code splitting with Vite
-- **Image Optimization**: Lazy loading and responsive images
-- **Animation Performance**: Hardware-accelerated CSS animations
-- **Bundle Size**: Optimized dependencies and tree shaking
-
-## ♿ Accessibility Features
-
-- Semantic HTML structure
-- ARIA labels and roles
-- Keyboard navigation support
-- Screen reader friendly
-- Color contrast compliance
-- Focus management
-
-## 🌐 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+Manual
+- Run `npm run build` and serve the `dist/` directory on any static host
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT — see LICENSE.
 
-## 🤝 Contributing
+## 🤝 Contact
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📞 Support
-
-If you have any questions or need help customizing the portfolio, feel free to reach out:
-
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourusername)
-- GitHub: [Your GitHub](https://github.com/yourusername)
+- Email: imranhossain16.ctg@gmail.com
+- LinkedIn: https://www.linkedin.com/in/mohammad-imran-hossain-783803135
+- GitHub: https://github.com/imranctg16
 
 ---
 
-⭐ If you found this portfolio template helpful, please give it a star on GitHub!
+If you find this useful, a star on GitHub is appreciated!

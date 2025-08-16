@@ -126,7 +126,7 @@ const Contact = () => {
                 fontSize: '1.1rem'
               }}
             >
-              💬 Have a project in mind or just want to say hi? I'd love to hear from you and discuss how we can work together!
+              💬 Have a project in mind or just want to say hi? I&apos;d love to hear from you and discuss how we can work together!
             </Typography>
           </Box>
         </motion.div>
@@ -144,7 +144,7 @@ const Contact = () => {
               className="text-gradient"
               sx={{ mb: 5, textAlign: 'center' }}
             >
-              📞 Let's Connect
+              📞 Let&apos;s Connect
             </Typography>
             
             <Grid container spacing={4}>
@@ -247,7 +247,7 @@ const Contact = () => {
                       Social Media
                     </Typography>
                     <Stack direction="row" spacing={1} justifyContent="center">
-                      {socialLinks.map((social, index) => (
+                      {socialLinks.map((social) => (
                         <motion.div
                           key={social.label}
                           whileHover={{ y: -3, scale: 1.1 }}

@@ -304,7 +304,7 @@ const Hero = () => {
                 },
               }}
             >
-              Let's Connect
+              Let&apos;s Connect
             </Button>
           </Stack>
         </motion.div>
