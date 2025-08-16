@@ -1,6 +1,8 @@
 # Mohammad Imran Hossain
 
-Email: imranhossain16.ctg@gmail.com • Phone: +8801866803833  
+**Dhaka, Bangladesh — Open to relocation**
+
+Email: imranhossain16.ctg@gmail.com • Phone: +8801866803833 (WhatsApp)  
 GitHub: https://github.com/imranctg16 • LinkedIn: https://www.linkedin.com/in/mohammad-imran-hossain-783803135  
 **Interactive Portfolio**: https://imran-react-portfolio.netlify.app • **Technical Blog**: https://imran-react-portfolio.netlify.app/blog
 
@@ -48,7 +50,6 @@ Brain Station 23 PLC (Leading software company, 800+ employees) • Nov 2018 –
 
 - Built and maintained ERP modules (Accounting, HRM, Training, Vehicle Management) for Bangladesh Academy of Rural Development.
 - Improved performance with query optimization and Redis caching; reduced load times on high-traffic endpoints.
-- Piloted and introduced Nuxt.js into production; established patterns for SSR/SPA integration.
 - Owned features end-to-end: requirements gathering → solution design → implementation → client communication.
 
 ## Selected Projects
