@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Box,
@@ -9,18 +10,25 @@ import {
   IconButton,
   Avatar,
   Card,
+  Modal,
+  Backdrop,
 } from '@mui/material';
 import {
   KeyboardArrowDown,
   GitHub,
   LinkedIn,
   Mail,
+  Close,
+  ArrowBackIos,
+  ArrowForwardIos,
 } from '@mui/icons-material';
 import { fadeIn, slideIn } from '../utils/motion';
 import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [slideshowOpen, setSlideshowOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -28,6 +36,37 @@ const Hero = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const openSlideshow = (imageIndex) => {
+    setCurrentSlide(imageIndex);
+    setSlideshowOpen(true);
+  };
+
+  const closeSlideshow = () => {
+    setSlideshowOpen(false);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % journeyImages.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + journeyImages.length) % journeyImages.length);
+  };
+
+  const handleKeyPress = (event) => {
+    if (!slideshowOpen) return;
+    if (event.key === 'ArrowLeft') prevSlide();
+    if (event.key === 'ArrowRight') nextSlide();
+    if (event.key === 'Escape') closeSlideshow();
+  };
+
+  useEffect(() => {
+    if (slideshowOpen) {
+      document.addEventListener('keydown', handleKeyPress);
+      return () => document.removeEventListener('keydown', handleKeyPress);
+    }
+  }, [slideshowOpen]);
 
   const techStack = ['Laravel', 'Vue.js', 'React.js', 'Express.js', 'Nuxt.js', 'PHP', 'MySQL', 'Redis', 'Docker'];
 
@@ -48,6 +87,18 @@ const Hero = () => {
     {
       src: '/journey-images/journey-4.jpeg',
       title: 'Innovation & Growth',
+    },
+    {
+      src: '/journey-images/journey-5.jpeg',
+      title: 'Development Excellence',
+    },
+    {
+      src: '/journey-images/journey-6.jpeg',
+      title: 'Technical Achievements',
+    },
+    {
+      src: '/journey-images/journey-7.jpeg',
+      title: 'Project Success',
     },
   ];
 
@@ -72,43 +123,48 @@ const Hero = () => {
           key={index}
           initial={{ opacity: 0, scale: 0.8, rotate: Math.random() * 15 - 7 }}
           animate={{
-            opacity: inView ? 0.8 : 0,
+            opacity: inView ? 0.6 : 0,
             scale: inView ? 1 : 0.8,
             rotate: [
-              Math.random() * 8 - 4,
-              Math.random() * 8 - 4,
-              Math.random() * 8 - 4,
+              Math.random() * 6 - 3,
+              Math.random() * 6 - 3,
+              Math.random() * 6 - 3,
             ],
-            y: [0, -10, 0],
+            y: [0, -8, 0],
           }}
           transition={{
-            duration: 5 + index * 0.5,
+            duration: 6 + index * 0.3,
             repeat: Infinity,
             repeatType: 'reverse',
-            delay: index * 0.5,
+            delay: index * 0.3,
           }}
           style={{
             position: 'absolute',
-            left: `${8 + (index % 2) * 40}%`,
-            top: `${20 + Math.floor(index / 2) * 35}%`,
-            zIndex: 1,
+            left: index < 4 
+              ? `${5 + (index * 20)}%` 
+              : `${15 + ((index - 4) * 20)}%`,
+            top: index < 4 ? '15%' : '55%',
+            zIndex: 2,
           }}
         >
           <Card
             className="glass-card"
+            onClick={() => openSlideshow(index)}
             sx={{
-              width: { xs: 120, md: 200 },
-              height: { xs: 90, md: 150 },
-              borderRadius: 3,
+              width: { xs: 180, md: 280 },
+              height: { xs: 120, md: 200 },
+              borderRadius: 4,
               overflow: 'hidden',
-              border: '2px solid rgba(255, 255, 255, 0.2)',
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(10px)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              border: '3px solid rgba(255, 255, 255, 0.3)',
+              backgroundColor: 'rgba(255, 255, 255, 0.08)',
+              backdropFilter: 'blur(15px)',
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.15)',
+              cursor: 'pointer',
               '&:hover': {
-                transform: 'scale(1.1)',
+                transform: 'scale(1.05)',
                 transition: 'transform 0.3s ease',
-                border: '2px solid rgba(99, 102, 241, 0.4)',
+                border: '3px solid rgba(99, 102, 241, 0.5)',
+                backgroundColor: 'rgba(255, 255, 255, 0.12)',
               },
             }}
           >
@@ -119,7 +175,7 @@ const Hero = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                opacity: 0.9,
+                opacity: 1,
               }}
             />
             <Box
@@ -374,6 +430,179 @@ const Hero = () => {
           </IconButton>
         </motion.div>
       </Container>
+
+      {/* Journey Images Slideshow Modal */}
+      <Modal
+        open={slideshowOpen}
+        onClose={closeSlideshow}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+          sx: { backgroundColor: 'rgba(0, 0, 0, 0.9)' }
+        }}
+      >
+        <Box
+          sx={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '90vw',
+            maxWidth: '1000px',
+            height: '80vh',
+            outline: 0,
+            zIndex: 1300,
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              width: '100%',
+              height: '100%',
+            }}
+          >
+          <Box
+            sx={{
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              borderRadius: 4,
+              overflow: 'hidden',
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(20px)',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
+            }}
+          >
+            {/* Close Button */}
+            <IconButton
+              onClick={closeSlideshow}
+              sx={{
+                position: 'absolute',
+                top: 16,
+                right: 16,
+                zIndex: 10,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                },
+              }}
+            >
+              <Close />
+            </IconButton>
+
+            {/* Previous Button */}
+            <IconButton
+              onClick={prevSlide}
+              sx={{
+                position: 'absolute',
+                left: 16,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 10,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                },
+              }}
+            >
+              <ArrowBackIos />
+            </IconButton>
+
+            {/* Next Button */}
+            <IconButton
+              onClick={nextSlide}
+              sx={{
+                position: 'absolute',
+                right: 16,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 10,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                },
+              }}
+            >
+              <ArrowForwardIos />
+            </IconButton>
+
+            {/* Current Image */}
+            <img
+              src={journeyImages[currentSlide]?.src}
+              alt={journeyImages[currentSlide]?.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+              }}
+            />
+
+            {/* Image Title and Counter */}
+            <Box
+              sx={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.8))',
+                color: 'white',
+                p: 3,
+                textAlign: 'center',
+              }}
+            >
+              <Typography variant="h5" fontWeight="bold" sx={{ mb: 1 }}>
+                {journeyImages[currentSlide]?.title}
+              </Typography>
+              <Typography variant="body2" sx={{ opacity: 0.8 }}>
+                {currentSlide + 1} of {journeyImages.length}
+              </Typography>
+            </Box>
+
+            {/* Thumbnail Navigation */}
+            <Box
+              sx={{
+                position: 'absolute',
+                bottom: 80,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                display: 'flex',
+                gap: 1,
+                p: 2,
+                backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                borderRadius: 3,
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              {journeyImages.map((_, index) => (
+                <Box
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  sx={{
+                    width: 12,
+                    height: 12,
+                    borderRadius: '50%',
+                    backgroundColor: index === currentSlide ? 'white' : 'rgba(255, 255, 255, 0.5)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      backgroundColor: 'white',
+                      transform: 'scale(1.2)',
+                    },
+                  }}
+                />
+              ))}
+            </Box>
+          </Box>
+          </motion.div>
+        </Box>
+      </Modal>
     </Box>
   );
 };

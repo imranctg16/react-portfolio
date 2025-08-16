@@ -63,10 +63,17 @@ const ResumePage = () => {
       src: publicAsset('journey-images/journey-4.jpeg'),
       title: 'Innovation & Growth',
     },
-    // Test with a known working image
     {
-      src: publicAsset('project-images/dwe/dwe-dashboard.png'),
-      title: 'Test Image (DWE Dashboard)',
+      src: publicAsset('journey-images/journey-5.jpeg'),
+      title: 'Development Excellence',
+    },
+    {
+      src: publicAsset('journey-images/journey-6.jpeg'),
+      title: 'Technical Achievements',
+    },
+    {
+      src: publicAsset('journey-images/journey-7.jpeg'),
+      title: 'Project Success',
     },
   ];
 
