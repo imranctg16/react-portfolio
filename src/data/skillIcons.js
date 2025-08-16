@@ -5,6 +5,11 @@ import {
   FaGitAlt,
   FaNodeJs,
   FaFigma,
+  FaPhp,
+  FaPython,
+  FaVuejs,
+  FaAws,
+  FaDocker,
 } from 'react-icons/fa';
 import {
   SiJavascript,
@@ -18,6 +23,14 @@ import {
   SiMongodb,
   SiPostgresql,
   SiGraphql,
+  SiLaravel,
+  SiNuxtdotjs,
+  SiMysql,
+  SiRedis,
+  SiGitlab,
+  SiRabbitmq,
+  SiGrafana,
+  SiJira,
 } from 'react-icons/si';
 
 export const skillIconMapping = {
@@ -38,4 +51,20 @@ export const skillIconMapping = {
   mongodb: SiMongodb,
   postgresql: SiPostgresql,
   graphql: SiGraphql,
+  // New icons for your tech stack
+  laravel: SiLaravel,
+  php: FaPhp,
+  vue: FaVuejs,
+  nuxt: SiNuxtdotjs,
+  mysql: SiMysql,
+  redis: SiRedis,
+  docker: FaDocker,
+  aws: FaAws,
+  gitlab: SiGitlab,
+  rabbitmq: SiRabbitmq,
+  microservices: FaDocker, // Using Docker icon as placeholder
+  grafana: SiGrafana,
+  jira: SiJira,
+  code: FaReact, // Using React icon as placeholder for "Code Review"
+  python: FaPython,
 };

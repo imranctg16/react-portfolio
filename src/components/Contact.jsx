@@ -39,7 +39,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, message } = formData;
-    const mailtoUrl = `mailto:your.email@example.com?subject=Contact from ${name}&body=${encodeURIComponent(
+    const mailtoUrl = `mailto:imranhossain16.ctg@gmail.com?subject=Contact from ${name}&body=${encodeURIComponent(
       message
     )}&replyto=${email}`;
     window.location.href = mailtoUrl;
@@ -49,26 +49,26 @@ const Contact = () => {
     {
       icon: MailOutline,
       label: 'Email',
-      value: 'your.email@example.com',
-      href: 'mailto:your.email@example.com',
+      value: 'imranhossain16.ctg@gmail.com',
+      href: 'mailto:imranhossain16.ctg@gmail.com',
     },
     {
       icon: PhoneOutlined,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+880 1866 803 833',
+      href: 'tel:+8801866803833',
     },
     {
       icon: LocationOnOutlined,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Dhaka, Bangladesh',
     },
   ];
 
   const socialLinks = [
-    { icon: GitHub, label: 'GitHub', href: 'https://github.com/yourusername' },
-    { icon: LinkedIn, label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername' },
-    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com/yourusername' },
+    { icon: GitHub, label: 'GitHub', href: 'https://github.com/imranctg16' },
+    { icon: LinkedIn, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mohammad-imran-hossain-783803135' },
+    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com/imranctg16' },
   ];
 
   return (

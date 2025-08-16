@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -20,15 +21,18 @@ import {
   Visibility,
   FilterList,
   Info,
+  ReadMore,
 } from '@mui/icons-material';
 import { useInView } from 'react-intersection-observer';
 import { projects } from '../data/projects';
 import { fadeIn, zoomIn } from '../utils/motion';
+import { trackEvent, trackOutboundLink } from '../utils/analytics';
 
 const Projects = () => {
   const [filter, setFilter] = useState('featured');
   const [showAll, setShowAll] = useState(false);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const navigate = useNavigate();
 
   const filteredProjects = projects.filter(project => {
     if (filter === 'featured') return project.featured;
@@ -39,6 +43,17 @@ const Projects = () => {
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 6);
 
   const allTechnologies = [...new Set(projects.flatMap(project => project.technologies))];
+
+  // Tech color mapping based on technology type
+  const getTechColor = (tech) => {
+    const techLower = tech.toLowerCase();
+    if (techLower.includes('react') || techLower.includes('vue') || techLower.includes('angular')) return 'info';
+    if (techLower.includes('laravel') || techLower.includes('php') || techLower.includes('node')) return 'success';
+    if (techLower.includes('mysql') || techLower.includes('mongodb') || techLower.includes('redis')) return 'warning';
+    if (techLower.includes('docker') || techLower.includes('nginx') || techLower.includes('aws')) return 'secondary';
+    if (techLower.includes('typescript') || techLower.includes('javascript')) return 'primary';
+    return 'default';
+  };
 
   const ProjectCard = ({ project, index }) => (
     <motion.div variants={zoomIn(index * 0.1, 0.5)} initial="hidden" animate={inView ? 'show' : 'hidden'} whileHover={{ y: -10, scale: 1.05, transition: { type: 'spring', stiffness: 300 } }}>
@@ -55,35 +70,58 @@ const Projects = () => {
       >
         <Box
           sx={{
-            height: 200,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            height: 250,
             position: 'relative',
             overflow: 'hidden',
             borderRadius: '16px 16px 0 0',
-            background: `linear-gradient(135deg, ${index % 2 === 0 ? 'rgba(99, 102, 241, 0.1)' : 'rgba(245, 158, 11, 0.1)'} 0%, ${index % 2 === 0 ? 'rgba(139, 92, 246, 0.1)' : 'rgba(251, 191, 36, 0.1)'} 100%)`,
-            border: `2px solid ${index % 2 === 0 ? 'rgba(99, 102, 241, 0.2)' : 'rgba(245, 158, 11, 0.2)'}`,
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            trackEvent('open_project_detail', { id: project.id, title: project.title, from: 'home_projects' });
+            navigate(`/project/${project.id}`);
           }}
         >
-          <Stack alignItems="center" spacing={2}>
-            <Visibility sx={{ fontSize: 56, color: index % 2 === 0 ? 'primary.main' : 'secondary.main', opacity: 0.7 }} />
-            <Typography variant="body2" color="text.secondary" fontWeight="600">
-              {project.title}
-            </Typography>
-          </Stack>
+          <Box
+            component="img"
+            src={project.image}
+            alt={project.title}
+            sx={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              transition: 'transform 0.3s ease',
+              '.MuiCard-root:hover &': {
+                transform: 'scale(1.1)',
+              },
+            }}
+          />
           
+          {/* Subtle overlay for better text readability */}
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)',
+              zIndex: 1,
+            }}
+          />
+          
+          {/* Hover overlay with actions */}
           <Box
             sx={{
               position: 'absolute',
               inset: 0,
-              background: `linear-gradient(135deg, ${index % 2 === 0 ? 'rgba(99, 102, 241, 0.9)' : 'rgba(245, 158, 11, 0.9)'} 0%, ${index % 2 === 0 ? 'rgba(139, 92, 246, 0.9)' : 'rgba(251, 191, 36, 0.9)'} 100%)`,
+              background: 'rgba(0, 0, 0, 0.8)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               opacity: 0,
               transition: 'opacity 0.3s ease',
               gap: 2,
+              zIndex: 2,
               '.MuiCard-root:hover &': {
                 opacity: 1,
               },
@@ -93,35 +131,42 @@ const Projects = () => {
               size="large"
               className="glass-button micro-bounce"
               sx={{ 
-                bgcolor: 'rgba(255, 255, 255, 0.9)',
-                color: 'primary.main',
+                bgcolor: 'rgba(99, 102, 241, 0.9)',
+                color: 'white',
                 '&:hover': { 
-                  bgcolor: 'white',
+                  bgcolor: 'primary.main',
                   transform: 'scale(1.1)',
                 },
               }}
-              onClick={() => alert('Project detail page coming soon!')}
-            >
-              <Info />
-            </IconButton>
-            <IconButton
-              size="large"
-              component="a"
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-button micro-bounce"
-              sx={{ 
-                bgcolor: 'rgba(255, 255, 255, 0.9)',
-                color: 'primary.main',
-                '&:hover': { 
-                  bgcolor: 'white',
-                  transform: 'scale(1.1)',
-                },
+              onClick={(e) => {
+                e.stopPropagation();
+                trackEvent('open_project_detail', { id: project.id, title: project.title, from: 'home_projects_overlay' });
+                navigate(`/project/${project.id}`);
               }}
             >
-              <Launch />
+              <ReadMore />
             </IconButton>
+            {project.liveUrl && project.liveUrl !== '#' && (
+              <IconButton
+                size="large"
+                component="a"
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-button micro-bounce"
+                sx={{ 
+                  bgcolor: 'rgba(255, 255, 255, 0.9)',
+                  color: 'primary.main',
+                  '&:hover': { 
+                    bgcolor: 'white',
+                    transform: 'scale(1.1)',
+                  },
+                }}
+                onClick={(e) => { trackOutboundLink(project.liveUrl, `${project.title} Live Demo`); e.stopPropagation(); }}
+              >
+                <Launch />
+              </IconButton>
+            )}
             <IconButton
               size="large"
               component="a"
@@ -137,6 +182,7 @@ const Projects = () => {
                   transform: 'scale(1.1)',
                 },
               }}
+              onClick={(e) => { trackOutboundLink(project.githubUrl, `${project.title} Code`); e.stopPropagation(); }}
             >
               <GitHub />
             </IconButton>
@@ -162,9 +208,16 @@ const Projects = () => {
 
         <CardContent sx={{ flexGrow: 1, p: 3 }}>
           <Stack direction="row" justifyContent="space-between" alignItems="flex-start" mb={2}>
-            <Typography variant="h6" fontWeight="bold" color="text.primary">
-              {project.title}
-            </Typography>
+            <Box sx={{ flexGrow: 1 }}>
+              <Typography variant="h6" fontWeight="bold" color="text.primary" sx={{ mb: 1 }}>
+                {project.title}
+              </Typography>
+              {project.subtitle && (
+                <Typography variant="body2" color="primary.main" fontWeight="500" sx={{ mb: 1 }}>
+                  {project.subtitle}
+                </Typography>
+              )}
+            </Box>
             <Chip
               label={project.category || 'Full-Stack'}
               size="small"
@@ -181,7 +234,7 @@ const Projects = () => {
             variant="body2"
             color="text.secondary"
             sx={{
-              mb: 3,
+              mb: 2,
               display: '-webkit-box',
               WebkitLineClamp: 3,
               WebkitBoxOrient: 'vertical',
@@ -192,29 +245,83 @@ const Projects = () => {
             {project.description}
           </Typography>
 
+          {/* Motivation Section */}
+          {project.motivation && (
+            <Box sx={{ mb: 3, p: 2, backgroundColor: 'rgba(245, 158, 11, 0.08)', borderRadius: 2, border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+              <Typography variant="caption" fontWeight="bold" color="warning.main" sx={{ mb: 1, display: 'block' }}>
+                Why I Built This:
+              </Typography>
+              <Typography 
+                variant="body2" 
+                color="text.primary" 
+                sx={{ 
+                  fontSize: '0.85rem', 
+                  lineHeight: 1.4,
+                  display: '-webkit-box',
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
+              >
+                {project.motivation}
+              </Typography>
+            </Box>
+          )}
+
+          {/* Project Details */}
+          <Stack direction="row" justifyContent="space-between" sx={{ mb: 2, opacity: 0.8 }}>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Typography variant="caption" color="text.secondary">
+                Duration: {project.duration}
+              </Typography>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Typography variant="caption" color="text.secondary">
+                Team: {project.teamSize}
+              </Typography>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Typography variant="caption" color="text.secondary" sx={{ textTransform: 'capitalize' }}>
+                {project.status}
+              </Typography>
+            </Stack>
+          </Stack>
+
+          {/* Key Metrics Preview */}
+          {project.metrics && (
+            <Box sx={{ mb: 2, p: 2, backgroundColor: 'rgba(99, 102, 241, 0.05)', borderRadius: 2 }}>
+              <Typography variant="caption" fontWeight="bold" color="primary.main" sx={{ mb: 1, display: 'block' }}>
+                Key Achievement:
+              </Typography>
+              <Typography variant="body2" color="text.primary" sx={{ fontSize: '0.85rem', lineHeight: 1.4 }}>
+                {Object.values(project.metrics)[0]}
+              </Typography>
+            </Box>
+          )}
+
           <Stack direction="row" flexWrap="wrap" gap={1} mb={2}>
-            {project.technologies.slice(0, 4).map((tech) => (
+            {project.technologies.slice(0, 5).map((tech) => (
               <Chip
                 key={tech}
                 label={tech}
                 size="small"
+                variant="outlined"
+                color={getTechColor(tech)}
                 className="glass-button micro-bounce theme-transition"
                 sx={{
                   fontSize: '0.75rem',
                   height: 24,
-                  border: '1px solid rgba(99, 102, 241, 0.3)',
-                  color: 'text.primary',
+                  borderWidth: '1.5px',
+                  fontWeight: 500,
                   '&:hover': {
-                    bgcolor: 'primary.main',
-                    color: 'white',
-                    borderColor: 'transparent',
+                    transform: 'scale(1.05)',
                   },
                 }}
               />
             ))}
-            {project.technologies.length > 4 && (
+            {project.technologies.length > 5 && (
               <Chip
-                label={`+${project.technologies.length - 4} more`}
+                label={`+${project.technologies.length - 5} more`}
                 size="small"
                 className="glass-button micro-bounce"
                 sx={{
@@ -232,36 +339,41 @@ const Projects = () => {
           <Button
             variant="contained"
             fullWidth
-            startIcon={<Info />}
-            onClick={() => alert('Project detail page coming soon!')}
+            startIcon={<ReadMore />}
+            onClick={() => navigate(`/project/${project.id}`)}
             className="micro-lift theme-transition"
             sx={{ 
               mr: 1,
               bgcolor: 'primary.main',
               border: 'none',
               '&:hover': {
-                bgcolor: 'primary.main',
+                bgcolor: 'primary.dark',
+                transform: 'translateY(-2px)',
               },
             }}
           >
-            View Details
+            View Project Details
           </Button>
-          <IconButton
-            component="a"
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-button micro-bounce"
-            sx={{
-              color: 'text.primary',
-              '&:hover': {
-                bgcolor: 'primary.main',
-                color: 'white',
-              },
-            }}
-          >
-            <Launch />
-          </IconButton>
+          
+          {project.liveUrl && project.liveUrl !== '#' && (
+            <IconButton
+              component="a"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-button micro-bounce"
+              sx={{
+                color: 'text.primary',
+                '&:hover': {
+                  bgcolor: 'primary.main',
+                  color: 'white',
+                },
+              }}
+            >
+              <Launch />
+            </IconButton>
+          )}
+          
           <IconButton
             component="a"
             href={project.githubUrl}
@@ -415,51 +527,6 @@ const Projects = () => {
           </motion.div>
         )}
 
-        <motion.div variants={fadeIn('up', 'tween', 0.4, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
-          <Card className="glass-card theme-transition" sx={{ p: 5, borderRadius: 4, textAlign: 'center', mt: 8 }}>
-            <Typography variant="h4" fontWeight="bold" className="text-gradient" sx={{ mb: 4 }}>
-              Technologies I Work With
-            </Typography>
-            
-            <Stack
-              direction="row"
-              flexWrap="wrap"
-              justifyContent="center"
-              gap={2}
-              sx={{ maxWidth: '900px', mx: 'auto' }}
-            >
-              {allTechnologies.map((tech, index) => (
-                <motion.div
-                  key={tech}
-                  variants={zoomIn(index * 0.05, 0.5)}
-                  initial="hidden"
-                  animate={inView ? 'show' : 'hidden'}
-                  whileHover={{ y: -5, scale: 1.05, transition: { type: 'spring', stiffness: 300 } }}
-                >
-                  <Chip
-                    label={tech}
-                    className="glass-button micro-bounce theme-transition"
-                    sx={{
-                      height: 40,
-                      fontSize: '0.9rem',
-                      fontWeight: 600,
-                      px: 2,
-                      border: '2px solid rgba(99, 102, 241, 0.3)',
-                      color: 'text.primary',
-                      background: 'rgba(99, 102, 241, 0.05)',
-                      '&:hover': {
-                        bgcolor: 'primary.main',
-                        color: 'white',
-                        borderColor: 'primary.main',
-                        boxShadow: '0 8px 25px rgba(99, 102, 241, 0.4)',
-                      },
-                    }}
-                  />
-                </motion.div>
-              ))}
-            </Stack>
-          </Card>
-        </motion.div>
       </Container>
     </Box>
   );

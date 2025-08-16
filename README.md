@@ -167,6 +167,17 @@ Update meta tags in `index.html`:
 - `npm run lint:fix` - Fix ESLint errors
 - `npm run format` - Format code with Prettier
 
+## 📊 Analytics (optional)
+
+Enable Google Analytics (GA4) page view tracking:
+
+- Create a GA4 property and copy the Measurement ID (looks like `G-XXXXXXXXXX`).
+- Create a `.env` file in the project root with:
+  - `VITE_GA_ID=G-XXXXXXXXXX`
+- Start dev server or build/deploy. SPA route changes are tracked automatically.
+
+See `.env.example` for the variable name.
+
 ## 🎯 Performance Features
 
 - **Code Splitting**: Automatic code splitting with Vite

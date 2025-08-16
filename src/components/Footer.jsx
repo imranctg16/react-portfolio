@@ -19,6 +19,7 @@ import {
 import { useTheme } from '../contexts/ThemeContext';
 import { fadeIn, zoomIn } from '../utils/motion';
 import Logo from './Logo';
+import { trackOutboundLink } from '../utils/analytics';
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -44,17 +45,17 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: GitHub,
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/imranctg16',
       label: 'GitHub',
     },
     {
       icon: LinkedIn,
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://www.linkedin.com/in/mohammad-imran-hossain-783803135',
       label: 'LinkedIn',
     },
     {
       icon: Mail,
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:imranhossain16.ctg@gmail.com',
       label: 'Email',
     },
   ];
@@ -75,12 +76,21 @@ const Footer = () => {
             <motion.div variants={fadeIn('up', 'tween', 0.2, 1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <Logo />
               <Typography variant="body2" sx={{ mt: 2, maxWidth: 300 }}>
-                Frontend Developer passionate about creating beautiful, functional, and user-friendly web experiences.
+                Technical Lead with 6.5+ years of experience building enterprise-grade web applications and leading development teams.
               </Typography>
               <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                 {socialLinks.map((social, index) => (
                   <motion.div key={social.label} variants={zoomIn(index * 0.1, 0.5)} whileHover={{ y: -5, scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}>
-                    <IconButton component="a" href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="glass-button micro-bounce theme-transition" sx={{ color: 'text.primary', '&:hover': { bgcolor: 'primary.main', color: 'white' } }}>
+                    <IconButton 
+                      component="a" 
+                      href={social.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      aria-label={social.label} 
+                      onClick={() => trackOutboundLink(social.href, social.label)}
+                      className="glass-button micro-bounce theme-transition" 
+                      sx={{ color: 'text.primary', '&:hover': { bgcolor: 'primary.main', color: 'white' } }}
+                    >
                       <social.icon />
                     </IconButton>
                   </motion.div>
@@ -106,9 +116,9 @@ const Footer = () => {
             <motion.div variants={fadeIn('up', 'tween', 0.4, 1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
               <Typography variant="h6" sx={{ mb: 2 }}>Get In Touch</Typography>
               <Stack spacing={1}>
-                <Typography variant="body2">San Francisco, CA</Typography>
-                <Typography variant="body2">your.email@example.com</Typography>
-                <Typography variant="body2">+1 (555) 123-4567</Typography>
+                <Typography variant="body2">Dhaka, Bangladesh</Typography>
+                <Typography variant="body2">imranhossain16.ctg@gmail.com</Typography>
+                <Typography variant="body2">+880 1866 803 833</Typography>
               </Stack>
             </motion.div>
           </Grid>
@@ -126,7 +136,7 @@ const Footer = () => {
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
           <Typography variant="body2" sx={{ opacity: 0.7 }}>
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            © {new Date().getFullYear()} Mohammad Imran Hossain. All rights reserved.
           </Typography>
           <Stack direction="row" alignItems="center" spacing={1} sx={{ opacity: 0.7 }}>
             <Typography variant="body2">Made with</Typography>

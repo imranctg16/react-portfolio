@@ -8,6 +8,7 @@ import {
   Chip,
   IconButton,
   Avatar,
+  Card,
 } from '@mui/material';
 import {
   KeyboardArrowDown,
@@ -16,8 +17,10 @@ import {
   Mail,
 } from '@mui/icons-material';
 import { fadeIn, slideIn } from '../utils/motion';
+import { useInView } from 'react-intersection-observer';
 
 const Hero = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -26,12 +29,33 @@ const Hero = () => {
     }
   };
 
-  const techStack = ['React', 'Node.js', 'Python', 'AWS', 'Docker', 'TypeScript'];
+  const techStack = ['Laravel', 'Vue.js', 'React.js', 'Express.js', 'Nuxt.js', 'PHP', 'MySQL', 'Redis', 'Docker'];
+
+  // Professional journey images for background
+  const journeyImages = [
+    {
+      src: '/journey-images/journey-1.jpeg',
+      title: 'Professional Journey',
+    },
+    {
+      src: '/journey-images/journey-2.jpeg',
+      title: 'Team Collaboration',
+    },
+    {
+      src: '/journey-images/journey-3.jpeg',
+      title: 'Technical Leadership',
+    },
+    {
+      src: '/journey-images/journey-4.jpeg',
+      title: 'Innovation & Growth',
+    },
+  ];
 
   return (
     <Box
       component="section"
       id="hero"
+      ref={ref}
       className="theme-transition"
       sx={{
         minHeight: '100vh',
@@ -42,10 +66,85 @@ const Hero = () => {
         overflow: 'hidden',
       }}
     >
+      {/* Floating Background Images */}
+      {journeyImages.map((image, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, scale: 0.8, rotate: Math.random() * 15 - 7 }}
+          animate={{
+            opacity: inView ? 0.8 : 0,
+            scale: inView ? 1 : 0.8,
+            rotate: [
+              Math.random() * 8 - 4,
+              Math.random() * 8 - 4,
+              Math.random() * 8 - 4,
+            ],
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 5 + index * 0.5,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            delay: index * 0.5,
+          }}
+          style={{
+            position: 'absolute',
+            left: `${8 + (index % 2) * 40}%`,
+            top: `${20 + Math.floor(index / 2) * 35}%`,
+            zIndex: 1,
+          }}
+        >
+          <Card
+            className="glass-card"
+            sx={{
+              width: { xs: 120, md: 200 },
+              height: { xs: 90, md: 150 },
+              borderRadius: 3,
+              overflow: 'hidden',
+              border: '2px solid rgba(255, 255, 255, 0.2)',
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(10px)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              '&:hover': {
+                transform: 'scale(1.1)',
+                transition: 'transform 0.3s ease',
+                border: '2px solid rgba(99, 102, 241, 0.4)',
+              },
+            }}
+          >
+            <img
+              src={image.src}
+              alt={image.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                opacity: 0.9,
+              }}
+            />
+            <Box
+              sx={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                color: 'white',
+                p: 0.5,
+                fontSize: { xs: '0.6rem', md: '0.8rem' },
+                fontWeight: 600,
+                textAlign: 'center',
+              }}
+            >
+              {image.title}
+            </Box>
+          </Card>
+        </motion.div>
+      ))}
       <Container 
         maxWidth="lg" 
         className="section-container"
-        sx={{ textAlign: 'center', position: 'relative', zIndex: 1 }}
+        sx={{ textAlign: 'center', position: 'relative', zIndex: 10 }}
       >
         <motion.div variants={fadeIn('down', 'tween', 0.2, 1)} initial="hidden" animate="show">
           <Avatar
@@ -72,7 +171,7 @@ const Hero = () => {
               },
             }}
           >
-            AC
+            MIH
           </Avatar>
         </motion.div>
 
@@ -87,7 +186,7 @@ const Hero = () => {
               letterSpacing: '-0.02em',
             }}
           >
-            Hello, I&apos;m Alex Chen
+            Hello, I&apos;m Mohammad Imran Hossain
           </Typography>
         </motion.div>
 
@@ -101,7 +200,7 @@ const Hero = () => {
               mb: 3,
             }}
           >
-            Software Engineer
+            Technical Lead & Full-Stack Developer
           </Typography>
         </motion.div>
 
@@ -116,8 +215,8 @@ const Hero = () => {
               fontSize: { xs: '1rem', md: '1.25rem' },
             }}
           >
-            Crafting beautiful digital experiences with modern technology. 
-            Building scalable solutions that make a difference.
+            6.5+ years building enterprise-grade web applications. 
+            Leading system migrations, solving complex production issues, and mentoring development teams.
           </Typography>
         </motion.div>
 
@@ -218,9 +317,9 @@ const Hero = () => {
             sx={{ mb: 4 }}
           >
             {[
-              { icon: GitHub, href: "https://github.com/alexchen", label: "GitHub" },
-              { icon: LinkedIn, href: "https://linkedin.com/in/alexchen", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:alex.chen.dev@example.com", label: "Email" }
+              { icon: GitHub, href: "https://github.com/imranctg16", label: "GitHub" },
+              { icon: LinkedIn, href: "https://www.linkedin.com/in/mohammad-imran-hossain-783803135", label: "LinkedIn" },
+              { icon: Mail, href: "mailto:imranhossain16.ctg@gmail.com", label: "Email" }
             ].map((social) => (
               <motion.div key={social.label} whileHover={{ scale: 1.2, rotate: 10 }} transition={{ type: 'spring', stiffness: 300 }}>
                 <IconButton

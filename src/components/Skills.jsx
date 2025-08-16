@@ -2,14 +2,12 @@ import { motion } from 'framer-motion';
 import { Box, Container, Typography, Grid, Card } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
 import { skills } from '../data/skills';
-import { skillIconMapping } from '../data/skillIcons';
 import { fadeIn, slideIn } from '../utils/motion';
 
 const Skills = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const SkillCard = ({ skill, index, categoryIndex }) => {
-    const Icon = skillIconMapping[skill.icon];
     
     // Create colorful gradients for different categories
     const colorVariants = [
@@ -62,8 +60,8 @@ const Skills = () => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: 2,
-            height: 140,
+            gap: 1,
+            height: 100,
             borderRadius: 4,
             position: 'relative',
             overflow: 'hidden',
@@ -71,10 +69,6 @@ const Skills = () => {
             '&:hover': {
               boxShadow: `0 20px 40px ${colors.shadow}`,
               border: `2px solid ${colors.iconColor}`,
-              '& .skill-icon': {
-                transform: 'scale(1.2) rotate(5deg)',
-                color: colors.iconColor,
-              },
               '& .skill-bg': {
                 opacity: 1,
                 transform: 'scale(1.1)',
@@ -99,20 +93,6 @@ const Skills = () => {
             }}
           />
           
-          {/* Icon with colorful styling */}
-          <Box
-            className="skill-icon"
-            sx={{
-              transition: 'all 0.3s ease',
-              color: 'text.primary',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 1,
-            }}
-          >
-            <Icon size={48} />
-          </Box>
           
           <Typography 
             variant="body1" 
@@ -184,7 +164,7 @@ const Skills = () => {
                 fontSize: '1.1rem'
               }}
             >
-              🚀 A vibrant collection of technologies I use to bring ideas to life, 
+              A comprehensive collection of technologies I use to bring ideas to life, 
               from stunning frontends to robust backends and everything in between!
             </Typography>
           </Box>
