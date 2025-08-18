@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mohammad Imran Hossain - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.2;
+            color: #333;
+            font-size: 11px;
+            background: #ffffff;
+        }
+        
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 12mm;
+            background: white;
+            position: relative;
+        }
+        
+        
+        /* Header */
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .location {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 11px;
+            color: #333;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+        
+        /* Section Headers */
+        h2 {
+            color: #2980b9;
+            margin: 6px 0 4px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 2px;
+            page-break-after: avoid;
+        }
+        
+        h3 {
+            font-size: 11px;
+            margin: 8px 0 4px 0;
+            font-weight: bold;
+            color: #2980b9;
+            page-break-after: avoid;
+        }
+        
+        /* Summary */
+        .summary {
+            margin-bottom: 10px;
+            text-align: justify;
+            line-height: 1.3;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+            font-size: 11px;
+        }
+        
+        /* Skills */
+        .skills-section {
+            margin-bottom: 8px;
+            page-break-inside: avoid;
+        }
+        
+        .skills-category {
+            margin-bottom: 5px;
+            line-height: 1.3;
+            background: #f8f9fa;
+            padding: 6px;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .skills-category:nth-child(even) {
+            background: #f0f7ff;
+        }
+        
+        .skills-category:nth-child(odd) {
+            background: #e8f4f8;
+        }
+        
+        .skills-category strong {
+            text-decoration: underline;
+            font-size: 11px;
+            color: #2980b9;
+        }
+        
+        /* Experience */
+        .experience-item {
+            margin-bottom: 8px;
+            page-break-inside: avoid;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .experience-item:nth-child(even) {
+            background: #f0f7ff;
+        }
+        
+        .experience-header {
+            margin-bottom: 5px;
+        }
+        
+        .company-info {
+            font-style: italic;
+            margin-bottom: 4px;
+            font-size: 10px;
+            color: #666;
+        }
+        
+        .experience-item ul {
+            margin: 6px 0 8px 0;
+            padding-left: 15px;
+        }
+        
+        .experience-item li {
+            margin-bottom: 3px;
+            line-height: 1.3;
+            font-size: 10px;
+        }
+        
+        /* Projects */
+        .project {
+            margin-bottom: 6px;
+            page-break-inside: avoid;
+            border-left: 3px solid #3498db;
+            padding: 6px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+        
+        .project:nth-child(odd) {
+            background: #f0f7ff;
+        }
+        
+        .project:nth-child(even) {
+            background: #e8f4f8;
+        }
+        
+        .project-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 12px;
+            color: #2980b9;
+        }
+        
+        .project p {
+            margin: 3px 0;
+            line-height: 1.3;
+        }
+        
+        /* Links */
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* General Sections */
+        .section {
+            margin-bottom: 6px;
+            background: #f8f9fa;
+            padding: 5px;
+            border-radius: 4px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .section:nth-child(odd) {
+            background: #f0f7ff;
+        }
+        
+        .section:nth-child(even) {
+            background: #e8f4f8;
+        }
+        
+        .section ul {
+            margin: 6px 0;
+            padding-left: 20px;
+        }
+        
+        .section li {
+            margin-bottom: 3px;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+        
+        /* Custom Bullets */
+        .custom-bullet {
+            list-style: none;
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 2px;
+            font-size: 10px;
+        }
+        
+        .custom-bullet:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 8px;
+        }
+        
+        /* Prevent breaks between key sections */
+        .skills-section {
+            page-break-after: avoid;
+        }
+        
+        .skills-section + h2 {
+            page-break-before: avoid;
+        }
+        
+        .experience-item:last-child {
+            page-break-after: avoid;
+        }
+        
+        .experience-item:last-child + h2 {
+            page-break-before: avoid;
+        }
+        
+        /* Keep Awards section together */
+        h2:last-of-type {
+            page-break-before: avoid;
+        }
+        
+        .section:last-child {
+            page-break-inside: avoid;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 11px;
+                line-height: 1.2;
+            }
+            
+            .page {
+                width: auto;
+                height: auto;
+                margin: 0;
+                padding: 15mm;
+            }
+            
+            @page {
+                margin: 0.6in;
+                size: A4;
+            }
+            
+            /* Ensure sections flow together */
+            .skills-section + h2 {
+                margin-top: 0;
+            }
+            
+            .experience-item:last-child {
+                margin-bottom: 6px;
+            }
+            
+            .experience-item:last-child + h2 {
+                margin-top: 0;
+            }
+            
+            /* Balanced print styles */
+            h1 {
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+            
+            h2 {
+                font-size: 13px;
+                margin: 6px 0 4px 0;
+            }
+            
+            h3 {
+                font-size: 10px;
+                margin: 6px 0 3px 0;
+            }
+            
+            /* Stronger experience flow control */
+            .experience-item {
+                page-break-inside: avoid;
+                orphans: 3;
+                widows: 3;
+            }
+            
+            .experience-item ul {
+                page-break-inside: avoid;
+            }
+            
+            .experience-item li {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>Mohammad Imran Hossain</h1>
+        
+        <div class="location">Dhaka, Bangladesh — Open to relocation</div>
+        
+        <div class="contact-info">
+            Email: imranhossain16.ctg@gmail.com<br>
+            Phone: +8801866803833 (WhatsApp)<br>
+            GitHub: <a href="https://github.com/imranctg16">https://github.com/imranctg16</a><br>
+            LinkedIn: <a href="https://www.linkedin.com/in/mohammad-imran-hossain-783803135">https://www.linkedin.com/in/mohammad-imran-hossain-783803135</a><br>
+            Portfolio: <a href="https://imran-react-portfolio.netlify.app">https://imran-react-portfolio.netlify.app</a><br>
+            Technical Blog: <a href="https://imran-react-portfolio.netlify.app/blog">https://imran-react-portfolio.netlify.app/blog</a>
+        </div>
+
+        <h2>Summary</h2>
+        <div class="summary">
+            Technical Lead with almost 7 years building enterprise web platforms. Specialized in migrating legacy monoliths to microservices and database performance optimization with expertise in scaling applications from thousands to millions of users. Expert in Laravel/Vue.js with strong experience in React and Node.js. Proven full-stack development leadership across 8+ engineers and 3 development teams. Delivered systems serving millions of records daily at Bangladesh's largest telecom. Also a published author in Springer journal. Complete project case studies and live demos available in portfolio.
+        </div>
+
+        <h2>Core Skills</h2>
+        
+        <div class="skills-section">
+            <div class="skills-category">
+                <strong>Languages/Frameworks:</strong><br>
+                Expert: PHP, Laravel, Vue.js, Nuxt.js<br>
+                Strong: JavaScript/TypeScript, React, Node.js/Express<br>
+                Good: CakePHP, Python
+            </div>
+            
+            <div class="skills-category">
+                <strong>Data/Storage:</strong><br>
+                MySQL 8, MongoDB, Redis, MinIO (S3 compatible)
+            </div>
+            
+            <div class="skills-category">
+                <strong>Cloud/Infrastructure:</strong><br>
+                AWS (S3, EC2, Lambda), Nginx, Docker, Docker Compose
+            </div>
+            
+            <div class="skills-category">
+                <strong>Messaging/Async:</strong><br>
+                RabbitMQ, Laravel Queues, Webhooks
+            </div>
+            
+            <div class="skills-category">
+                <strong>DevEx/Tooling:</strong><br>
+                Git, GitLab CI/CD, Jenkins, GitHub Actions, ESLint/Prettier, Vite, Jest/PHPUnit
+            </div>
+            
+            <div class="skills-category">
+                <strong>Practices:</strong><br>
+                Microservices, Modular Monolith, REST APIs, Performance Tuning, Security, Observability, Agile/Scrum, Code Review, Mentorship
+            </div>
+        </div>
+
+        <h2>Experience</h2>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Technical Lead (Augmented Resource)</h3>
+                <p><strong>Grameenphone Telecom Ltd. (82M+ subscribers, Bangladesh's largest telecom) • Jul 2022 – Present</strong></p>
+                <div class="company-info">Employed by Brain Station 23 PLC<br>
+                Company Links: <a href="https://www.grameenphone.com/">Grameenphone</a> • <a href="https://brainstation-23.com/">Brain Station 23</a></div>
+            </div>
+            
+            <ul>
+                <li>Rewrote Docker deployment; eliminated external dependencies; introduced GitLab CI/CD for automated build/test/deploy. Details: <a href="https://imran-react-portfolio.netlify.app/blog/3">https://imran-react-portfolio.netlify.app/blog/3</a></li>
+                <li>Implemented PLG stack observability; reduced MTTR and improved incident visibility. Case study: <a href="https://imran-react-portfolio.netlify.app/blog/4">https://imran-react-portfolio.netlify.app/blog/4</a></li>
+                <li>Architected reporting module serving millions of records daily; cut query times 95% (20min → 30sec) via indexing/caching; most-used feature across teams. Blog: <a href="https://imran-react-portfolio.netlify.app/blog/2">https://imran-react-portfolio.netlify.app/blog/2</a></li>
+                <li>Designed regulatory and compliance management system from scratch with automated workflows and audit trails.</li>
+                <li>Led 11-service migration with 5-person team; standardized API contracts and mentored 8+ engineers across 3 teams driving best practices adoption.</li>
+                <li>Created AWS Lambda-inspired dynamic function execution feature allowing admins to choose and run functions with customized parameter values through intuitive interface.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3>Senior Software Engineer → Software Engineer → Associate Software Engineer</h3>
+                <p><strong>Brain Station 23 PLC (Leading software company, 800+ employees) • Nov 2018 – Jun 2022</strong></p>
+            </div>
+            
+            <ul>
+                <li>Built ERP modules (Accounting, HRM, Training) for Bangladesh Academy of Rural Development.</li>
+                <li>Improved performance with query optimization and Redis caching on high-traffic endpoints.</li>
+                <li>Created Kaizen-inspired continuous improvement project for Bangladesh Ministry of Industries; awarded for best innovations in industry field.</li>
+                <li>Owned features end-to-end: requirements → design → implementation → client communication.</li>
+            </ul>
+        </div>
+
+        <h2>Selected Projects</h2>
+        
+        <div class="project">
+            <div class="project-title">Dynamic Workflow Engine (DWE) — Enterprise Microservices Platform</div>
+            <p><strong>Why:</strong> Led modernization of legacy CakePHP system into scalable architecture for Bangladesh's largest telecom</p>
+            <p><strong>Stack:</strong> Laravel 9+, Vue 3, MySQL 8, Redis, RabbitMQ, Docker, MinIO, Nginx</p>
+            <p><strong>Results:</strong> 95% reduction in complex report time (20m → 30s); 11+ services, RBAC, dynamic forms, workflow engine, object storage</p>
+            <p><strong>Note:</strong> Proprietary enterprise project - code repository not available for sharing</p>
+        </div>
+
+        <div class="project">
+            <div class="project-title">SQL Playground — Interactive SQL Learning Platform</div>
+            <p><strong>Why:</strong> Built this when I realized my SQL skills were getting rusty in the ORM era</p>
+            <p><strong>Stack:</strong> Laravel, React 18, TypeScript, MySQL, Docker, ReactFlow</p>
+            <p><strong>Results:</strong> Real-time SQL evaluation, progressive challenges, interactive schema, streaks & analytics</p>
+            <p><strong>Links:</strong> Live Demo: <a href="https://imran-sql-playground.netlify.app">https://imran-sql-playground.netlify.app</a> • GitHub: <a href="https://github.com/imranctg16/sql-playground">https://github.com/imranctg16/sql-playground</a></p>
+        </div>
+
+        <div class="project">
+            <div class="project-title">AWS Exam Prep — Full-Stack Learning Management</div>
+            <p><strong>Why:</strong> Couldn't find a decent free AWS practice platform with 968+ questions, so I built one</p>
+            <p><strong>Stack:</strong> Laravel, Vue 3.4, MongoDB, Docker, Nginx, Vite</p>
+            <p><strong>Results:</strong> Topic-wise quizzes, mock exams, notes, analytics; microservices-ready containerized design</p>
+            <p><strong>Links:</strong> GitHub Repository: <a href="https://github.com/imranctg16/aws-exam-prep">https://github.com/imranctg16/aws-exam-prep</a></p>
+        </div>
+
+        <div class="project">
+            <div class="project-title">README Reader Pro — Modern Markdown Viewer</div>
+            <p><strong>Why:</strong> Multi-doc reading without losing focus during development</p>
+            <p><strong>Stack:</strong> React 19, TypeScript, Vite 7, Mermaid 11, CSS3</p>
+            <p><strong>Results:</strong> Interactive diagrams, multi-tab, 20+ languages, glassmorphism UI</p>
+            <p><strong>Links:</strong> Live Demo: <a href="https://readme-reader.netlify.app">https://readme-reader.netlify.app</a> • GitHub: <a href="https://github.com/imranctg16/readme-reader">https://github.com/imranctg16/readme-reader</a></p>
+        </div>
+
+        <h2>Portfolio & Writing</h2>
+        <div class="section">
+            <div class="custom-bullet"><strong>Complete Portfolio</strong> - Interactive project showcases: <a href="https://imran-react-portfolio.netlify.app">https://imran-react-portfolio.netlify.app</a></div>
+            <div class="custom-bullet"><strong>Technical Blog</strong> - Problem-solving methodologies: <a href="https://imran-react-portfolio.netlify.app/blog">https://imran-react-portfolio.netlify.app/blog</a></div>
+            <div class="custom-bullet"><strong>Project Gallery</strong> - Live demos & code walkthroughs: <a href="https://imran-react-portfolio.netlify.app/projects">https://imran-react-portfolio.netlify.app/projects</a></div>
+        </div>
+
+        <h2>Education</h2>
+        <div class="section">
+            <p><strong>B.Sc. in Computer Science & Engineering</strong> — International Islamic University, Chittagong, Bangladesh<br>
+            CGPA: 3.69 / 4.00 • 2014 – 2018</p>
+        </div>
+
+        <h2>Languages</h2>
+        <div class="section">
+            <div class="custom-bullet"><strong>Bengali</strong> — Native proficiency</div>
+            <div class="custom-bullet"><strong>English</strong> — Fluent (written and verbal communication)</div>
+            <div class="custom-bullet"><strong>Hindi/Urdu</strong> — Moderate proficiency</div>
+            <div class="custom-bullet"><strong>Arabic</strong> — Reading proficiency</div>
+        </div>
+
+        <h2>Awards & Recognition</h2>
+        <div class="section">
+            <div class="custom-bullet"><strong>Grameenphone Innovation Lab Q4 Award Winner</strong> - Outstanding technical contributions in telecom platform development</div>
+            <div class="custom-bullet"><strong>Inter‑University App Contest Winner (2017)</strong> - First place among 50+ teams for innovative mobile solution</div>
+            <div class="custom-bullet"><strong>Published Author</strong> - Co‑authored "nameGist: A Phonetic Algorithm" (Springer, 2019)</div>
+            <div class="custom-bullet"><strong>Technical Judge</strong> - IIUC Hackathon (2020) - Evaluated solutions and mentored participants</div>
+            <div class="custom-bullet"><strong>ACM ICPC Regional Participant (2015)</strong> - Represented university in international programming contest</div>
+        </div>
+    </div>
+</body>
+</html>

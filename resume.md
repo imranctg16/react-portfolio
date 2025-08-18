@@ -37,19 +37,19 @@ Grameenphone Telecom Ltd. (82M+ subscribers, Bangladesh's largest telecom) • J
 Employed by Brain Station 23 PLC  
 Company Links: [Grameenphone](https://www.grameenphone.com/) • [Brain Station 23](https://brainstation-23.com/)
 
-- Architected and delivered the platform’s reporting module serving millions of records daily; adopted as the most-used feature across teams.
-- Led 11-service architecture migration with 5-person development team; standardized API contracts and error handling across services.
-- Cut complex reporting query times from ~20 minutes to ~30 seconds via indexing strategies, query rewrites, and caching. [Technical deep-dive →](https://imran-react-portfolio.netlify.app/blog/2)
-- Implemented centralized logging/observability using PLG stack (Promtail, Loki, Grafana) to reduce MTTR and improve incident visibility. [Implementation case study →](https://imran-react-portfolio.netlify.app/blog/4)
-- Hardened authentication with custom Laravel Sanctum extensions (inactivity-based token expiry) across services.
 - Rewrote Docker-based deployment to remove external image dependencies and stabilize environments; introduced GitLab CI/CD for automated build/test/deploy. [Containerization overhaul →](https://imran-react-portfolio.netlify.app/blog/3)
-- Mentored 8+ engineers across 3 development teams; drove adoption of best practices.
+- Implemented centralized logging/observability using PLG stack (Promtail, Loki, Grafana) to reduce MTTR and improve incident visibility. [Implementation case study →](https://imran-react-portfolio.netlify.app/blog/4)
+- Architected and delivered the platform's reporting module serving millions of records daily; cut complex query times from ~20 minutes to ~30 seconds via indexing strategies, query rewrites, and caching; adopted as the most-used feature across teams. [Technical deep-dive →](https://imran-react-portfolio.netlify.app/blog/2)
+- Designed regulatory and compliance management system from scratch with automated workflows and audit trails.
+- Led 11-service architecture migration with 5-person team; standardized API contracts and mentored 8+ engineers across 3 teams driving best practices adoption.
+- Created AWS Lambda-inspired dynamic function execution feature allowing admins to choose and run functions with customized parameter values through intuitive interface.
 
 ### Senior Software Engineer → Software Engineer → Associate Software Engineer
 Brain Station 23 PLC (Leading software company, 800+ employees) • Nov 2018 – Jun 2022
 
 - Built and maintained ERP modules (Accounting, HRM, Training, Vehicle Management) for Bangladesh Academy of Rural Development.
 - Improved performance with query optimization and Redis caching; reduced load times on high-traffic endpoints.
+- Created Kaizen-inspired continuous improvement project for Bangladesh Ministry of Industries; awarded for best innovations in industry field.
 - Owned features end-to-end: requirements gathering → solution design → implementation → client communication.
 
 ## Selected Projects
@@ -58,7 +58,7 @@ Brain Station 23 PLC (Leading software company, 800+ employees) • Nov 2018 –
 - **Why:** Led modernization of legacy CakePHP system into scalable architecture for Bangladesh's largest telecom
 - **Stack:** Laravel 9+, Vue 3, MySQL 8, Redis, RabbitMQ, Docker, MinIO, Nginx
 - **Results:** 95% reduction in complex report time (20m → 30s); 11+ services, RBAC, dynamic forms, workflow engine, object storage
-- **Links:** [GitHub Repository](https://github.com/imranctg16/DWE-Microservice)
+- **Note:** Proprietary enterprise project - code repository not available for sharing
 
 **SQL Playground — Interactive SQL Learning Platform**
 - **Why:** Built this when I realized my SQL skills were getting rusty in the ORM era
@@ -86,6 +86,12 @@ Brain Station 23 PLC (Leading software company, 800+ employees) • Nov 2018 –
 ## Education
 B.Sc. in Computer Science & Engineering — International Islamic University, Chittagong, Bangladesh  
 CGPA: 3.69 / 4.00 • 2014 – 2018
+
+## Languages
+- **Bengali** — Native proficiency
+- **English** — Fluent (written and verbal communication)
+- **Hindi/Urdu** — Moderate proficiency
+- **Arabic** — Reading proficiency
 
 ## Awards & Activities
 - Winner — Inter‑University App Contest (2017)
