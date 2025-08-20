@@ -8,48 +8,48 @@ const Skills = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const SkillCard = ({ skill, index, categoryIndex }) => {
-    
     // Create colorful gradients for different categories
     const colorVariants = [
       {
         bg: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         shadow: 'rgba(102, 126, 234, 0.4)',
-        iconColor: '#667eea'
+        iconColor: '#667eea',
       },
       {
         bg: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
         shadow: 'rgba(240, 147, 251, 0.4)',
-        iconColor: '#f093fb'
+        iconColor: '#f093fb',
       },
       {
         bg: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
         shadow: 'rgba(79, 172, 254, 0.4)',
-        iconColor: '#4facfe'
+        iconColor: '#4facfe',
       },
       {
         bg: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
         shadow: 'rgba(67, 233, 123, 0.4)',
-        iconColor: '#43e97b'
+        iconColor: '#43e97b',
       },
       {
         bg: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
         shadow: 'rgba(250, 112, 154, 0.4)',
-        iconColor: '#fa709a'
-      }
+        iconColor: '#fa709a',
+      },
     ];
-    
-    const colorIndex = (categoryIndex + Math.floor(index / 2)) % colorVariants.length;
+
+    const colorIndex =
+      (categoryIndex + Math.floor(index / 2)) % colorVariants.length;
     const colors = colorVariants[colorIndex];
-    
+
     return (
       <motion.div
         variants={fadeIn('up', 'spring', index * 0.1, 0.5)}
         initial="hidden"
         animate={inView ? 'show' : 'hidden'}
-        whileHover={{ 
-          scale: 1.05, 
+        whileHover={{
+          scale: 1.05,
           y: -8,
-          transition: { type: 'spring', stiffness: 400, damping: 15 } 
+          transition: { type: 'spring', stiffness: 400, damping: 15 },
         }}
       >
         <Card
@@ -72,8 +72,8 @@ const Skills = () => {
               '& .skill-bg': {
                 opacity: 1,
                 transform: 'scale(1.1)',
-              }
-            }
+              },
+            },
           }}
         >
           {/* Animated background gradient */}
@@ -92,13 +92,12 @@ const Skills = () => {
               transform: 'scale(0.8)',
             }}
           />
-          
-          
-          <Typography 
-            variant="body1" 
+
+          <Typography
+            variant="body1"
             fontWeight="600"
             color="text.primary"
-            sx={{ 
+            sx={{
               textAlign: 'center',
               zIndex: 1,
               transition: 'color 0.3s ease',
@@ -136,16 +135,17 @@ const Skills = () => {
             >
               Technical Skills
             </Typography>
-            <motion.div 
-              initial={{ scaleX: 0 }} 
-              animate={{ scaleX: inView ? 1 : 0 }} 
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: inView ? 1 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
               <Box
                 sx={{
                   width: 80,
                   height: 4,
-                  background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
+                  background:
+                    'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
                   mx: 'auto',
                   mb: 4,
                   borderRadius: 2,
@@ -153,19 +153,20 @@ const Skills = () => {
                 }}
               />
             </motion.div>
-            
+
             <Typography
               variant="h6"
               color="text.secondary"
-              sx={{ 
-                maxWidth: '600px', 
-                mx: 'auto', 
+              sx={{
+                maxWidth: '600px',
+                mx: 'auto',
                 lineHeight: 1.6,
-                fontSize: '1.1rem'
+                fontSize: '1.1rem',
               }}
             >
-              A comprehensive collection of technologies I use to bring ideas to life, 
-              from stunning frontends to robust backends and everything in between!
+              A comprehensive collection of technologies I use to bring ideas to
+              life, from stunning frontends to robust backends and everything in
+              between!
             </Typography>
           </Box>
         </motion.div>
@@ -181,15 +182,17 @@ const Skills = () => {
               <Box sx={{ mb: 8 }}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  animate={
+                    inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
                   transition={{ delay: categoryIndex * 0.2, duration: 0.6 }}
                 >
                   <Typography
                     variant="h4"
                     fontWeight="700"
                     className="text-gradient"
-                    sx={{ 
-                      mb: 5, 
+                    sx={{
+                      mb: 5,
                       textAlign: 'center',
                       position: 'relative',
                       '&::after': {
@@ -200,21 +203,22 @@ const Skills = () => {
                         transform: 'translateX(-50%)',
                         width: 60,
                         height: 3,
-                        background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
+                        background:
+                          'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
                         borderRadius: 2,
-                      }
+                      },
                     }}
                   >
                     {skillCategory.category}
                   </Typography>
                 </motion.div>
-                
+
                 <Grid container spacing={3} justifyContent="center">
                   {skillCategory.items.map((skill, skillIndex) => (
                     <Grid item xs={6} sm={4} md={2.4} key={skill.name}>
-                      <SkillCard 
-                        skill={skill} 
-                        index={skillIndex} 
+                      <SkillCard
+                        skill={skill}
+                        index={skillIndex}
                         categoryIndex={categoryIndex}
                       />
                     </Grid>

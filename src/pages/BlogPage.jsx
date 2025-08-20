@@ -37,22 +37,22 @@ const BlogPage = () => {
 
   const getCategoryColor = (category) => {
     const colors = {
-      'React': 'primary',
-      'Full Stack': 'secondary', 
-      'Architecture': 'success',
-      'Database': 'info',
-      'DevOps': 'warning'
+      React: 'primary',
+      'Full Stack': 'secondary',
+      Architecture: 'success',
+      Database: 'info',
+      DevOps: 'warning',
     };
     return colors[category] || 'default';
   };
 
   const getCategoryIcon = (category) => {
     const icons = {
-      'React': <Code />,
+      React: <Code />,
       'Full Stack': <TrendingUp />,
-      'Architecture': <Lightbulb />,
-      'Database': <CheckCircle />,
-      'DevOps': <TrendingUp />
+      Architecture: <Lightbulb />,
+      Database: <CheckCircle />,
+      DevOps: <TrendingUp />,
     };
     return icons[category] || <Code />;
   };
@@ -68,13 +68,22 @@ const BlogPage = () => {
       }}
     >
       <Container maxWidth="lg">
-        <motion.div variants={fadeIn('up', 'tween', 0.2, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
+        <motion.div
+          variants={fadeIn('up', 'tween', 0.2, 1)}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
+        >
           <Box sx={{ mb: 6 }}>
-            <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 4 }}>
-              <IconButton 
+            <Stack
+              direction="row"
+              alignItems="center"
+              spacing={2}
+              sx={{ mb: 4 }}
+            >
+              <IconButton
                 onClick={() => navigate('/')}
                 className="glass-button"
-                sx={{ 
+                sx={{
                   color: 'text.primary',
                   backgroundColor: 'transparent !important',
                 }}
@@ -85,14 +94,15 @@ const BlogPage = () => {
                 Back to Home
               </Typography>
             </Stack>
-            
+
             <Box sx={{ textAlign: 'center', mb: 8 }} ref={ref}>
               <Typography
                 variant="h2"
                 sx={{
                   fontWeight: 700,
                   mb: 2,
-                  background: 'linear-gradient(45deg, #6366f1 30%, #8b5cf6 90%)',
+                  background:
+                    'linear-gradient(45deg, #6366f1 30%, #8b5cf6 90%)',
                   backgroundClip: 'text',
                   textFillColor: 'transparent',
                   WebkitBackgroundClip: 'text',
@@ -101,10 +111,10 @@ const BlogPage = () => {
               >
                 Technical Blog
               </Typography>
-              
-              <motion.div 
-                initial={{ scaleX: 0 }} 
-                animate={{ scaleX: inView ? 1 : 0 }} 
+
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: inView ? 1 : 0 }}
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
               >
                 <Box
@@ -119,7 +129,7 @@ const BlogPage = () => {
                   }}
                 />
               </motion.div>
-              
+
               <Typography
                 variant="h6"
                 color="text.secondary"
@@ -129,7 +139,8 @@ const BlogPage = () => {
                   lineHeight: 1.6,
                 }}
               >
-                Key technical challenges I&apos;ve solved and the innovative solutions I implemented
+                Key technical challenges I&apos;ve solved and the innovative
+                solutions I implemented
               </Typography>
             </Box>
           </Box>
@@ -143,9 +154,9 @@ const BlogPage = () => {
                 initial="hidden"
                 animate={inView ? 'show' : 'hidden'}
               >
-                <Card 
+                <Card
                   className="glass-card micro-lift theme-transition"
-                  sx={{ 
+                  sx={{
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
@@ -161,7 +172,11 @@ const BlogPage = () => {
                 >
                   <CardContent sx={{ flexGrow: 1, p: 3 }}>
                     <Stack spacing={2}>
-                      <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
+                      <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="flex-start"
+                      >
                         <Chip
                           icon={getCategoryIcon(post.category)}
                           label={post.category}
@@ -170,55 +185,114 @@ const BlogPage = () => {
                           variant="outlined"
                         />
                         <Stack direction="row" alignItems="center" spacing={1}>
-                          <AccessTime sx={{ fontSize: 16, color: 'text.secondary' }} />
+                          <AccessTime
+                            sx={{ fontSize: 16, color: 'text.secondary' }}
+                          />
                           <Typography variant="caption" color="text.secondary">
                             {post.readTime}
                           </Typography>
                         </Stack>
                       </Stack>
 
-                      <Typography variant="h6" fontWeight="bold" sx={{ lineHeight: 1.3 }}>
+                      <Typography
+                        variant="h6"
+                        fontWeight="bold"
+                        sx={{ lineHeight: 1.3 }}
+                      >
                         {post.title}
                       </Typography>
 
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{ mb: 2 }}
+                      >
                         {post.date}
                       </Typography>
 
-                      <Typography variant="body2" sx={{ mb: 3, lineHeight: 1.5 }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ mb: 3, lineHeight: 1.5 }}
+                      >
                         {post.excerpt}
                       </Typography>
 
                       <Divider />
 
                       <Box>
-                        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
-                          <Avatar sx={{ width: 24, height: 24, bgcolor: 'error.main' }}>
-                            <Typography variant="caption" fontWeight="bold">C</Typography>
+                        <Stack
+                          direction="row"
+                          alignItems="center"
+                          spacing={1}
+                          sx={{ mb: 2 }}
+                        >
+                          <Avatar
+                            sx={{
+                              width: 24,
+                              height: 24,
+                              bgcolor: 'error.main',
+                            }}
+                          >
+                            <Typography variant="caption" fontWeight="bold">
+                              C
+                            </Typography>
                           </Avatar>
-                          <Typography variant="subtitle2" fontWeight="bold" color="error.main">
+                          <Typography
+                            variant="subtitle2"
+                            fontWeight="bold"
+                            color="error.main"
+                          >
                             Challenge
                           </Typography>
                         </Stack>
-                        <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontSize: '0.875rem' }}>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ mb: 2, fontSize: '0.875rem' }}
+                        >
                           {post.challenge}
                         </Typography>
 
-                        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2 }}>
-                          <Avatar sx={{ width: 24, height: 24, bgcolor: 'success.main' }}>
-                            <Typography variant="caption" fontWeight="bold">S</Typography>
+                        <Stack
+                          direction="row"
+                          alignItems="center"
+                          spacing={1}
+                          sx={{ mb: 2 }}
+                        >
+                          <Avatar
+                            sx={{
+                              width: 24,
+                              height: 24,
+                              bgcolor: 'success.main',
+                            }}
+                          >
+                            <Typography variant="caption" fontWeight="bold">
+                              S
+                            </Typography>
                           </Avatar>
-                          <Typography variant="subtitle2" fontWeight="bold" color="success.main">
+                          <Typography
+                            variant="subtitle2"
+                            fontWeight="bold"
+                            color="success.main"
+                          >
                             Solution
                           </Typography>
                         </Stack>
-                        <Typography variant="body2" color="text.secondary" sx={{ mb: 3, fontSize: '0.875rem' }}>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ mb: 3, fontSize: '0.875rem' }}
+                        >
                           {post.solution}
                         </Typography>
                       </Box>
 
                       <Box>
-                        <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
+                        <Typography
+                          variant="subtitle2"
+                          fontWeight="bold"
+                          sx={{ mb: 1 }}
+                        >
                           Technologies Used:
                         </Typography>
                         <Stack direction="row" flexWrap="wrap" gap={0.5}>
@@ -235,20 +309,29 @@ const BlogPage = () => {
                       </Box>
 
                       <Box>
-                        <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
+                        <Typography
+                          variant="subtitle2"
+                          fontWeight="bold"
+                          sx={{ mb: 1 }}
+                        >
                           Key Outcomes:
                         </Typography>
                         <List dense sx={{ py: 0 }}>
                           {post.outcomes.map((outcome, outcomeIndex) => (
-                            <ListItem key={outcomeIndex} sx={{ py: 0.25, px: 0 }}>
+                            <ListItem
+                              key={outcomeIndex}
+                              sx={{ py: 0.25, px: 0 }}
+                            >
                               <ListItemIcon sx={{ minWidth: 20 }}>
-                                <CheckCircle sx={{ fontSize: 16, color: 'success.main' }} />
+                                <CheckCircle
+                                  sx={{ fontSize: 16, color: 'success.main' }}
+                                />
                               </ListItemIcon>
-                              <ListItemText 
+                              <ListItemText
                                 primary={outcome}
-                                primaryTypographyProps={{ 
-                                  variant: 'body2', 
-                                  fontSize: '0.875rem' 
+                                primaryTypographyProps={{
+                                  variant: 'body2',
+                                  fontSize: '0.875rem',
                                 }}
                               />
                             </ListItem>
@@ -271,7 +354,8 @@ const BlogPage = () => {
                             '&:hover': {
                               borderColor: 'primary.light',
                               color: 'primary.light',
-                              backgroundColor: 'rgba(99, 102, 241, 0.1) !important',
+                              backgroundColor:
+                                'rgba(99, 102, 241, 0.1) !important',
                             },
                           }}
                         >

@@ -3,24 +3,34 @@ export const blogPosts = [
   {
     id: 1,
     title: "MySQL 'Server Has Gone Away' Investigation & Fix",
-    date: "2024-12-10",
-    readTime: "15 min read",
-    category: "Database",
-    excerpt: "How we solved random 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' errors that were driving us crazy in production. A deep dive into the root cause discovery, reproduction, and implementation of a smart solution.",
-    challenge: "We were getting random 'MySQL server has gone away' errors in production - not consistently, just randomly enough to make debugging a nightmare. Only occurred sometimes (maybe 1 in 50 requests) with no obvious pattern or trigger.",
-    solution: "Discovered that our scheduled cleanup process was killing active database connections from other services. Fixed by implementing intelligent filtering that only kills truly idle connections (5+ minutes) instead of all sleeping connections.",
-    technologies: ["MySQL", "Laravel", "PHP", "Docker", "Database Architecture"],
+    date: '2024-12-10',
+    readTime: '15 min read',
+    category: 'Database',
+    excerpt:
+      "How we solved random 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' errors that were driving us crazy in production. A deep dive into the root cause discovery, reproduction, and implementation of a smart solution.",
+    challenge:
+      "We were getting random 'MySQL server has gone away' errors in production - not consistently, just randomly enough to make debugging a nightmare. Only occurred sometimes (maybe 1 in 50 requests) with no obvious pattern or trigger.",
+    solution:
+      'Discovered that our scheduled cleanup process was killing active database connections from other services. Fixed by implementing intelligent filtering that only kills truly idle connections (5+ minutes) instead of all sleeping connections.',
+    technologies: [
+      'MySQL',
+      'Laravel',
+      'PHP',
+      'Docker',
+      'Database Architecture',
+    ],
     hero: {
-      gifSrc: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80",
-      liveUrl: "#",
-      githubUrl: "#"
+      gifSrc:
+        'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     outcomes: [
-      "Identified root cause: scheduled process killing active DB connections",
-      "Created reproduction test case to prove the theory",
-      "Implemented smart filtering with configurable thresholds (5+ minute minimum)",
-      "Added comprehensive logging for monitoring and debugging",
-      "Zero MySQL connection errors since deployment"
+      'Identified root cause: scheduled process killing active DB connections',
+      'Created reproduction test case to prove the theory',
+      'Implemented smart filtering with configurable thresholds (5+ minute minimum)',
+      'Added comprehensive logging for monitoring and debugging',
+      'Zero MySQL connection errors since deployment',
     ],
     story: `# MySQL "Server Has Gone Away" Investigation & Fix
 
@@ -342,29 +352,39 @@ Result: Only truly idle connections killed
 
 **TL;DR**: A scheduled cleanup process was killing active database connections from other services, causing "MySQL server has gone away" errors during transactions. Fixed by implementing smart filtering that only kills truly idle connections (5+ minutes) instead of all sleeping connections.
 
-**Status**: ✅ **FIXED** - Zero MySQL connection errors since deployment`
+**Status**: ✅ **FIXED** - Zero MySQL connection errors since deployment`,
   },
   {
     id: 2,
-    title: "Report Performance Quest: From 60 Seconds to Lightning Speed",
-    date: "2024-11-25",
-    readTime: "12 min read",
-    category: "Performance",
-    excerpt: "A tale of optimization, caching, and the pursuit of millisecond perfection. How we transformed a reporting system from 60+ second processing times to sub-15 seconds through strategic query optimization and intelligent caching.",
-    challenge: "Critical business reports taking 60+ seconds to generate. Users had to wait through 6 separate database queries per chunk, resulting in hundreds of database calls for a single report. The system was crawling through redundant data fetching with zero caching strategy.",
-    solution: "Consolidated 6 queries into 1 comprehensive JOIN query per chunk, implemented dynamic column selection based on report configuration, and added intelligent caching with age-based partitioning for historical data.",
-    technologies: ["Laravel", "MySQL", "Redis", "Performance Optimization", "Database Architecture"],
+    title: 'Report Performance Quest: From 60 Seconds to Lightning Speed',
+    date: '2024-11-25',
+    readTime: '12 min read',
+    category: 'Performance',
+    excerpt:
+      'A tale of optimization, caching, and the pursuit of millisecond perfection. How we transformed a reporting system from 60+ second processing times to sub-15 seconds through strategic query optimization and intelligent caching.',
+    challenge:
+      'Critical business reports taking 60+ seconds to generate. Users had to wait through 6 separate database queries per chunk, resulting in hundreds of database calls for a single report. The system was crawling through redundant data fetching with zero caching strategy.',
+    solution:
+      'Consolidated 6 queries into 1 comprehensive JOIN query per chunk, implemented dynamic column selection based on report configuration, and added intelligent caching with age-based partitioning for historical data.',
+    technologies: [
+      'Laravel',
+      'MySQL',
+      'Redis',
+      'Performance Optimization',
+      'Database Architecture',
+    ],
     hero: {
-      gifSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80",
-      liveUrl: "#",
-      githubUrl: "#"
+      gifSrc:
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     outcomes: [
-      "Reduced query count from 24+ queries to 4 queries per report (600% reduction)",
-      "Processing time: 60+ seconds → 10-50 seconds first run, 5-15 seconds subsequent runs",
-      "Cache hit rate: 85-95% for historical data",
-      "Memory usage optimized with selective column loading",
-      "90%+ performance improvement that delighted users"
+      'Reduced query count from 24+ queries to 4 queries per report (600% reduction)',
+      'Processing time: 60+ seconds → 10-50 seconds first run, 5-15 seconds subsequent runs',
+      'Cache hit rate: 85-95% for historical data',
+      'Memory usage optimized with selective column loading',
+      '90%+ performance improvement that delighted users',
     ],
     story: `# Report Performance Quest: From 60 Seconds to Lightning Speed !
 
@@ -638,29 +658,40 @@ The result? A **90%+ performance improvement** that delighted users and reduced 
 
 ---
 
-**Remember**: Fast applications make happy users, and happy users make successful products!`
+**Remember**: Fast applications make happy users, and happy users make successful products!`,
   },
   {
     id: 3,
-    title: "Docker-New: Breaking Free from External Dependencies",
-    date: "2024-10-05",
-    readTime: "10 min read",
-    category: "DevOps",
-    excerpt: "How a simple PHP upgrade request turned into a complete containerization overhaul. The journey from external Docker image dependency to a self-contained, optimized multi-stage build architecture that gave us complete control.",
-    challenge: "A simple PHP upgrade from 7.4.29 to 8.0 was blocked by external Docker image dependency. We couldn't control our own destiny - wanting to upgrade PHP meant waiting for someone else, needing custom extensions wasn't possible, and registry downtime could block deployments.",
-    solution: "Architected a complete multi-stage build solution that eliminates external dependencies while improving performance and flexibility. Built a three-stage process: foundation, dependencies, and application layers with smart caching for lightning-fast rebuilds.",
-    technologies: ["Docker", "Multi-stage Builds", "Apache", "PHP", "DevOps", "Container Orchestration"],
+    title: 'Docker-New: Breaking Free from External Dependencies',
+    date: '2024-10-05',
+    readTime: '10 min read',
+    category: 'DevOps',
+    excerpt:
+      'How a simple PHP upgrade request turned into a complete containerization overhaul. The journey from external Docker image dependency to a self-contained, optimized multi-stage build architecture that gave us complete control.',
+    challenge:
+      "A simple PHP upgrade from 7.4.29 to 8.0 was blocked by external Docker image dependency. We couldn't control our own destiny - wanting to upgrade PHP meant waiting for someone else, needing custom extensions wasn't possible, and registry downtime could block deployments.",
+    solution:
+      'Architected a complete multi-stage build solution that eliminates external dependencies while improving performance and flexibility. Built a three-stage process: foundation, dependencies, and application layers with smart caching for lightning-fast rebuilds.',
+    technologies: [
+      'Docker',
+      'Multi-stage Builds',
+      'Apache',
+      'PHP',
+      'DevOps',
+      'Container Orchestration',
+    ],
     hero: {
-      gifSrc: "https://images.unsplash.com/photo-1605745341112-85968b19335b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80",
-      liveUrl: "#",
-      githubUrl: "#"
+      gifSrc:
+        'https://images.unsplash.com/photo-1605745341112-85968b19335b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     outcomes: [
-      "Zero external dependencies - complete infrastructure autonomy",
-      "62% faster builds (120s → 45s) through multi-stage caching",
-      "26% smaller images (890MB → 654MB) with optimizations",
-      "500% more configuration options (5 hardcoded → 25+ flexible)",
-      "Complete control over PHP extensions, SSL, and runtime environment"
+      'Zero external dependencies - complete infrastructure autonomy',
+      '62% faster builds (120s → 45s) through multi-stage caching',
+      '26% smaller images (890MB → 654MB) with optimizations',
+      '500% more configuration options (5 hardcoded → 25+ flexible)',
+      'Complete control over PHP extensions, SSL, and runtime environment',
     ],
     story: `# Docker-New: Breaking Free from External Dependencies
 
@@ -934,29 +965,43 @@ We transformed a fragile, externally-dependent system into a robust, self-contai
 
 The \`docker-new\` directory isn't just an upgraded Docker setup—it's a foundation for infrastructure independence and engineering excellence.
 
-**Your infrastructure should work for you, not against you.**`
+**Your infrastructure should work for you, not against you.**`,
   },
   {
     id: 4,
-    title: "From Chaos to Clarity: How We Tamed Our Microservice Logs with PLG Stack",
-    date: "2024-09-20",
-    readTime: "18 min read",
-    category: "DevOps",
-    excerpt: "A journey of implementing centralized logging in a Laravel-based microservice architecture. How we went from frantically SSH-ing into multiple containers at 2 AM to having a unified view of our entire ecosystem through the PLG (Prometheus, Loki, Grafana) stack.",
-    challenge: "11 independent microservices generating logs in their own format, stored in their own silos. When something went wrong, debugging felt like being a detective with half the evidence missing. No unified view, time-consuming troubleshooting across multiple containers, and reactive monitoring.",
-    solution: "Implemented the PLG stack (Prometheus, Loki, Grafana) with enhanced Laravel logging, structured JSON logs, correlation IDs for request tracing, and Docker integration with automated log collection and beautiful visualizations.",
-    technologies: ["PLG Stack", "Loki", "Grafana", "Promtail", "Laravel", "Docker", "Microservices", "Monitoring"],
+    title:
+      'From Chaos to Clarity: How We Tamed Our Microservice Logs with PLG Stack',
+    date: '2024-09-20',
+    readTime: '18 min read',
+    category: 'DevOps',
+    excerpt:
+      'A journey of implementing centralized logging in a Laravel-based microservice architecture. How we went from frantically SSH-ing into multiple containers at 2 AM to having a unified view of our entire ecosystem through the PLG (Prometheus, Loki, Grafana) stack.',
+    challenge:
+      '11 independent microservices generating logs in their own format, stored in their own silos. When something went wrong, debugging felt like being a detective with half the evidence missing. No unified view, time-consuming troubleshooting across multiple containers, and reactive monitoring.',
+    solution:
+      'Implemented the PLG stack (Prometheus, Loki, Grafana) with enhanced Laravel logging, structured JSON logs, correlation IDs for request tracing, and Docker integration with automated log collection and beautiful visualizations.',
+    technologies: [
+      'PLG Stack',
+      'Loki',
+      'Grafana',
+      'Promtail',
+      'Laravel',
+      'Docker',
+      'Microservices',
+      'Monitoring',
+    ],
     hero: {
-      gifSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80",
-      liveUrl: "#",
-      githubUrl: "#"
+      gifSrc:
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      liveUrl: '#',
+      githubUrl: '#',
     },
     outcomes: [
-      "Reduced debugging time from 30+ minutes to 30 seconds",
-      "Single query to search across all 11 microservices",
-      "Proactive monitoring with real-time alerts instead of reactive debugging",
-      "Correlation IDs enable complete request flow tracking",
-      "Developer productivity transformed from dreading debugging to enjoying problem-solving"
+      'Reduced debugging time from 30+ minutes to 30 seconds',
+      'Single query to search across all 11 microservices',
+      'Proactive monitoring with real-time alerts instead of reactive debugging',
+      'Correlation IDs enable complete request flow tracking',
+      'Developer productivity transformed from dreading debugging to enjoying problem-solving',
     ],
     story: `# From Chaos to Clarity: How We Tamed Our Microservice Logs with PLG Stack
 
@@ -1242,6 +1287,6 @@ Here's the minimal setup:
 
 ---
 
-*Written by a developer who's been there, debugged that, and lived to tell the tale. May your logs be structured and your queries be fast!*`
-  }
+*Written by a developer who's been there, debugged that, and lived to tell the tale. May your logs be structured and your queries be fast!*`,
+  },
 ];

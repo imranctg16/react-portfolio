@@ -1,4 +1,9 @@
-export const fadeIn = (direction = 'up', type = 'spring', delay = 0, duration = 0.5) => ({
+export const fadeIn = (
+  direction = 'up',
+  type = 'spring',
+  delay = 0,
+  duration = 0.5
+) => ({
   hidden: {
     x: direction === 'left' ? 100 : direction === 'right' ? -100 : 0,
     y: direction === 'up' ? 100 : direction === 'down' ? -100 : 0,
@@ -17,7 +22,12 @@ export const fadeIn = (direction = 'up', type = 'spring', delay = 0, duration = 
   },
 });
 
-export const slideIn = (direction = 'up', type = 'spring', delay = 0, duration = 0.5) => ({
+export const slideIn = (
+  direction = 'up',
+  type = 'spring',
+  delay = 0,
+  duration = 0.5
+) => ({
   hidden: {
     x: direction === 'left' ? '-100%' : direction === 'right' ? '100%' : 0,
     y: direction === 'up' ? '100%' : direction === 'down' ? '-100%' : 0,

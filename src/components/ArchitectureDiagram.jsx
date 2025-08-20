@@ -1,10 +1,20 @@
 import { motion } from 'framer-motion';
-import { Server, Database, Cloud, Shield, Zap, Cpu, Globe, Users } from 'lucide-react';
+import {
+  Server,
+  Database,
+  Cloud,
+  Shield,
+  Zap,
+  Cpu,
+  Globe,
+  Users,
+} from 'lucide-react';
 
 const ArchitectureDiagram = ({ projectId }) => {
   // Different architecture diagrams based on project
   const architectures = {
-    1: { // CyberCommerce Platform
+    1: {
+      // CyberCommerce Platform
       title: 'Microservices E-commerce Architecture',
       components: [
         {
@@ -14,7 +24,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 10 },
           color: 'neon-cyan',
           connections: ['api-gateway'],
-          description: 'PWA with offline capabilities'
+          description: 'PWA with offline capabilities',
         },
         {
           id: 'api-gateway',
@@ -23,7 +33,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 25 },
           color: 'neon-pink',
           connections: ['user-service', 'product-service', 'order-service'],
-          description: 'Rate limiting & authentication'
+          description: 'Rate limiting & authentication',
         },
         {
           id: 'user-service',
@@ -32,7 +42,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 20, y: 45 },
           color: 'neon-green',
           connections: ['user-db'],
-          description: 'Authentication & profiles'
+          description: 'Authentication & profiles',
         },
         {
           id: 'product-service',
@@ -41,7 +51,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 45 },
           color: 'neon-yellow',
           connections: ['product-db', 'search-engine'],
-          description: 'Catalog management'
+          description: 'Catalog management',
         },
         {
           id: 'order-service',
@@ -50,7 +60,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 80, y: 45 },
           color: 'neon-orange',
           connections: ['order-db', 'payment-service'],
-          description: 'Order processing'
+          description: 'Order processing',
         },
         {
           id: 'payment-service',
@@ -59,7 +69,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 80, y: 65 },
           color: 'neon-pink',
           connections: ['payment-db'],
-          description: 'Secure payments'
+          description: 'Secure payments',
         },
         {
           id: 'user-db',
@@ -68,7 +78,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 20, y: 70 },
           color: 'neon-cyan',
           connections: [],
-          description: 'MongoDB'
+          description: 'MongoDB',
         },
         {
           id: 'product-db',
@@ -77,7 +87,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 35, y: 70 },
           color: 'neon-green',
           connections: [],
-          description: 'MongoDB'
+          description: 'MongoDB',
         },
         {
           id: 'order-db',
@@ -86,7 +96,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 65, y: 70 },
           color: 'neon-yellow',
           connections: [],
-          description: 'MongoDB'
+          description: 'MongoDB',
         },
         {
           id: 'payment-db',
@@ -95,7 +105,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 80, y: 85 },
           color: 'neon-pink',
           connections: [],
-          description: 'Encrypted storage'
+          description: 'Encrypted storage',
         },
         {
           id: 'search-engine',
@@ -104,7 +114,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 35, y: 55 },
           color: 'neon-purple',
           connections: [],
-          description: 'Product search'
+          description: 'Product search',
         },
         {
           id: 'cache',
@@ -113,7 +123,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 10, y: 30 },
           color: 'neon-orange',
           connections: [],
-          description: 'Session & data cache'
+          description: 'Session & data cache',
         },
         {
           id: 'cdn',
@@ -122,11 +132,12 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 20, y: 10 },
           color: 'neon-blue',
           connections: [],
-          description: 'Global content delivery'
-        }
-      ]
+          description: 'Global content delivery',
+        },
+      ],
     },
-    2: { // NeuroTask AI
+    2: {
+      // NeuroTask AI
       title: 'AI-Powered Project Management Architecture',
       components: [
         {
@@ -136,7 +147,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 10 },
           color: 'neon-cyan',
           connections: ['api-gateway'],
-          description: 'Real-time analytics UI'
+          description: 'Real-time analytics UI',
         },
         {
           id: 'api-gateway',
@@ -145,7 +156,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 25 },
           color: 'neon-pink',
           connections: ['ml-service', 'task-service', 'user-service'],
-          description: 'Authentication & routing'
+          description: 'Authentication & routing',
         },
         {
           id: 'ml-service',
@@ -154,7 +165,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 25, y: 45 },
           color: 'neon-green',
           connections: ['model-store', 'vector-db'],
-          description: 'TensorFlow models'
+          description: 'TensorFlow models',
         },
         {
           id: 'task-service',
@@ -163,7 +174,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 45 },
           color: 'neon-yellow',
           connections: ['postgres'],
-          description: 'Task management logic'
+          description: 'Task management logic',
         },
         {
           id: 'user-service',
@@ -172,7 +183,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 75, y: 45 },
           color: 'neon-orange',
           connections: ['postgres'],
-          description: 'User profiles & auth'
+          description: 'User profiles & auth',
         },
         {
           id: 'model-store',
@@ -181,7 +192,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 15, y: 65 },
           color: 'neon-purple',
           connections: [],
-          description: 'MLflow registry'
+          description: 'MLflow registry',
         },
         {
           id: 'vector-db',
@@ -190,7 +201,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 35, y: 65 },
           color: 'neon-blue',
           connections: [],
-          description: 'Pinecone embeddings'
+          description: 'Pinecone embeddings',
         },
         {
           id: 'postgres',
@@ -199,7 +210,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 65, y: 65 },
           color: 'neon-cyan',
           connections: [],
-          description: 'Primary database'
+          description: 'Primary database',
         },
         {
           id: 'redis',
@@ -208,7 +219,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 85, y: 65 },
           color: 'neon-pink',
           connections: [],
-          description: 'Real-time cache'
+          description: 'Real-time cache',
         },
         {
           id: 'websocket',
@@ -217,11 +228,12 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 75, y: 25 },
           color: 'neon-green',
           connections: [],
-          description: 'Real-time updates'
-        }
-      ]
+          description: 'Real-time updates',
+        },
+      ],
     },
-    3: { // CyberWeather Network
+    3: {
+      // CyberWeather Network
       title: 'IoT Weather Intelligence Architecture',
       components: [
         {
@@ -231,7 +243,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 10 },
           color: 'neon-cyan',
           connections: ['api-server'],
-          description: '3D weather visualization'
+          description: '3D weather visualization',
         },
         {
           id: 'iot-sensors',
@@ -240,7 +252,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 10, y: 30 },
           color: 'neon-green',
           connections: ['mqtt-broker'],
-          description: '1000+ weather sensors'
+          description: '1000+ weather sensors',
         },
         {
           id: 'mqtt-broker',
@@ -249,7 +261,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 30, y: 40 },
           color: 'neon-pink',
           connections: ['data-processor'],
-          description: 'AWS IoT Core'
+          description: 'AWS IoT Core',
         },
         {
           id: 'data-processor',
@@ -258,7 +270,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 40 },
           color: 'neon-yellow',
           connections: ['timeseries-db', 'prediction-engine'],
-          description: 'Real-time processing'
+          description: 'Real-time processing',
         },
         {
           id: 'api-server',
@@ -267,7 +279,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 70, y: 30 },
           color: 'neon-orange',
           connections: ['timeseries-db', 'postgres'],
-          description: 'Node.js REST API'
+          description: 'Node.js REST API',
         },
         {
           id: 'prediction-engine',
@@ -276,7 +288,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 30, y: 60 },
           color: 'neon-purple',
           connections: ['model-store'],
-          description: 'Weather forecasting'
+          description: 'Weather forecasting',
         },
         {
           id: 'timeseries-db',
@@ -285,7 +297,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 50, y: 70 },
           color: 'neon-blue',
           connections: [],
-          description: 'Time-series data'
+          description: 'Time-series data',
         },
         {
           id: 'postgres',
@@ -294,7 +306,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 70, y: 70 },
           color: 'neon-cyan',
           connections: [],
-          description: 'Metadata storage'
+          description: 'Metadata storage',
         },
         {
           id: 'model-store',
@@ -303,7 +315,7 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 30, y: 80 },
           color: 'neon-green',
           connections: [],
-          description: 'ML models'
+          description: 'ML models',
         },
         {
           id: 'edge-computing',
@@ -312,18 +324,18 @@ const ArchitectureDiagram = ({ projectId }) => {
           position: { x: 10, y: 50 },
           color: 'neon-pink',
           connections: [],
-          description: 'Local processing'
-        }
-      ]
-    }
+          description: 'Local processing',
+        },
+      ],
+    },
   };
 
   const arch = architectures[projectId] || architectures[1];
 
   const ConnectionLine = ({ from, to, components }) => {
-    const fromComponent = components.find(c => c.id === from);
-    const toComponent = components.find(c => c.id === to);
-    
+    const fromComponent = components.find((c) => c.id === from);
+    const toComponent = components.find((c) => c.id === to);
+
     if (!fromComponent || !toComponent) return null;
 
     return (
@@ -354,24 +366,30 @@ const ArchitectureDiagram = ({ projectId }) => {
       <svg className="w-full h-full relative z-10">
         {/* Gradient Definitions */}
         <defs>
-          <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#00ffff" stopOpacity="0.8"/>
-            <stop offset="50%" stopColor="#ff00ff" stopOpacity="0.6"/>
-            <stop offset="100%" stopColor="#00ff41" stopOpacity="0.8"/>
+          <linearGradient
+            id="connectionGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stopColor="#00ffff" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#ff00ff" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#00ff41" stopOpacity="0.8" />
           </linearGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
 
         {/* Connection Lines */}
-        {arch.components.map(component => 
-          component.connections.map(connectionId => (
-            <ConnectionLine 
+        {arch.components.map((component) =>
+          component.connections.map((connectionId) => (
+            <ConnectionLine
               key={`${component.id}-${connectionId}`}
               from={component.id}
               to={connectionId}
@@ -397,7 +415,7 @@ const ArchitectureDiagram = ({ projectId }) => {
               filter="url(#glow)"
               className="animate-cyber-glow"
             />
-            
+
             {/* Component Icon */}
             <foreignObject
               x={`${component.position.x - 1.5}%`}
@@ -409,7 +427,7 @@ const ArchitectureDiagram = ({ projectId }) => {
                 <component.icon className={`w-6 h-6 text-${component.color}`} />
               </div>
             </foreignObject>
-            
+
             {/* Component Label */}
             <motion.text
               initial={{ opacity: 0 }}
@@ -422,7 +440,7 @@ const ArchitectureDiagram = ({ projectId }) => {
             >
               {component.name}
             </motion.text>
-            
+
             {/* Description */}
             <motion.text
               initial={{ opacity: 0 }}

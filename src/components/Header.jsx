@@ -67,13 +67,13 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check initial position
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
   const handleSectionNavigation = (sectionId) => {
     setIsMenuOpen(false);
-    
+
     // If we're not on home page, navigate to home first
     if (location.pathname !== '/') {
       if (sectionId === 'hero') {
@@ -90,7 +90,7 @@ const Header = () => {
       }
       return;
     }
-    
+
     // If on home page, scroll to section
     if (sectionId === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -129,7 +129,11 @@ const Header = () => {
         }}
       >
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <motion.div variants={fadeIn('right', 'tween', 0.2, 1)} initial="hidden" animate="show">
+          <motion.div
+            variants={fadeIn('right', 'tween', 0.2, 1)}
+            initial="hidden"
+            animate="show"
+          >
             <Link to="/" style={{ textDecoration: 'none' }}>
               <Logo />
             </Link>
@@ -138,12 +142,17 @@ const Header = () => {
           {!isMobile && (
             <Stack direction="row" spacing={1}>
               {navigation.map((item, index) => {
-                const isActive = item.isSection 
-                  ? isActiveSection(item.sectionId) 
+                const isActive = item.isSection
+                  ? isActiveSection(item.sectionId)
                   : isActiveRoute(item.href);
-                
+
                 return (
-                  <motion.div key={item.name} variants={fadeIn('down', 'tween', index * 0.1, 1)} initial="hidden" animate="show">
+                  <motion.div
+                    key={item.name}
+                    variants={fadeIn('down', 'tween', index * 0.1, 1)}
+                    initial="hidden"
+                    animate="show"
+                  >
                     {item.isSection ? (
                       <Button
                         onClick={() => handleSectionNavigation(item.sectionId)}
@@ -151,13 +160,18 @@ const Header = () => {
                         sx={{
                           color: isActive ? 'primary.main' : 'text.primary',
                           fontWeight: isActive ? 600 : 500,
-                          backgroundColor: isActive ? 'rgba(99, 102, 241, 0.1) !important' : 'transparent !important',
+                          backgroundColor: isActive
+                            ? 'rgba(99, 102, 241, 0.1) !important'
+                            : 'transparent !important',
                           border: isActive ? '1px solid' : 'none',
-                          borderColor: isActive ? 'primary.main' : 'transparent',
+                          borderColor: isActive
+                            ? 'primary.main'
+                            : 'transparent',
                           mx: 0.5,
                           '&:hover': {
                             color: 'primary.main',
-                            backgroundColor: 'rgba(99, 102, 241, 0.1) !important',
+                            backgroundColor:
+                              'rgba(99, 102, 241, 0.1) !important',
                           },
                         }}
                       >
@@ -171,13 +185,18 @@ const Header = () => {
                         sx={{
                           color: isActive ? 'primary.main' : 'text.primary',
                           fontWeight: isActive ? 600 : 500,
-                          backgroundColor: isActive ? 'rgba(99, 102, 241, 0.1) !important' : 'transparent !important',
+                          backgroundColor: isActive
+                            ? 'rgba(99, 102, 241, 0.1) !important'
+                            : 'transparent !important',
                           border: isActive ? '1px solid' : 'none',
-                          borderColor: isActive ? 'primary.main' : 'transparent',
+                          borderColor: isActive
+                            ? 'primary.main'
+                            : 'transparent',
                           mx: 0.5,
                           '&:hover': {
                             color: 'primary.main',
-                            backgroundColor: 'rgba(99, 102, 241, 0.1) !important',
+                            backgroundColor:
+                              'rgba(99, 102, 241, 0.1) !important',
                           },
                         }}
                       >
@@ -190,7 +209,11 @@ const Header = () => {
             </Stack>
           )}
 
-          <motion.div variants={fadeIn('left', 'tween', 0.2, 1)} initial="hidden" animate="show">
+          <motion.div
+            variants={fadeIn('left', 'tween', 0.2, 1)}
+            initial="hidden"
+            animate="show"
+          >
             <Stack direction="row" spacing={1} alignItems="center">
               <IconButton
                 onClick={handleToggleTheme}
@@ -198,7 +221,7 @@ const Header = () => {
                 sx={{
                   color: 'text.primary',
                   backgroundColor: 'transparent !important',
-                  '&:hover': { 
+                  '&:hover': {
                     color: 'primary.main',
                   },
                 }}
@@ -214,7 +237,7 @@ const Header = () => {
                   sx={{
                     color: 'text.primary',
                     backgroundColor: 'transparent !important',
-                    '&:hover': { 
+                    '&:hover': {
                       color: 'primary.main',
                     },
                   }}
@@ -250,13 +273,13 @@ const Header = () => {
               <CloseIcon />
             </IconButton>
           </Box>
-          
+
           <List>
             {navigation.map((item) => {
-              const isActive = item.isSection 
-                ? isActiveSection(item.sectionId) 
+              const isActive = item.isSection
+                ? isActiveSection(item.sectionId)
                 : isActiveRoute(item.href);
-              
+
               return (
                 <ListItem key={item.name} disablePadding>
                   {item.isSection ? (
@@ -265,7 +288,9 @@ const Header = () => {
                       className="glass-button micro-lift theme-transition"
                       sx={{
                         borderRadius: 2,
-                        backgroundColor: isActive ? 'rgba(99, 102, 241, 0.1) !important' : 'transparent !important',
+                        backgroundColor: isActive
+                          ? 'rgba(99, 102, 241, 0.1) !important'
+                          : 'transparent !important',
                         border: isActive ? '1px solid' : 'none',
                         borderColor: isActive ? 'primary.main' : 'transparent',
                         mx: 1,
@@ -289,7 +314,9 @@ const Header = () => {
                       className="glass-button micro-lift theme-transition"
                       sx={{
                         borderRadius: 2,
-                        backgroundColor: isActive ? 'rgba(99, 102, 241, 0.1) !important' : 'transparent !important',
+                        backgroundColor: isActive
+                          ? 'rgba(99, 102, 241, 0.1) !important'
+                          : 'transparent !important',
                         border: isActive ? '1px solid' : 'none',
                         borderColor: isActive ? 'primary.main' : 'transparent',
                         mx: 1,

@@ -51,7 +51,9 @@ const Hero = () => {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + journeyImages.length) % journeyImages.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + journeyImages.length) % journeyImages.length
+    );
   };
 
   const handleKeyPress = (event) => {
@@ -68,7 +70,17 @@ const Hero = () => {
     }
   }, [slideshowOpen]);
 
-  const techStack = ['Laravel', 'Vue.js', 'React.js', 'Express.js', 'Nuxt.js', 'PHP', 'MySQL', 'Redis', 'Docker'];
+  const techStack = [
+    'Laravel',
+    'Vue.js',
+    'React.js',
+    'Express.js',
+    'Nuxt.js',
+    'PHP',
+    'MySQL',
+    'Redis',
+    'Docker',
+  ];
 
   // Professional journey images for background
   const journeyImages = [
@@ -140,9 +152,8 @@ const Hero = () => {
           }}
           style={{
             position: 'absolute',
-            left: index < 4 
-              ? `${5 + (index * 20)}%` 
-              : `${15 + ((index - 4) * 20)}%`,
+            left:
+              index < 4 ? `${5 + index * 20}%` : `${15 + (index - 4) * 20}%`,
             top: index < 4 ? '15%' : '55%',
             zIndex: 2,
           }}
@@ -197,12 +208,16 @@ const Hero = () => {
           </Card>
         </motion.div>
       ))}
-      <Container 
-        maxWidth="lg" 
+      <Container
+        maxWidth="lg"
         className="section-container"
         sx={{ textAlign: 'center', position: 'relative', zIndex: 10 }}
       >
-        <motion.div variants={fadeIn('down', 'tween', 0.2, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={fadeIn('down', 'tween', 0.2, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Avatar
             className="float-animation glass-card"
             sx={{
@@ -212,7 +227,8 @@ const Hero = () => {
               mb: 2,
               fontSize: '3rem',
               fontWeight: 'bold',
-              background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
+              background:
+                'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
               boxShadow: '0 20px 40px rgba(99, 102, 241, 0.4)',
               border: '3px solid rgba(255, 255, 255, 0.3)',
               position: 'relative',
@@ -220,7 +236,8 @@ const Hero = () => {
                 content: '""',
                 position: 'absolute',
                 inset: -2,
-                background: 'linear-gradient(45deg, #6366f1, #8b5cf6, #f59e0b, #6366f1)',
+                background:
+                  'linear-gradient(45deg, #6366f1, #8b5cf6, #f59e0b, #6366f1)',
                 borderRadius: '50%',
                 zIndex: -1,
                 animation: 'spin 3s linear infinite',
@@ -231,7 +248,11 @@ const Hero = () => {
           </Avatar>
         </motion.div>
 
-        <motion.div variants={slideIn('left', 'tween', 0.4, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={slideIn('left', 'tween', 0.4, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Typography
             variant="h1"
             className="text-gradient"
@@ -246,7 +267,11 @@ const Hero = () => {
           </Typography>
         </motion.div>
 
-        <motion.div variants={slideIn('right', 'tween', 0.6, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={slideIn('right', 'tween', 0.6, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Typography
             variant="h3"
             sx={{
@@ -260,7 +285,11 @@ const Hero = () => {
           </Typography>
         </motion.div>
 
-        <motion.div variants={fadeIn('up', 'tween', 0.8, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={fadeIn('up', 'tween', 0.8, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Typography
             variant="h6"
             sx={{
@@ -271,12 +300,17 @@ const Hero = () => {
               fontSize: { xs: '1rem', md: '1.25rem' },
             }}
           >
-            6.5+ years building enterprise-grade web applications. 
-            Leading system migrations, solving complex production issues, and mentoring development teams.
+            6.5+ years building enterprise-grade web applications. Leading
+            system migrations, solving complex production issues, and mentoring
+            development teams.
           </Typography>
         </motion.div>
 
-        <motion.div variants={fadeIn('up', 'tween', 1, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={fadeIn('up', 'tween', 1, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Stack
             direction="row"
             spacing={1}
@@ -286,7 +320,11 @@ const Hero = () => {
             sx={{ my: 4 }}
           >
             {techStack.map((tech) => (
-              <motion.div key={tech} whileHover={{ scale: 1.1, y: -5 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <motion.div
+                key={tech}
+                whileHover={{ scale: 1.1, y: -5 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <Chip
                   label={tech}
                   className="glass-button micro-bounce theme-transition"
@@ -305,7 +343,11 @@ const Hero = () => {
           </Stack>
         </motion.div>
 
-        <motion.div variants={fadeIn('up', 'tween', 1.2, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={fadeIn('up', 'tween', 1.2, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={3}
@@ -328,7 +370,8 @@ const Hero = () => {
                 color: 'white',
                 fontWeight: 600,
                 '&:hover': {
-                  background: 'linear-gradient(135deg, #4338ca 0%, #7c3aed 100%)',
+                  background:
+                    'linear-gradient(135deg, #4338ca 0%, #7c3aed 100%)',
                   boxShadow: '0 12px 40px rgba(99, 102, 241, 0.5)',
                   transform: 'translateY(-2px)',
                 },
@@ -336,7 +379,7 @@ const Hero = () => {
             >
               View My Work
             </Button>
-            
+
             <Button
               variant="outlined"
               size="large"
@@ -353,7 +396,8 @@ const Hero = () => {
                 fontWeight: 600,
                 background: 'rgba(245, 158, 11, 0.1)',
                 '&:hover': {
-                  background: 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
+                  background:
+                    'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
                   color: 'white',
                   borderColor: 'secondary.main',
                   transform: 'translateY(-2px)',
@@ -365,7 +409,11 @@ const Hero = () => {
           </Stack>
         </motion.div>
 
-        <motion.div variants={fadeIn('up', 'tween', 1.4, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={fadeIn('up', 'tween', 1.4, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Stack
             direction="row"
             spacing={2}
@@ -373,11 +421,27 @@ const Hero = () => {
             sx={{ mb: 4 }}
           >
             {[
-              { icon: GitHub, href: "https://github.com/imranctg16", label: "GitHub" },
-              { icon: LinkedIn, href: "https://www.linkedin.com/in/mohammad-imran-hossain-783803135", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:imranhossain16.ctg@gmail.com", label: "Email" }
+              {
+                icon: GitHub,
+                href: 'https://github.com/imranctg16',
+                label: 'GitHub',
+              },
+              {
+                icon: LinkedIn,
+                href: 'https://www.linkedin.com/in/mohammad-imran-hossain-783803135',
+                label: 'LinkedIn',
+              },
+              {
+                icon: Mail,
+                href: 'mailto:imranhossain16.ctg@gmail.com',
+                label: 'Email',
+              },
             ].map((social) => (
-              <motion.div key={social.label} whileHover={{ scale: 1.2, rotate: 10 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <motion.div
+                key={social.label}
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <IconButton
                   component="a"
                   href={social.href}
@@ -409,7 +473,7 @@ const Hero = () => {
           transition={{
             duration: 2,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
         >
           <IconButton
@@ -439,7 +503,7 @@ const Hero = () => {
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
-          sx: { backgroundColor: 'rgba(0, 0, 0, 0.9)' }
+          sx: { backgroundColor: 'rgba(0, 0, 0, 0.9)' },
         }}
       >
         <Box
@@ -465,141 +529,145 @@ const Hero = () => {
               height: '100%',
             }}
           >
-          <Box
-            sx={{
-              position: 'relative',
-              width: '100%',
-              height: '100%',
-              borderRadius: 4,
-              overflow: 'hidden',
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(20px)',
-              border: '2px solid rgba(255, 255, 255, 0.1)',
-            }}
-          >
-            {/* Close Button */}
-            <IconButton
-              onClick={closeSlideshow}
+            <Box
               sx={{
-                position: 'absolute',
-                top: 16,
-                right: 16,
-                zIndex: 10,
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                color: 'white',
-                '&:hover': {
-                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                },
-              }}
-            >
-              <Close />
-            </IconButton>
-
-            {/* Previous Button */}
-            <IconButton
-              onClick={prevSlide}
-              sx={{
-                position: 'absolute',
-                left: 16,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                color: 'white',
-                '&:hover': {
-                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                },
-              }}
-            >
-              <ArrowBackIos />
-            </IconButton>
-
-            {/* Next Button */}
-            <IconButton
-              onClick={nextSlide}
-              sx={{
-                position: 'absolute',
-                right: 16,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 10,
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                color: 'white',
-                '&:hover': {
-                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                },
-              }}
-            >
-              <ArrowForwardIos />
-            </IconButton>
-
-            {/* Current Image */}
-            <img
-              src={journeyImages[currentSlide]?.src}
-              alt={journeyImages[currentSlide]?.title}
-              style={{
+                position: 'relative',
                 width: '100%',
                 height: '100%',
-                objectFit: 'contain',
-              }}
-            />
-
-            {/* Image Title and Counter */}
-            <Box
-              sx={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.8))',
-                color: 'white',
-                p: 3,
-                textAlign: 'center',
+                borderRadius: 4,
+                overflow: 'hidden',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(20px)',
+                border: '2px solid rgba(255, 255, 255, 0.1)',
               }}
             >
-              <Typography variant="h5" fontWeight="bold" sx={{ mb: 1 }}>
-                {journeyImages[currentSlide]?.title}
-              </Typography>
-              <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                {currentSlide + 1} of {journeyImages.length}
-              </Typography>
-            </Box>
+              {/* Close Button */}
+              <IconButton
+                onClick={closeSlideshow}
+                sx={{
+                  position: 'absolute',
+                  top: 16,
+                  right: 16,
+                  zIndex: 10,
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  },
+                }}
+              >
+                <Close />
+              </IconButton>
 
-            {/* Thumbnail Navigation */}
-            <Box
-              sx={{
-                position: 'absolute',
-                bottom: 80,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                display: 'flex',
-                gap: 1,
-                p: 2,
-                backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                borderRadius: 3,
-                backdropFilter: 'blur(10px)',
-              }}
-            >
-              {journeyImages.map((_, index) => (
-                <Box
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  sx={{
-                    width: 12,
-                    height: 12,
-                    borderRadius: '50%',
-                    backgroundColor: index === currentSlide ? 'white' : 'rgba(255, 255, 255, 0.5)',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      backgroundColor: 'white',
-                      transform: 'scale(1.2)',
-                    },
-                  }}
-                />
-              ))}
+              {/* Previous Button */}
+              <IconButton
+                onClick={prevSlide}
+                sx={{
+                  position: 'absolute',
+                  left: 16,
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  zIndex: 10,
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  },
+                }}
+              >
+                <ArrowBackIos />
+              </IconButton>
+
+              {/* Next Button */}
+              <IconButton
+                onClick={nextSlide}
+                sx={{
+                  position: 'absolute',
+                  right: 16,
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  zIndex: 10,
+                  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                  color: 'white',
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  },
+                }}
+              >
+                <ArrowForwardIos />
+              </IconButton>
+
+              {/* Current Image */}
+              <img
+                src={journeyImages[currentSlide]?.src}
+                alt={journeyImages[currentSlide]?.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                }}
+              />
+
+              {/* Image Title and Counter */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  background:
+                    'linear-gradient(transparent, rgba(0, 0, 0, 0.8))',
+                  color: 'white',
+                  p: 3,
+                  textAlign: 'center',
+                }}
+              >
+                <Typography variant="h5" fontWeight="bold" sx={{ mb: 1 }}>
+                  {journeyImages[currentSlide]?.title}
+                </Typography>
+                <Typography variant="body2" sx={{ opacity: 0.8 }}>
+                  {currentSlide + 1} of {journeyImages.length}
+                </Typography>
+              </Box>
+
+              {/* Thumbnail Navigation */}
+              <Box
+                sx={{
+                  position: 'absolute',
+                  bottom: 80,
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'flex',
+                  gap: 1,
+                  p: 2,
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                  borderRadius: 3,
+                  backdropFilter: 'blur(10px)',
+                }}
+              >
+                {journeyImages.map((_, index) => (
+                  <Box
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    sx={{
+                      width: 12,
+                      height: 12,
+                      borderRadius: '50%',
+                      backgroundColor:
+                        index === currentSlide
+                          ? 'white'
+                          : 'rgba(255, 255, 255, 0.5)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        backgroundColor: 'white',
+                        transform: 'scale(1.2)',
+                      },
+                    }}
+                  />
+                ))}
+              </Box>
             </Box>
-          </Box>
           </motion.div>
         </Box>
       </Modal>

@@ -67,7 +67,11 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: GitHub, label: 'GitHub', href: 'https://github.com/imranctg16' },
-    { icon: LinkedIn, label: 'LinkedIn', href: 'https://www.linkedin.com/in/mohammad-imran-hossain-783803135' },
+    {
+      icon: LinkedIn,
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/mohammad-imran-hossain-783803135',
+    },
     { icon: Twitter, label: 'Twitter', href: 'https://twitter.com/imranctg16' },
   ];
 
@@ -97,17 +101,18 @@ const Contact = () => {
             >
               Get In Touch
             </Typography>
-            
-            <motion.div 
-              initial={{ scaleX: 0 }} 
-              animate={{ scaleX: inView ? 1 : 0 }} 
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: inView ? 1 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
               <Box
                 sx={{
                   width: 80,
                   height: 4,
-                  background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
+                  background:
+                    'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #f59e0b 100%)',
                   mx: 'auto',
                   mb: 4,
                   borderRadius: 2,
@@ -115,18 +120,19 @@ const Contact = () => {
                 }}
               />
             </motion.div>
-            
+
             <Typography
               variant="h6"
               color="text.secondary"
-              sx={{ 
-                maxWidth: '600px', 
-                mx: 'auto', 
+              sx={{
+                maxWidth: '600px',
+                mx: 'auto',
                 lineHeight: 1.6,
-                fontSize: '1.1rem'
+                fontSize: '1.1rem',
               }}
             >
-              💬 Have a project in mind or just want to say hi? I&apos;d love to hear from you and discuss how we can work together!
+              💬 Have a project in mind or just want to say hi? I&apos;d love to
+              hear from you and discuss how we can work together!
             </Typography>
           </Box>
         </motion.div>
@@ -137,16 +143,19 @@ const Contact = () => {
           initial="hidden"
           animate={inView ? 'show' : 'hidden'}
         >
-          <Box className="glass-card theme-transition" sx={{ p: 5, borderRadius: 4, mb: 8 }}>
-            <Typography 
-              variant="h4" 
-              fontWeight="700" 
+          <Box
+            className="glass-card theme-transition"
+            sx={{ p: 5, borderRadius: 4, mb: 8 }}
+          >
+            <Typography
+              variant="h4"
+              fontWeight="700"
               className="text-gradient"
               sx={{ mb: 5, textAlign: 'center' }}
             >
               📞 Let&apos;s Connect
             </Typography>
-            
+
             <Grid container spacing={4}>
               {/* Contact Info Items */}
               {contactInfo.map((item, index) => (
@@ -155,10 +164,10 @@ const Contact = () => {
                     whileHover={{ y: -8, scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
-                    <Box 
+                    <Box
                       className="glass-card theme-transition micro-lift"
-                      sx={{ 
-                        p: 4, 
+                      sx={{
+                        p: 4,
                         borderRadius: 3,
                         textAlign: 'center',
                         height: '100%',
@@ -166,7 +175,7 @@ const Contact = () => {
                         '&:hover': {
                           border: '2px solid rgba(99, 102, 241, 0.3)',
                           boxShadow: '0 15px 45px rgba(99, 102, 241, 0.2)',
-                        }
+                        },
                       }}
                     >
                       <Box
@@ -185,19 +194,24 @@ const Contact = () => {
                       >
                         <item.icon sx={{ fontSize: 28, color: 'white' }} />
                       </Box>
-                      <Typography variant="h6" fontWeight="600" color="text.primary" sx={{ mb: 1 }}>
+                      <Typography
+                        variant="h6"
+                        fontWeight="600"
+                        color="text.primary"
+                        sx={{ mb: 1 }}
+                      >
                         {item.label}
                       </Typography>
                       <Link
                         href={item.href}
                         underline="none"
                         color="text.secondary"
-                        sx={{ 
+                        sx={{
                           fontSize: '1rem',
-                          '&:hover': { 
+                          '&:hover': {
                             color: 'primary.main',
-                            textDecoration: 'underline' 
-                          }
+                            textDecoration: 'underline',
+                          },
                         }}
                       >
                         {item.value}
@@ -206,17 +220,17 @@ const Contact = () => {
                   </motion.div>
                 </Grid>
               ))}
-              
+
               {/* Social Media */}
               <Grid item xs={12} sm={6} md={4}>
                 <motion.div
                   whileHover={{ y: -8, scale: 1.05 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <Box 
+                  <Box
                     className="glass-card theme-transition micro-lift"
-                    sx={{ 
-                      p: 4, 
+                    sx={{
+                      p: 4,
                       borderRadius: 3,
                       textAlign: 'center',
                       height: '100%',
@@ -224,7 +238,7 @@ const Contact = () => {
                       '&:hover': {
                         border: '2px solid rgba(245, 158, 11, 0.3)',
                         boxShadow: '0 15px 45px rgba(245, 158, 11, 0.2)',
-                      }
+                      },
                     }}
                   >
                     <Box
@@ -232,7 +246,8 @@ const Contact = () => {
                         width: 60,
                         height: 60,
                         borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
+                        background:
+                          'linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -243,7 +258,12 @@ const Contact = () => {
                     >
                       <Typography sx={{ fontSize: 28 }}>🌐</Typography>
                     </Box>
-                    <Typography variant="h6" fontWeight="600" color="text.primary" sx={{ mb: 2 }}>
+                    <Typography
+                      variant="h6"
+                      fontWeight="600"
+                      color="text.primary"
+                      sx={{ mb: 2 }}
+                    >
                       Social Media
                     </Typography>
                     <Stack direction="row" spacing={1} justifyContent="center">
@@ -262,9 +282,9 @@ const Contact = () => {
                             size="small"
                             sx={{
                               color: 'text.secondary',
-                              '&:hover': { 
+                              '&:hover': {
                                 color: 'secondary.main',
-                              }
+                              },
                             }}
                           >
                             <social.icon sx={{ fontSize: 20 }} />
@@ -285,20 +305,20 @@ const Contact = () => {
           initial="hidden"
           animate={inView ? 'show' : 'hidden'}
         >
-          <Box className="glass-card theme-transition" sx={{ p: 5, borderRadius: 4, maxWidth: 800, mx: 'auto' }}>
-            <Typography 
-              variant="h4" 
-              fontWeight="700" 
+          <Box
+            className="glass-card theme-transition"
+            sx={{ p: 5, borderRadius: 4, maxWidth: 800, mx: 'auto' }}
+          >
+            <Typography
+              variant="h4"
+              fontWeight="700"
               className="text-gradient"
               sx={{ mb: 4, textAlign: 'center' }}
             >
               ✉️ Send Message
             </Typography>
-            
-            <Box
-              component="form"
-              onSubmit={handleSubmit}
-            >
+
+            <Box component="form" onSubmit={handleSubmit}>
               <Stack spacing={4}>
                 <Grid container spacing={3}>
                   <Grid item xs={12} sm={6}>
@@ -319,11 +339,11 @@ const Contact = () => {
                           '&.Mui-focused': {
                             background: 'rgba(255, 255, 255, 0.1)',
                             boxShadow: '0 0 0 2px rgba(99, 102, 241, 0.2)',
-                          }
+                          },
                         },
                         '& .MuiInputLabel-root': {
                           fontWeight: 500,
-                        }
+                        },
                       }}
                     />
                   </Grid>
@@ -346,16 +366,16 @@ const Contact = () => {
                           '&.Mui-focused': {
                             background: 'rgba(255, 255, 255, 0.1)',
                             boxShadow: '0 0 0 2px rgba(99, 102, 241, 0.2)',
-                          }
+                          },
                         },
                         '& .MuiInputLabel-root': {
                           fontWeight: 500,
-                        }
+                        },
                       }}
                     />
                   </Grid>
                 </Grid>
-                
+
                 <TextField
                   fullWidth
                   required
@@ -375,15 +395,18 @@ const Contact = () => {
                       '&.Mui-focused': {
                         background: 'rgba(255, 255, 255, 0.1)',
                         boxShadow: '0 0 0 2px rgba(99, 102, 241, 0.2)',
-                      }
+                      },
                     },
                     '& .MuiInputLabel-root': {
                       fontWeight: 500,
-                    }
+                    },
                   }}
                 />
-                
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <Button
                     fullWidth
                     type="submit"
@@ -391,18 +414,20 @@ const Contact = () => {
                     size="large"
                     endIcon={<Send />}
                     className="micro-lift theme-transition"
-                    sx={{ 
+                    sx={{
                       py: 2,
                       fontSize: '1.1rem',
                       fontWeight: 600,
                       borderRadius: 3,
-                      background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                      background:
+                        'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
                       boxShadow: '0 8px 32px rgba(99, 102, 241, 0.3)',
                       '&:hover': {
-                        background: 'linear-gradient(135deg, #4338ca 0%, #7c3aed 100%)',
+                        background:
+                          'linear-gradient(135deg, #4338ca 0%, #7c3aed 100%)',
                         boxShadow: '0 12px 40px rgba(99, 102, 241, 0.5)',
                         transform: 'translateY(-2px)',
-                      }
+                      },
                     }}
                   >
                     Send Message 🚀

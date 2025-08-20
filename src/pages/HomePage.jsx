@@ -9,7 +9,10 @@ import Contact from '../components/Contact';
 const HomePage = () => {
   return (
     <Box component="main">
-      <Typography variant="h6" sx={{ p: 2, textAlign: 'center', display: 'none' }}>
+      <Typography
+        variant="h6"
+        sx={{ p: 2, textAlign: 'center', display: 'none' }}
+      >
         Home Page Loading...
       </Typography>
       <Hero />

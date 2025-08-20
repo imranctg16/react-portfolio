@@ -14,10 +14,7 @@ import {
   Fade,
   IconButton,
 } from '@mui/material';
-import {
-  PhotoLibrary,
-  Close,
-} from '@mui/icons-material';
+import { PhotoLibrary, Close } from '@mui/icons-material';
 import { useInView } from 'react-intersection-observer';
 import { useTheme } from '../contexts/ThemeContext';
 import { fadeIn, slideIn, zoomIn } from '../utils/motion';
@@ -32,27 +29,32 @@ const ProfessionalJourney = () => {
     {
       src: '/project-images/dwe/dwe-dashboard.png',
       title: 'Enterprise Microservices at Grameenphone',
-      description: 'Leading the development of Dynamic Workflow Engine with 11 microservices',
+      description:
+        'Leading the development of Dynamic Workflow Engine with 11 microservices',
     },
     {
       src: '/project-images/sql/sql-dashboard.png',
       title: 'SQL Playground Innovation',
-      description: 'Building interactive learning platforms with gamification elements',
+      description:
+        'Building interactive learning platforms with gamification elements',
     },
     {
       src: '/project-images/aws-exam-prep/aws-dashboard.png',
       title: 'AWS Certification Platform',
-      description: 'Comprehensive exam preparation system with 1000+ practice questions',
+      description:
+        'Comprehensive exam preparation system with 1000+ practice questions',
     },
     {
       src: '/project-images/dwe/dwe-workflow.png',
       title: 'Workflow Architecture Design',
-      description: 'Designing dynamic form builders and state machine workflows',
+      description:
+        'Designing dynamic form builders and state machine workflows',
     },
     {
       src: '/project-images/readme-reader/readme-1.png',
       title: 'Modern Frontend Development',
-      description: 'Creating intuitive user interfaces with React and TypeScript',
+      description:
+        'Creating intuitive user interfaces with React and TypeScript',
     },
     {
       src: '/project-images/dwe/dwe-report-view.png',
@@ -81,7 +83,11 @@ const ProfessionalJourney = () => {
       }}
     >
       <Container maxWidth="lg" className="section-container">
-        <motion.div variants={fadeIn('up', 'tween', 0.2, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
+        <motion.div
+          variants={fadeIn('up', 'tween', 0.2, 1)}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
+        >
           <Box className="section-header">
             <Typography
               variant="h2"
@@ -94,8 +100,12 @@ const ProfessionalJourney = () => {
             >
               Professional Journey in Pictures
             </Typography>
-            
-            <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: inView ? 1 : 0 }} transition={{ duration: 0.5, ease: 'easeInOut' }}>
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: inView ? 1 : 0 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+            >
               <Box
                 sx={{
                   width: 80,
@@ -108,7 +118,7 @@ const ProfessionalJourney = () => {
                 }}
               />
             </motion.div>
-            
+
             <Typography
               variant="h6"
               color="text.secondary"
@@ -118,12 +128,17 @@ const ProfessionalJourney = () => {
                 lineHeight: 1.6,
               }}
             >
-              A visual showcase of my technical achievements and professional milestones
+              A visual showcase of my technical achievements and professional
+              milestones
             </Typography>
           </Box>
         </motion.div>
 
-        <motion.div variants={fadeIn('up', 'tween', 0.4, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
+        <motion.div
+          variants={fadeIn('up', 'tween', 0.4, 1)}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
+        >
           <Box sx={{ mt: 8 }}>
             <Grid container spacing={4}>
               {journeyImages.map((image, index) => (
@@ -191,9 +206,15 @@ const ProfessionalJourney = () => {
                             left: 0,
                           }}
                         >
-                          <PhotoLibrary sx={{ fontSize: 48, color: 'primary.main', opacity: 0.3 }} />
+                          <PhotoLibrary
+                            sx={{
+                              fontSize: 48,
+                              color: 'primary.main',
+                              opacity: 0.3,
+                            }}
+                          />
                         </Box>
-                        
+
                         {/* Image overlay */}
                         <Box
                           className="image-overlay"
@@ -203,12 +224,13 @@ const ProfessionalJourney = () => {
                             left: 0,
                             right: 0,
                             bottom: 0,
-                            background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
+                            background:
+                              'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%)',
                             opacity: 0,
                             transition: 'opacity 0.3s ease',
                           }}
                         />
-                        
+
                         {/* Image content */}
                         <Box
                           className="image-content"
@@ -223,10 +245,17 @@ const ProfessionalJourney = () => {
                             transition: 'transform 0.3s ease',
                           }}
                         >
-                          <Typography variant="subtitle1" fontWeight="bold" sx={{ mb: 0.5 }}>
+                          <Typography
+                            variant="subtitle1"
+                            fontWeight="bold"
+                            sx={{ mb: 0.5 }}
+                          >
                             {image.title}
                           </Typography>
-                          <Typography variant="body2" sx={{ opacity: 0.9, fontSize: '0.85rem' }}>
+                          <Typography
+                            variant="body2"
+                            sx={{ opacity: 0.9, fontSize: '0.85rem' }}
+                          >
                             {image.description}
                           </Typography>
                         </Box>
@@ -236,15 +265,20 @@ const ProfessionalJourney = () => {
                 </Grid>
               ))}
             </Grid>
-            
+
             <Box sx={{ textAlign: 'center', mt: 4 }}>
-              <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
-                📸 Demo using project screenshots - will be replaced with actual professional journey photos
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ fontStyle: 'italic' }}
+              >
+                📸 Demo using project screenshots - will be replaced with actual
+                professional journey photos
               </Typography>
             </Box>
           </Box>
         </motion.div>
-        
+
         {/* Image Modal */}
         <Modal
           open={!!selectedImage}
@@ -253,7 +287,7 @@ const ProfessionalJourney = () => {
           BackdropComponent={Backdrop}
           BackdropProps={{
             timeout: 500,
-            sx: { backgroundColor: 'rgba(0, 0, 0, 0.8)' }
+            sx: { backgroundColor: 'rgba(0, 0, 0, 0.8)' },
           }}
         >
           <Fade in={!!selectedImage}>
@@ -295,7 +329,7 @@ const ProfessionalJourney = () => {
                   >
                     <Close />
                   </IconButton>
-                  
+
                   {/* Modal image content */}
                   <Box sx={{ position: 'relative' }}>
                     <img
@@ -330,9 +364,16 @@ const ProfessionalJourney = () => {
                         borderRadius: '16px 16px 0 0',
                       }}
                     >
-                      <PhotoLibrary sx={{ fontSize: 80, color: 'primary.main', opacity: 0.3, mb: 2 }} />
+                      <PhotoLibrary
+                        sx={{
+                          fontSize: 80,
+                          color: 'primary.main',
+                          opacity: 0.3,
+                          mb: 2,
+                        }}
+                      />
                     </Box>
-                    
+
                     {/* Image caption */}
                     <Box sx={{ p: 3, backgroundColor: 'background.paper' }}>
                       <Typography variant="h5" fontWeight="bold" sx={{ mb: 1 }}>

@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Stack,
-  Card,
-} from '@mui/material';
+import { Box, Container, Typography, Button, Stack, Card } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
 import { fadeIn } from '../utils/motion';
 
@@ -16,12 +9,24 @@ const ProfessionalJourneyDemo = () => {
   const [activeDemo, setActiveDemo] = useState(1);
 
   const journeyImages = [
-    { src: '/project-images/dwe/dwe-dashboard.png', title: 'Enterprise Microservices' },
+    {
+      src: '/project-images/dwe/dwe-dashboard.png',
+      title: 'Enterprise Microservices',
+    },
     { src: '/project-images/sql/sql-dashboard.png', title: 'SQL Playground' },
-    { src: '/project-images/aws-exam-prep/aws-dashboard.png', title: 'AWS Platform' },
+    {
+      src: '/project-images/aws-exam-prep/aws-dashboard.png',
+      title: 'AWS Platform',
+    },
     { src: '/project-images/dwe/dwe-workflow.png', title: 'Workflow Design' },
-    { src: '/project-images/readme-reader/readme-1.png', title: 'Frontend Development' },
-    { src: '/project-images/dwe/dwe-report-view.png', title: 'Performance Optimization' },
+    {
+      src: '/project-images/readme-reader/readme-1.png',
+      title: 'Frontend Development',
+    },
+    {
+      src: '/project-images/dwe/dwe-report-view.png',
+      title: 'Performance Optimization',
+    },
   ];
 
   // Demo 1: Floating Gallery Cards
@@ -110,7 +115,10 @@ const ProfessionalJourneyDemo = () => {
       ))}
 
       {/* Content Overlay */}
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, py: 10 }}>
+      <Container
+        maxWidth="lg"
+        sx={{ position: 'relative', zIndex: 10, py: 10 }}
+      >
         <Card
           className="glass-card"
           sx={{
@@ -121,11 +129,21 @@ const ProfessionalJourneyDemo = () => {
             border: '1px solid rgba(255, 255, 255, 0.3)',
           }}
         >
-          <Typography variant="h3" fontWeight="bold" className="text-gradient" sx={{ mb: 3 }}>
+          <Typography
+            variant="h3"
+            fontWeight="bold"
+            className="text-gradient"
+            sx={{ mb: 3 }}
+          >
             Professional Journey
           </Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Floating gallery cards showcase technical achievements in the background while content remains readable
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            sx={{ maxWidth: 600, mx: 'auto' }}
+          >
+            Floating gallery cards showcase technical achievements in the
+            background while content remains readable
           </Typography>
         </Card>
       </Container>
@@ -189,7 +207,10 @@ const ProfessionalJourneyDemo = () => {
         />
 
         {/* Content */}
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, py: 10 }}>
+        <Container
+          maxWidth="lg"
+          sx={{ position: 'relative', zIndex: 10, py: 10 }}
+        >
           <Card
             className="glass-card"
             sx={{
@@ -200,13 +221,29 @@ const ProfessionalJourneyDemo = () => {
               border: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
-            <Typography variant="h3" fontWeight="bold" sx={{ color: 'white', mb: 3 }}>
+            <Typography
+              variant="h3"
+              fontWeight="bold"
+              sx={{ color: 'white', mb: 3 }}
+            >
               Professional Journey
             </Typography>
-            <Typography variant="h6" sx={{ color: 'rgba(255, 255, 255, 0.8)', maxWidth: 600, mx: 'auto', mb: 4 }}>
-              Background slideshow with smooth transitions between project screenshots
+            <Typography
+              variant="h6"
+              sx={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                maxWidth: 600,
+                mx: 'auto',
+                mb: 4,
+              }}
+            >
+              Background slideshow with smooth transitions between project
+              screenshots
             </Typography>
-            <Typography variant="body1" sx={{ color: 'white', fontWeight: 600 }}>
+            <Typography
+              variant="body1"
+              sx={{ color: 'white', fontWeight: 600 }}
+            >
               Current: {journeyImages[currentSlide].title}
             </Typography>
           </Card>
@@ -265,7 +302,10 @@ const ProfessionalJourneyDemo = () => {
       ))}
 
       {/* Content */}
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, py: 10 }}>
+      <Container
+        maxWidth="lg"
+        sx={{ position: 'relative', zIndex: 10, py: 10 }}
+      >
         <Card
           className="glass-card"
           sx={{
@@ -276,11 +316,21 @@ const ProfessionalJourneyDemo = () => {
             border: '1px solid rgba(255, 255, 255, 0.3)',
           }}
         >
-          <Typography variant="h3" fontWeight="bold" className="text-gradient" sx={{ mb: 3 }}>
+          <Typography
+            variant="h3"
+            fontWeight="bold"
+            className="text-gradient"
+            sx={{ mb: 3 }}
+          >
             Professional Journey
           </Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
-            Parallax grid with images that move at different speeds, creating depth and visual interest
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            sx={{ maxWidth: 600, mx: 'auto' }}
+          >
+            Parallax grid with images that move at different speeds, creating
+            depth and visual interest
           </Typography>
         </Card>
       </Container>
@@ -297,7 +347,12 @@ const ProfessionalJourneyDemo = () => {
     <Box component="section" id="professional-journey-demo" ref={ref}>
       {/* Demo Selector */}
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 4 }}>
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="center"
+          sx={{ mb: 4 }}
+        >
           {demos.map((demo) => (
             <Button
               key={demo.id}
@@ -318,7 +373,7 @@ const ProfessionalJourneyDemo = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {demos.find(demo => demo.id === activeDemo)?.component}
+        {demos.find((demo) => demo.id === activeDemo)?.component}
       </motion.div>
     </Box>
   );

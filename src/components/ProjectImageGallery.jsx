@@ -43,29 +43,29 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
   return (
     <>
       <Box sx={{ mb: 4 }}>
-        <Typography 
-          variant="h5" 
-          fontWeight="600" 
-          sx={{ 
-            mb: 3, 
+        <Typography
+          variant="h5"
+          fontWeight="600"
+          sx={{
+            mb: 3,
             color: 'primary.main',
-            textAlign: 'center'
+            textAlign: 'center',
           }}
         >
           {title}
         </Typography>
-        
-        <ImageList 
-          variant="masonry" 
-          cols={isMobile ? 1 : columns} 
+
+        <ImageList
+          variant="masonry"
+          cols={isMobile ? 1 : columns}
           gap={16}
           sx={{
             overflow: 'visible',
-            margin: 0
+            margin: 0,
           }}
         >
           {images.map((image, index) => (
-            <ImageListItem 
+            <ImageListItem
               key={index}
               component={motion.div}
               whileHover={{ scale: 1.02 }}
@@ -90,7 +90,7 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                     borderColor: 'rgba(99, 102, 241, 0.3)',
                     transform: 'translateY(-4px)',
                     boxShadow: '0 12px 40px rgba(99, 102, 241, 0.2)',
-                  }
+                  },
                 }}
                 onClick={() => handleImageClick(image, index)}
               >
@@ -106,7 +106,7 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                     transition: 'transform 0.3s ease',
                   }}
                 />
-                
+
                 {/* Hover overlay */}
                 <Box
                   sx={{
@@ -123,13 +123,13 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                     transition: 'opacity 0.3s ease',
                     '&:hover': {
                       opacity: 1,
-                    }
+                    },
                   }}
                   className="image-overlay"
                 >
                   <ZoomIn sx={{ color: 'white', fontSize: 40 }} />
                 </Box>
-                
+
                 {/* Caption */}
                 {image.caption && (
                   <Box
@@ -138,9 +138,10 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                       bottom: 0,
                       left: 0,
                       right: 0,
-                      background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.8))',
+                      background:
+                        'linear-gradient(transparent, rgba(0, 0, 0, 0.8))',
                       p: 2,
-                      color: 'white'
+                      color: 'white',
                     }}
                   >
                     <Typography variant="body2" sx={{ fontSize: '0.9rem' }}>
@@ -190,7 +191,7 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                     border: '1px solid rgba(99, 102, 241, 0.3)',
                     borderRadius: 2,
                     overflow: 'hidden',
-                    position: 'relative'
+                    position: 'relative',
                   }}
                 >
                   <Box
@@ -205,11 +206,14 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                       display: 'block',
                     }}
                   />
-                  
+
                   {/* Caption in modal */}
                   {selectedImage.caption && (
                     <Box sx={{ p: 3, backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
-                      <Typography variant="body1" sx={{ color: 'white', textAlign: 'center' }}>
+                      <Typography
+                        variant="body1"
+                        sx={{ color: 'white', textAlign: 'center' }}
+                      >
                         {selectedImage.caption}
                       </Typography>
                     </Box>
@@ -230,7 +234,7 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
               color: 'white',
               '&:hover': {
                 backgroundColor: 'rgba(0, 0, 0, 0.9)',
-              }
+              },
             }}
           >
             <Close />
@@ -249,7 +253,7 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                   color: 'white',
                   '&:hover': {
                     backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                  }
+                  },
                 }}
               >
                 <ChevronLeft />
@@ -266,7 +270,7 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
                   color: 'white',
                   '&:hover': {
                     backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                  }
+                  },
                 }}
               >
                 <ChevronRight />
@@ -286,7 +290,7 @@ const ProjectImageGallery = ({ images, title, columns = 2 }) => {
               px: 2,
               py: 1,
               borderRadius: 1,
-              fontSize: '0.9rem'
+              fontSize: '0.9rem',
             }}
           >
             {currentIndex + 1} / {images.length}

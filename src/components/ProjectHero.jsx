@@ -3,13 +3,13 @@ import { Box, Typography, Button, Stack, Paper } from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
 import { useInView } from 'react-intersection-observer';
 
-const ProjectHero = ({ 
-  gifSrc, 
-  title, 
-  subtitle, 
-  liveUrl, 
+const ProjectHero = ({
+  gifSrc,
+  title,
+  subtitle,
+  liveUrl,
   githubUrl,
-  technologies = []
+  technologies = [],
 }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
@@ -18,7 +18,7 @@ const ProjectHero = ({
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <Paper
         className="glass-card"
@@ -64,7 +64,8 @@ const ProjectHero = ({
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.4) 100%)',
+              background:
+                'linear-gradient(135deg, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.4) 100%)',
               backdropFilter: 'blur(1px)',
             }}
           />
@@ -89,7 +90,7 @@ const ProjectHero = ({
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                {liveUrl && liveUrl !== "#" && (
+                {liveUrl && liveUrl !== '#' && (
                   <Button
                     variant="contained"
                     size="large"
@@ -119,7 +120,7 @@ const ProjectHero = ({
                   </Button>
                 )}
 
-                {githubUrl && githubUrl !== "#" && (
+                {githubUrl && githubUrl !== '#' && (
                   <Button
                     variant="outlined"
                     size="large"
@@ -149,7 +150,6 @@ const ProjectHero = ({
               </Stack>
             </motion.div>
           </Box>
-
         </Box>
       </Paper>
     </motion.div>

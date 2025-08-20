@@ -22,7 +22,6 @@ import Logo from './Logo';
 import { trackOutboundLink } from '../utils/analytics';
 
 const Footer = () => {
-  const { theme } = useTheme();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -73,23 +72,42 @@ const Footer = () => {
       <Container maxWidth="lg">
         <Grid container spacing={5} justifyContent="space-between">
           <Grid item xs={12} md={4}>
-            <motion.div variants={fadeIn('up', 'tween', 0.2, 1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
+            <motion.div
+              variants={fadeIn('up', 'tween', 0.2, 1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
               <Logo />
               <Typography variant="body2" sx={{ mt: 2, maxWidth: 300 }}>
-                Technical Lead with 6.5+ years of experience building enterprise-grade web applications and leading development teams.
+                Technical Lead with 6.5+ years of experience building
+                enterprise-grade web applications and leading development teams.
               </Typography>
               <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                 {socialLinks.map((social, index) => (
-                  <motion.div key={social.label} variants={zoomIn(index * 0.1, 0.5)} whileHover={{ y: -5, scale: 1.1, transition: { type: 'spring', stiffness: 300 } }}>
-                    <IconButton 
-                      component="a" 
-                      href={social.href} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      aria-label={social.label} 
-                      onClick={() => trackOutboundLink(social.href, social.label)}
-                      className="glass-button micro-bounce theme-transition" 
-                      sx={{ color: 'text.primary', '&:hover': { bgcolor: 'primary.main', color: 'white' } }}
+                  <motion.div
+                    key={social.label}
+                    variants={zoomIn(index * 0.1, 0.5)}
+                    whileHover={{
+                      y: -5,
+                      scale: 1.1,
+                      transition: { type: 'spring', stiffness: 300 },
+                    }}
+                  >
+                    <IconButton
+                      component="a"
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      onClick={() =>
+                        trackOutboundLink(social.href, social.label)
+                      }
+                      className="glass-button micro-bounce theme-transition"
+                      sx={{
+                        color: 'text.primary',
+                        '&:hover': { bgcolor: 'primary.main', color: 'white' },
+                      }}
                     >
                       <social.icon />
                     </IconButton>
@@ -100,11 +118,31 @@ const Footer = () => {
           </Grid>
 
           <Grid item xs={6} md={2}>
-            <motion.div variants={fadeIn('up', 'tween', 0.3, 1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <Typography variant="h6" sx={{ mb: 2 }}>Quick Links</Typography>
+            <motion.div
+              variants={fadeIn('up', 'tween', 0.3, 1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Quick Links
+              </Typography>
               <Stack spacing={1}>
                 {navigation.map((item) => (
-                  <Link key={item.name} href={item.href} onClick={() => scrollToSection(item.href)} className="micro-lift theme-transition" sx={{ color: 'text.primary', textDecoration: 'none', '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => scrollToSection(item.href)}
+                    className="micro-lift theme-transition"
+                    sx={{
+                      color: 'text.primary',
+                      textDecoration: 'none',
+                      '&:hover': {
+                        color: 'primary.main',
+                        textDecoration: 'underline',
+                      },
+                    }}
+                  >
                     {item.name}
                   </Link>
                 ))}
@@ -113,19 +151,55 @@ const Footer = () => {
           </Grid>
 
           <Grid item xs={6} md={3}>
-            <motion.div variants={fadeIn('up', 'tween', 0.4, 1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <Typography variant="h6" sx={{ mb: 2 }}>Get In Touch</Typography>
+            <motion.div
+              variants={fadeIn('up', 'tween', 0.4, 1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Get In Touch
+              </Typography>
               <Stack spacing={1}>
                 <Typography variant="body2">Dhaka, Bangladesh</Typography>
-                <Typography variant="body2">imranhossain16.ctg@gmail.com</Typography>
+                <Typography variant="body2">
+                  imranhossain16.ctg@gmail.com
+                </Typography>
                 <Typography variant="body2">+880 1866 803 833</Typography>
               </Stack>
             </motion.div>
           </Grid>
 
-          <Grid item xs={12} md={3} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-            <motion.div variants={zoomIn(0.5, 1)} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <IconButton onClick={scrollToTop} className="glass-button micro-bounce theme-transition" sx={{ color: 'text.primary', border: '1px solid rgba(255, 255, 255, 0.2)', '&:hover': { bgcolor: 'primary.main', color: 'white', borderColor: 'transparent' } }} aria-label="Back to top">
+          <Grid
+            item
+            xs={12}
+            md={3}
+            sx={{
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}
+          >
+            <motion.div
+              variants={zoomIn(0.5, 1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <IconButton
+                onClick={scrollToTop}
+                className="glass-button micro-bounce theme-transition"
+                sx={{
+                  color: 'text.primary',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  '&:hover': {
+                    bgcolor: 'primary.main',
+                    color: 'white',
+                    borderColor: 'transparent',
+                  },
+                }}
+                aria-label="Back to top"
+              >
                 <ArrowUpward />
               </IconButton>
             </motion.div>
@@ -134,11 +208,25 @@ const Footer = () => {
 
         <Divider sx={{ my: 4, bgcolor: 'primary.main' }} />
 
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 2 }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: 2,
+          }}
+        >
           <Typography variant="body2" sx={{ opacity: 0.7 }}>
-            © {new Date().getFullYear()} Mohammad Imran Hossain. All rights reserved.
+            © {new Date().getFullYear()} Mohammad Imran Hossain. All rights
+            reserved.
           </Typography>
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ opacity: 0.7 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            sx={{ opacity: 0.7 }}
+          >
             <Typography variant="body2">Made with</Typography>
             <Favorite sx={{ fontSize: 16, color: 'red' }} />
             <Typography variant="body2">using React & Material UI</Typography>

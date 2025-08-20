@@ -1,6 +1,21 @@
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Github, Clock, Users, Activity, Target, Zap, Shield, Award, BookOpen, Globe, Server, Database } from 'lucide-react';
+import {
+  ArrowLeft,
+  ExternalLink,
+  Github,
+  Clock,
+  Users,
+  Activity,
+  Target,
+  Zap,
+  Shield,
+  Award,
+  BookOpen,
+  Globe,
+  Server,
+  Database,
+} from 'lucide-react';
 import { getProjectById } from '../data/projects';
 import ArchitectureDiagram from './ArchitectureDiagram';
 
@@ -13,11 +28,10 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen bg-dark-900 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-neon-cyan mb-4">Project Not Found</h1>
-          <button 
-            onClick={() => navigate('/')}
-            className="btn-primary"
-          >
+          <h1 className="text-4xl font-bold text-neon-cyan mb-4">
+            Project Not Found
+          </h1>
+          <button onClick={() => navigate('/')} className="btn-primary">
             Return Home
           </button>
         </div>
@@ -32,7 +46,9 @@ const ProjectDetail = () => {
       transition={{ duration: 0.5 }}
       className="bg-dark-800 border border-neon-cyan/20 rounded-xl p-6 text-center animate-cyber-glow"
     >
-      <div className={`w-12 h-12 bg-gradient-to-r from-${color} to-neon-pink rounded-full flex items-center justify-center mx-auto mb-4`}>
+      <div
+        className={`w-12 h-12 bg-gradient-to-r from-${color} to-neon-pink rounded-full flex items-center justify-center mx-auto mb-4`}
+      >
         <Icon className="w-6 h-6 text-white" />
       </div>
       <div className={`text-2xl font-bold text-${color} mb-2`}>{value}</div>
@@ -73,7 +89,9 @@ const ProjectDetail = () => {
       className="bg-dark-800 border border-neon-cyan/20 rounded-xl p-6"
     >
       <div className="flex items-center space-x-3 mb-4">
-        <div className={`w-8 h-8 bg-gradient-to-r from-${color} to-neon-pink rounded-lg flex items-center justify-center`}>
+        <div
+          className={`w-8 h-8 bg-gradient-to-r from-${color} to-neon-pink rounded-lg flex items-center justify-center`}
+        >
           <Icon className="w-5 h-5 text-white" />
         </div>
         <h4 className="text-lg font-semibold text-white">{title}</h4>
@@ -96,7 +114,7 @@ const ProjectDetail = () => {
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-br from-dark-900 via-dark-800 to-dark-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-        
+
         <div className="container-custom relative z-10">
           <motion.button
             initial={{ opacity: 0, x: -20 }}
@@ -116,10 +134,14 @@ const ProjectDetail = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center space-x-4 mb-6">
-                <span className={`px-3 py-1 bg-dark-800 border border-neon-${project.category === 'AI/ML' ? 'pink' : 'cyan'}/30 rounded-full text-neon-${project.category === 'AI/ML' ? 'pink' : 'cyan'} text-sm font-medium`}>
+                <span
+                  className={`px-3 py-1 bg-dark-800 border border-neon-${project.category === 'AI/ML' ? 'pink' : 'cyan'}/30 rounded-full text-neon-${project.category === 'AI/ML' ? 'pink' : 'cyan'} text-sm font-medium`}
+                >
                   {project.category}
                 </span>
-                <span className={`px-3 py-1 bg-success-500/20 border border-success-500/30 rounded-full text-success-400 text-sm font-medium`}>
+                <span
+                  className={`px-3 py-1 bg-success-500/20 border border-success-500/30 rounded-full text-success-400 text-sm font-medium`}
+                >
                   {project.status}
                 </span>
               </div>
@@ -127,11 +149,11 @@ const ProjectDetail = () => {
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
                 {project.title}
               </h1>
-              
+
               <h2 className="text-2xl md:text-3xl text-neon-cyan mb-6 font-semibold">
                 {project.subtitle}
               </h2>
-              
+
               <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 {project.overview}
               </p>
@@ -160,7 +182,7 @@ const ProjectDetail = () => {
                   <ExternalLink className="w-5 h-5" />
                   <span>Live Demo</span>
                 </motion.a>
-                
+
                 <motion.a
                   href={project.githubUrl}
                   target="_blank"
@@ -206,7 +228,15 @@ const ProjectDetail = () => {
             {Object.entries(project.metrics).map(([key, value], index) => (
               <MetricCard
                 key={key}
-                icon={key.includes('performance') ? Zap : key.includes('accuracy') ? Target : key.includes('coverage') ? Shield : Award}
+                icon={
+                  key.includes('performance')
+                    ? Zap
+                    : key.includes('accuracy')
+                      ? Target
+                      : key.includes('coverage')
+                        ? Shield
+                        : Award
+                }
                 label={key.charAt(0).toUpperCase() + key.slice(1)}
                 value={value}
                 color={index % 2 === 0 ? 'neon-cyan' : 'neon-pink'}
@@ -294,11 +324,15 @@ const ProjectDetail = () => {
               transition={{ duration: 0.8 }}
               className="bg-dark-800 border border-neon-cyan/20 rounded-2xl p-8"
             >
-              <h3 className="text-xl font-bold text-white mb-6">Core Features</h3>
+              <h3 className="text-xl font-bold text-white mb-6">
+                Core Features
+              </h3>
               <ul className="space-y-4">
-                {project.keyFeatures.slice(0, Math.ceil(project.keyFeatures.length / 2)).map((feature, index) => (
-                  <FeatureItem key={index} feature={feature} index={index} />
-                ))}
+                {project.keyFeatures
+                  .slice(0, Math.ceil(project.keyFeatures.length / 2))
+                  .map((feature, index) => (
+                    <FeatureItem key={index} feature={feature} index={index} />
+                  ))}
               </ul>
             </motion.div>
 
@@ -308,11 +342,19 @@ const ProjectDetail = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-dark-800 border border-neon-pink/20 rounded-2xl p-8"
             >
-              <h3 className="text-xl font-bold text-white mb-6">Advanced Features</h3>
+              <h3 className="text-xl font-bold text-white mb-6">
+                Advanced Features
+              </h3>
               <ul className="space-y-4">
-                {project.keyFeatures.slice(Math.ceil(project.keyFeatures.length / 2)).map((feature, index) => (
-                  <FeatureItem key={index} feature={feature} index={index + Math.ceil(project.keyFeatures.length / 2)} />
-                ))}
+                {project.keyFeatures
+                  .slice(Math.ceil(project.keyFeatures.length / 2))
+                  .map((feature, index) => (
+                    <FeatureItem
+                      key={index}
+                      feature={feature}
+                      index={index + Math.ceil(project.keyFeatures.length / 2)}
+                    />
+                  ))}
               </ul>
             </motion.div>
           </div>
@@ -332,15 +374,29 @@ const ProjectDetail = () => {
           </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {Object.entries(project.architecture).map(([category, items], index) => (
-              <ArchitectureSection
-                key={category}
-                title={category.charAt(0).toUpperCase() + category.slice(1)}
-                items={items}
-                icon={category === 'frontend' ? Globe : category === 'backend' ? Server : Database}
-                color={index % 3 === 0 ? 'neon-cyan' : index % 3 === 1 ? 'neon-pink' : 'neon-green'}
-              />
-            ))}
+            {Object.entries(project.architecture).map(
+              ([category, items], index) => (
+                <ArchitectureSection
+                  key={category}
+                  title={category.charAt(0).toUpperCase() + category.slice(1)}
+                  items={items}
+                  icon={
+                    category === 'frontend'
+                      ? Globe
+                      : category === 'backend'
+                        ? Server
+                        : Database
+                  }
+                  color={
+                    index % 3 === 0
+                      ? 'neon-cyan'
+                      : index % 3 === 1
+                        ? 'neon-pink'
+                        : 'neon-green'
+                  }
+                />
+              )
+            )}
           </div>
 
           <motion.div
@@ -348,7 +404,9 @@ const ProjectDetail = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h3 className="text-xl font-bold text-white mb-6">All Technologies Used</h3>
+            <h3 className="text-xl font-bold text-white mb-6">
+              All Technologies Used
+            </h3>
             <div className="flex flex-wrap gap-3">
               {project.technologies.map((tech, index) => (
                 <TechBadge key={tech} tech={tech} index={index} />

@@ -36,13 +36,15 @@ const ProjectDetailPage = () => {
   const navigate = useNavigate();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const project = projects.find(p => p.id === parseInt(id));
+  const project = projects.find((p) => p.id === parseInt(id));
 
   if (!project) {
     return (
       <Box sx={{ py: 8, textAlign: 'center', minHeight: '100vh' }}>
         <Container maxWidth="lg">
-          <Typography variant="h4" gutterBottom>Project Not Found</Typography>
+          <Typography variant="h4" gutterBottom>
+            Project Not Found
+          </Typography>
           <Button onClick={() => navigate('/projects')} variant="contained">
             Back to Projects
           </Button>
@@ -68,12 +70,20 @@ const ProjectDetailPage = () => {
           text: project.subtitle || project.description,
           url: window.location.href,
         });
-        trackEvent('share_project', { id: project.id, title: project.title, method: 'web_share_api' });
+        trackEvent('share_project', {
+          id: project.id,
+          title: project.title,
+          method: 'web_share_api',
+        });
       } catch (err) {
         console.log('Error sharing');
       }
     } else {
-      trackEvent('share_project', { id: project.id, title: project.title, method: 'fallback_copy' });
+      trackEvent('share_project', {
+        id: project.id,
+        title: project.title,
+        method: 'fallback_copy',
+      });
       handleCopyLink();
     }
   };
@@ -89,7 +99,11 @@ const ProjectDetailPage = () => {
     >
       <Container maxWidth="lg">
         {/* Hero Image */}
-        <motion.div variants={fadeIn('up', 'tween', 0.1, 1)} initial="hidden" animate="show">
+        <motion.div
+          variants={fadeIn('up', 'tween', 0.1, 1)}
+          initial="hidden"
+          animate="show"
+        >
           <Paper
             className="glass-card"
             sx={{
@@ -123,7 +137,7 @@ const ProjectDetailPage = () => {
                   filter: 'brightness(0.7)',
                 }}
               />
-              
+
               {/* Gradient overlay */}
               <Box
                 sx={{
@@ -132,7 +146,8 @@ const ProjectDetailPage = () => {
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.4) 100%)',
+                  background:
+                    'linear-gradient(135deg, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.4) 100%)',
                   backdropFilter: 'blur(1px)',
                 }}
               />
@@ -148,7 +163,8 @@ const ProjectDetailPage = () => {
                   justifyContent: 'center',
                   alignItems: 'flex-end',
                   p: 4,
-                  background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.6))',
+                  background:
+                    'linear-gradient(transparent, rgba(0, 0, 0, 0.6))',
                 }}
               >
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
@@ -160,7 +176,12 @@ const ProjectDetailPage = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackOutboundLink(project.liveUrl, `${project.title} Live Demo`)}
+                      onClick={() =>
+                        trackOutboundLink(
+                          project.liveUrl,
+                          `${project.title} Live Demo`
+                        )
+                      }
                       sx={{
                         backgroundColor: 'rgba(99, 102, 241, 0.9)',
                         backdropFilter: 'blur(10px)',
@@ -191,7 +212,12 @@ const ProjectDetailPage = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => trackOutboundLink(project.githubUrl, `${project.title} Code`)}
+                      onClick={() =>
+                        trackOutboundLink(
+                          project.githubUrl,
+                          `${project.title} Code`
+                        )
+                      }
                       sx={{
                         borderColor: 'rgba(255, 255, 255, 0.4)',
                         color: 'white',
@@ -219,12 +245,21 @@ const ProjectDetailPage = () => {
         </motion.div>
 
         <Container maxWidth="xl">
-          <motion.div variants={fadeIn('up', 'tween', 0.2, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
+          <motion.div
+            variants={fadeIn('up', 'tween', 0.2, 1)}
+            initial="hidden"
+            animate={inView ? 'show' : 'hidden'}
+          >
             <Box sx={{ mb: 6 }} ref={ref}>
               {/* Header Navigation */}
-              <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 4 }}>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                sx={{ mb: 4 }}
+              >
                 <Stack direction="row" alignItems="center" spacing={2}>
-                  <IconButton 
+                  <IconButton
                     onClick={() => navigate('/projects')}
                     className="glass-button"
                     sx={{ color: 'text.primary' }}
@@ -235,16 +270,16 @@ const ProjectDetailPage = () => {
                     Back to Projects
                   </Typography>
                 </Stack>
-                
+
                 <Stack direction="row" spacing={1}>
-                  <IconButton 
+                  <IconButton
                     onClick={handleShare}
                     className="glass-button"
                     sx={{ color: 'text.primary' }}
                   >
                     <Share />
                   </IconButton>
-                  <IconButton 
+                  <IconButton
                     onClick={handleCopyLink}
                     className="glass-button"
                     sx={{ color: 'text.primary' }}
@@ -256,28 +291,39 @@ const ProjectDetailPage = () => {
 
               {/* Project Header */}
               <Box sx={{ mb: 6 }}>
-                <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 3 }}>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  sx={{ mb: 3 }}
+                >
                   <Chip
                     label={project.category || 'Full-Stack'}
                     color="primary"
                     variant="outlined"
                     sx={{ fontSize: '0.9rem', height: 36 }}
                   />
-                  <Stack direction="row" alignItems="center" spacing={2} color="text.secondary">
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    spacing={2}
+                    color="text.secondary"
+                  >
                     <Typography variant="body2">{project.duration}</Typography>
                     <Typography variant="body2">•</Typography>
                     <Typography variant="body2">{project.teamSize}</Typography>
                   </Stack>
                 </Stack>
 
-                <Typography 
-                  variant="h2" 
-                  fontWeight="bold" 
-                  sx={{ 
+                <Typography
+                  variant="h2"
+                  fontWeight="bold"
+                  sx={{
                     mb: 2,
                     fontSize: { xs: '2rem', md: '3rem' },
                     lineHeight: 1.2,
-                    background: 'linear-gradient(45deg, #6366f1 30%, #8b5cf6 90%)',
+                    background:
+                      'linear-gradient(45deg, #6366f1 30%, #8b5cf6 90%)',
                     backgroundClip: 'text',
                     textFillColor: 'transparent',
                     WebkitBackgroundClip: 'text',
@@ -288,26 +334,26 @@ const ProjectDetailPage = () => {
                 </Typography>
 
                 {project.subtitle && (
-                  <Typography 
-                    variant="h5" 
-                    color="text.secondary" 
-                    sx={{ 
+                  <Typography
+                    variant="h5"
+                    color="text.secondary"
+                    sx={{
                       lineHeight: 1.6,
                       fontSize: { xs: '1.1rem', md: '1.3rem' },
-                      mb: 4
+                      mb: 4,
                     }}
                   >
                     {project.subtitle}
                   </Typography>
                 )}
 
-                <Typography 
-                  variant="body1" 
-                  sx={{ 
+                <Typography
+                  variant="body1"
+                  sx={{
                     fontSize: { xs: '1rem', md: '1.1rem' },
                     lineHeight: 1.8,
                     mb: 3,
-                    color: 'text.primary'
+                    color: 'text.primary',
                   }}
                 >
                   {project.description}
@@ -315,14 +361,27 @@ const ProjectDetailPage = () => {
 
                 {/* Motivation Section */}
                 {project.motivation && (
-                  <Box sx={{ mb: 4, p: 3, backgroundColor: 'rgba(245, 158, 11, 0.08)', borderRadius: 2, border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                    <Typography variant="h6" fontWeight="bold" color="warning.main" sx={{ mb: 2 }}>
+                  <Box
+                    sx={{
+                      mb: 4,
+                      p: 3,
+                      backgroundColor: 'rgba(245, 158, 11, 0.08)',
+                      borderRadius: 2,
+                      border: '1px solid rgba(245, 158, 11, 0.2)',
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      color="warning.main"
+                      sx={{ mb: 2 }}
+                    >
                       Why I Built This
                     </Typography>
-                    <Typography 
-                      variant="body1" 
-                      color="text.primary" 
-                      sx={{ 
+                    <Typography
+                      variant="body1"
+                      color="text.primary"
+                      sx={{
                         fontSize: { xs: '0.95rem', md: '1rem' },
                         lineHeight: 1.7,
                       }}
@@ -340,10 +399,10 @@ const ProjectDetailPage = () => {
                       label={tech}
                       size="small"
                       variant="outlined"
-                      sx={{ 
-                        fontSize: '0.8rem', 
+                      sx={{
+                        fontSize: '0.8rem',
                         borderColor: 'primary.main',
-                        color: 'primary.main'
+                        color: 'primary.main',
                       }}
                     />
                   ))}
@@ -356,15 +415,23 @@ const ProjectDetailPage = () => {
 
           {/* GIF Demo Section */}
           {project.gif && (
-            <motion.div variants={fadeIn('up', 'tween', 0.3, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
-              <Card className="glass-card" sx={{ p: 4, borderRadius: 4, mb: 6 }}>
-                <Typography 
-                  variant="h4" 
-                  fontWeight="bold" 
-                  sx={{ 
-                    mb: 3, 
+            <motion.div
+              variants={fadeIn('up', 'tween', 0.3, 1)}
+              initial="hidden"
+              animate={inView ? 'show' : 'hidden'}
+            >
+              <Card
+                className="glass-card"
+                sx={{ p: 4, borderRadius: 4, mb: 6 }}
+              >
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  sx={{
+                    mb: 3,
                     textAlign: 'center',
-                    background: 'linear-gradient(45deg, #6366f1 30%, #8b5cf6 90%)',
+                    background:
+                      'linear-gradient(45deg, #6366f1 30%, #8b5cf6 90%)',
                     backgroundClip: 'text',
                     textFillColor: 'transparent',
                     WebkitBackgroundClip: 'text',
@@ -401,9 +468,16 @@ const ProjectDetailPage = () => {
 
           {/* Image Gallery Section */}
           {project.gallery && project.gallery.length > 0 && (
-            <motion.div variants={fadeIn('up', 'tween', 0.4, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
-              <Card className="glass-card" sx={{ p: 4, borderRadius: 4, mb: 6 }}>
-                <ProjectImageGallery 
+            <motion.div
+              variants={fadeIn('up', 'tween', 0.4, 1)}
+              initial="hidden"
+              animate={inView ? 'show' : 'hidden'}
+            >
+              <Card
+                className="glass-card"
+                sx={{ p: 4, borderRadius: 4, mb: 6 }}
+              >
+                <ProjectImageGallery
                   images={project.gallery}
                   title="📸 Project Screenshots"
                   columns={3}
@@ -413,57 +487,97 @@ const ProjectDetailPage = () => {
           )}
 
           {/* Main Content - Two Column Layout */}
-          <motion.div variants={fadeIn('up', 'tween', 0.3, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
+          <motion.div
+            variants={fadeIn('up', 'tween', 0.3, 1)}
+            initial="hidden"
+            animate={inView ? 'show' : 'hidden'}
+          >
             <Grid container spacing={4} sx={{ mb: 6 }}>
               {/* Left Column - Overview & Key Info */}
               <Grid item xs={12} lg={6}>
                 <Stack spacing={3}>
                   {/* Overview */}
                   <Card className="glass-card" sx={{ p: 3 }}>
-                    <Typography variant="h5" fontWeight="bold" color="primary.main" sx={{ mb: 2 }}>
+                    <Typography
+                      variant="h5"
+                      fontWeight="bold"
+                      color="primary.main"
+                      sx={{ mb: 2 }}
+                    >
                       Project Overview
                     </Typography>
-                    <Typography variant="body2" sx={{ fontSize: '0.95rem', lineHeight: 1.7, mb: 3 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontSize: '0.95rem', lineHeight: 1.7, mb: 3 }}
+                    >
                       {project.overview}
                     </Typography>
-                    
-                    <Typography variant="h6" fontWeight="bold" color="error.main" sx={{ mb: 1 }}>
+
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      color="error.main"
+                      sx={{ mb: 1 }}
+                    >
                       Challenge
                     </Typography>
-                    <Typography variant="body2" sx={{ fontSize: '0.9rem', lineHeight: 1.6, mb: 3 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontSize: '0.9rem', lineHeight: 1.6, mb: 3 }}
+                    >
                       {project.problemStatement}
                     </Typography>
-                    
-                    <Typography variant="h6" fontWeight="bold" color="success.main" sx={{ mb: 1 }}>
+
+                    <Typography
+                      variant="h6"
+                      fontWeight="bold"
+                      color="success.main"
+                      sx={{ mb: 1 }}
+                    >
                       Solution
                     </Typography>
-                    <Typography variant="body2" sx={{ fontSize: '0.9rem', lineHeight: 1.6 }}>
+                    <Typography
+                      variant="body2"
+                      sx={{ fontSize: '0.9rem', lineHeight: 1.6 }}
+                    >
                       {project.solution}
                     </Typography>
                   </Card>
 
                   {/* Architecture */}
                   <Card className="glass-card" sx={{ p: 3 }}>
-                    <Typography variant="h5" fontWeight="bold" color="warning.main" sx={{ mb: 2 }}>
+                    <Typography
+                      variant="h5"
+                      fontWeight="bold"
+                      color="warning.main"
+                      sx={{ mb: 2 }}
+                    >
                       Architecture
                     </Typography>
-                    {Object.entries(project.architecture).map(([layer, technologies]) => (
-                      <Box key={layer} sx={{ mb: 2 }}>
-                        <Typography variant="body2" fontWeight="bold" color="primary.main" sx={{ mb: 0.5, textTransform: 'capitalize' }}>
-                          {layer}:
-                        </Typography>
-                        <Stack direction="row" flexWrap="wrap" gap={0.5}>
-                          {technologies.map((tech, index) => (
-                            <Chip
-                              key={index}
-                              label={tech}
-                              size="small"
-                              sx={{ fontSize: '0.7rem', height: 20 }}
-                            />
-                          ))}
-                        </Stack>
-                      </Box>
-                    ))}
+                    {Object.entries(project.architecture).map(
+                      ([layer, technologies]) => (
+                        <Box key={layer} sx={{ mb: 2 }}>
+                          <Typography
+                            variant="body2"
+                            fontWeight="bold"
+                            color="primary.main"
+                            sx={{ mb: 0.5, textTransform: 'capitalize' }}
+                          >
+                            {layer}:
+                          </Typography>
+                          <Stack direction="row" flexWrap="wrap" gap={0.5}>
+                            {technologies.map((tech, index) => (
+                              <Chip
+                                key={index}
+                                label={tech}
+                                size="small"
+                                sx={{ fontSize: '0.7rem', height: 20 }}
+                              />
+                            ))}
+                          </Stack>
+                        </Box>
+                      )
+                    )}
                   </Card>
                 </Stack>
               </Grid>
@@ -473,20 +587,39 @@ const ProjectDetailPage = () => {
                 <Stack spacing={3}>
                   {/* Key Features */}
                   <Card className="glass-card" sx={{ p: 3 }}>
-                    <Typography variant="h5" fontWeight="bold" color="secondary.main" sx={{ mb: 2 }}>
+                    <Typography
+                      variant="h5"
+                      fontWeight="bold"
+                      color="secondary.main"
+                      sx={{ mb: 2 }}
+                    >
                       Key Features
                     </Typography>
                     <Stack spacing={1.5}>
                       {project.keyFeatures.slice(0, 6).map((feature, index) => (
                         <Stack direction="row" spacing={1.5} key={index}>
-                          <CheckCircle sx={{ color: 'success.main', fontSize: 16, mt: 0.5, flexShrink: 0 }} />
-                          <Typography variant="body2" sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}>
+                          <CheckCircle
+                            sx={{
+                              color: 'success.main',
+                              fontSize: 16,
+                              mt: 0.5,
+                              flexShrink: 0,
+                            }}
+                          />
+                          <Typography
+                            variant="body2"
+                            sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}
+                          >
                             {feature}
                           </Typography>
                         </Stack>
                       ))}
                       {project.keyFeatures.length > 6 && (
-                        <Typography variant="caption" color="text.secondary" sx={{ pl: 3 }}>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          sx={{ pl: 3 }}
+                        >
                           +{project.keyFeatures.length - 6} more features...
                         </Typography>
                       )}
@@ -495,21 +628,43 @@ const ProjectDetailPage = () => {
 
                   {/* Technical Highlights */}
                   <Card className="glass-card" sx={{ p: 3 }}>
-                    <Typography variant="h5" fontWeight="bold" color="info.main" sx={{ mb: 2 }}>
+                    <Typography
+                      variant="h5"
+                      fontWeight="bold"
+                      color="info.main"
+                      sx={{ mb: 2 }}
+                    >
                       Technical Highlights
                     </Typography>
                     <Stack spacing={1.5}>
-                      {project.technicalHighlights.slice(0, 5).map((highlight, index) => (
-                        <Stack direction="row" spacing={1.5} key={index}>
-                          <TrendingUp sx={{ color: 'info.main', fontSize: 16, mt: 0.5, flexShrink: 0 }} />
-                          <Typography variant="body2" sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}>
-                            {highlight}
-                          </Typography>
-                        </Stack>
-                      ))}
+                      {project.technicalHighlights
+                        .slice(0, 5)
+                        .map((highlight, index) => (
+                          <Stack direction="row" spacing={1.5} key={index}>
+                            <TrendingUp
+                              sx={{
+                                color: 'info.main',
+                                fontSize: 16,
+                                mt: 0.5,
+                                flexShrink: 0,
+                              }}
+                            />
+                            <Typography
+                              variant="body2"
+                              sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}
+                            >
+                              {highlight}
+                            </Typography>
+                          </Stack>
+                        ))}
                       {project.technicalHighlights.length > 5 && (
-                        <Typography variant="caption" color="text.secondary" sx={{ pl: 3 }}>
-                          +{project.technicalHighlights.length - 5} more highlights...
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          sx={{ pl: 3 }}
+                        >
+                          +{project.technicalHighlights.length - 5} more
+                          highlights...
                         </Typography>
                       )}
                     </Stack>
@@ -517,23 +672,46 @@ const ProjectDetailPage = () => {
 
                   {/* Key Metrics */}
                   <Card className="glass-card" sx={{ p: 3 }}>
-                    <Typography variant="h5" fontWeight="bold" color="success.main" sx={{ mb: 2 }}>
+                    <Typography
+                      variant="h5"
+                      fontWeight="bold"
+                      color="success.main"
+                      sx={{ mb: 2 }}
+                    >
                       Key Metrics
                     </Typography>
                     <Stack spacing={2}>
-                      {Object.entries(project.metrics).map(([metric, value]) => (
-                        <Box key={metric}>
-                          <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 0.5 }}>
-                            <Speed sx={{ color: 'success.main', fontSize: 16 }} />
-                            <Typography variant="body2" fontWeight="bold" color="text.primary" sx={{ textTransform: 'capitalize' }}>
-                              {metric}
+                      {Object.entries(project.metrics).map(
+                        ([metric, value]) => (
+                          <Box key={metric}>
+                            <Stack
+                              direction="row"
+                              alignItems="center"
+                              spacing={1}
+                              sx={{ mb: 0.5 }}
+                            >
+                              <Speed
+                                sx={{ color: 'success.main', fontSize: 16 }}
+                              />
+                              <Typography
+                                variant="body2"
+                                fontWeight="bold"
+                                color="text.primary"
+                                sx={{ textTransform: 'capitalize' }}
+                              >
+                                {metric}
+                              </Typography>
+                            </Stack>
+                            <Typography
+                              variant="body2"
+                              color="text.secondary"
+                              sx={{ pl: 3, fontSize: '0.85rem' }}
+                            >
+                              {value}
                             </Typography>
-                          </Stack>
-                          <Typography variant="body2" color="text.secondary" sx={{ pl: 3, fontSize: '0.85rem' }}>
-                            {value}
-                          </Typography>
-                        </Box>
-                      ))}
+                          </Box>
+                        )
+                      )}
                     </Stack>
                   </Card>
                 </Stack>
@@ -543,15 +721,33 @@ const ProjectDetailPage = () => {
             {/* Bottom Section - Challenges & Learnings */}
             <Grid container spacing={4} sx={{ mb: 6 }}>
               <Grid item xs={12} md={6}>
-                <Card className="glass-card" sx={{ p: 3, height: 'fit-content' }}>
-                  <Typography variant="h5" fontWeight="bold" color="error.main" sx={{ mb: 2 }}>
+                <Card
+                  className="glass-card"
+                  sx={{ p: 3, height: 'fit-content' }}
+                >
+                  <Typography
+                    variant="h5"
+                    fontWeight="bold"
+                    color="error.main"
+                    sx={{ mb: 2 }}
+                  >
                     Challenges Overcome
                   </Typography>
                   <Stack spacing={1.5}>
                     {project.challenges.slice(0, 4).map((challenge, index) => (
                       <Stack direction="row" spacing={1.5} key={index}>
-                        <Security sx={{ color: 'error.main', fontSize: 16, mt: 0.5, flexShrink: 0 }} />
-                        <Typography variant="body2" sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}>
+                        <Security
+                          sx={{
+                            color: 'error.main',
+                            fontSize: 16,
+                            mt: 0.5,
+                            flexShrink: 0,
+                          }}
+                        />
+                        <Typography
+                          variant="body2"
+                          sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}
+                        >
                           {challenge}
                         </Typography>
                       </Stack>
@@ -561,15 +757,33 @@ const ProjectDetailPage = () => {
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <Card className="glass-card" sx={{ p: 3, height: 'fit-content' }}>
-                  <Typography variant="h5" fontWeight="bold" color="info.main" sx={{ mb: 2 }}>
+                <Card
+                  className="glass-card"
+                  sx={{ p: 3, height: 'fit-content' }}
+                >
+                  <Typography
+                    variant="h5"
+                    fontWeight="bold"
+                    color="info.main"
+                    sx={{ mb: 2 }}
+                  >
                     Key Learnings
                   </Typography>
                   <Stack spacing={1.5}>
                     {project.learnings.slice(0, 4).map((learning, index) => (
                       <Stack direction="row" spacing={1.5} key={index}>
-                        <CheckCircle sx={{ color: 'info.main', fontSize: 16, mt: 0.5, flexShrink: 0 }} />
-                        <Typography variant="body2" sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}>
+                        <CheckCircle
+                          sx={{
+                            color: 'info.main',
+                            fontSize: 16,
+                            mt: 0.5,
+                            flexShrink: 0,
+                          }}
+                        />
+                        <Typography
+                          variant="body2"
+                          sx={{ lineHeight: 1.5, fontSize: '0.9rem' }}
+                        >
                           {learning}
                         </Typography>
                       </Stack>
@@ -578,14 +792,22 @@ const ProjectDetailPage = () => {
                 </Card>
               </Grid>
             </Grid>
-
           </motion.div>
 
           {/* Navigation Footer */}
-          <motion.div variants={fadeIn('up', 'tween', 0.4, 1)} initial="hidden" animate={inView ? 'show' : 'hidden'}>
+          <motion.div
+            variants={fadeIn('up', 'tween', 0.4, 1)}
+            initial="hidden"
+            animate={inView ? 'show' : 'hidden'}
+          >
             <Box sx={{ textAlign: 'center', pt: 6 }}>
               <Divider sx={{ mb: 4 }} />
-              <Stack direction="row" justifyContent="center" spacing={2} flexWrap="wrap">
+              <Stack
+                direction="row"
+                justifyContent="center"
+                spacing={2}
+                flexWrap="wrap"
+              >
                 <Button
                   component={Link}
                   to="/projects"

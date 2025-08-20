@@ -27,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     // Save theme preference to localStorage
     localStorage.setItem('theme-preference', isDarkMode ? 'dark' : 'light');
-    
+
     // Add theme class to document for CSS transitions
     const root = document.documentElement;
     if (isDarkMode) {

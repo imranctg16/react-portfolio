@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 import { useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { Box } from '@mui/material';
@@ -12,7 +17,6 @@ import BlogPostPage from './pages/BlogPostPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import ResumePage from './pages/ResumePage';
 import { initGA, trackPageview } from './utils/analytics';
-
 
 function AnalyticsListener() {
   const location = useLocation();
@@ -33,9 +37,9 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <Box 
+        <Box
           className="theme-transition bg-pattern"
-          sx={{ 
+          sx={{
             minHeight: '100vh',
             position: 'relative',
             bgcolor: 'background.default',
