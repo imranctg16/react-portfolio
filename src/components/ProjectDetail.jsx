@@ -158,15 +158,21 @@ const ProjectDetail = () => {
                 {project.overview}
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center space-x-2 text-gray-400">
+              <div class="flex flex-wrap gap-4 mb-8">
+                <div class="flex items-center space-x-2 text-gray-400">
                   <Clock className="w-5 h-5" />
                   <span>{project.duration}</span>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-400">
+                <div class="flex items-center space-x-2 text-gray-400">
                   <Users className="w-5 h-5" />
                   <span>{project.teamSize}</span>
                 </div>
+                {project.deployment && (
+                  <div class="flex items-center space-x-2 text-gray-400">
+                    <Server className="w-5 h-5" />
+                    <span>{project.deployment}</span>
+                  </div>
+                )}
               </div>
 
               <div className="flex space-x-4">
@@ -184,16 +190,29 @@ const ProjectDetail = () => {
                 </motion.a>
 
                 <motion.a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center space-x-2 px-6 py-3 bg-dark-800 border-2 border-neon-cyan text-neon-cyan font-bold rounded-xl hover:bg-neon-cyan hover:text-dark-900 transition-all duration-300"
-                >
-                  <Github className="w-5 h-5" />
-                  <span>Source Code</span>
-                </motion.a>
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center space-x-2 px-6 py-3 bg-dark-800 border-2 border-neon-cyan text-neon-cyan font-bold rounded-xl hover:bg-neon-cyan hover:text-dark-900 transition-all duration-300"
+                  >
+                    <Github className="w-5 h-5" />
+                    <span>{project.githubUrlBackend ? 'Frontend' : 'Source Code'}</span>
+                  </motion.a>
+                  {project.githubUrlBackend && (
+                    <motion.a
+                      href={project.githubUrlBackend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center space-x-2 px-6 py-3 bg-dark-800 border-2 border-neon-cyan text-neon-cyan font-bold rounded-xl hover:bg-neon-cyan hover:text-dark-900 transition-all duration-300"
+                    >
+                      <Github className="w-5 h-5" />
+                      <span>Backend</span>
+                    </motion.a>
+                  )}
               </div>
             </motion.div>
 

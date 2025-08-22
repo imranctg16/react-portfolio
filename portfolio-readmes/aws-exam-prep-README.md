@@ -6,9 +6,14 @@ A comprehensive full-stack web application designed for AWS Solutions Architect 
 
 ## 🚀 Project Status
 
-**🔧 IN DEVELOPMENT** - This project is currently under active development and not yet deployed to production.
+**🚀 LIVE** - This project is now live and accessible.
 
-<!-- [Live Application](#) | [Frontend Demo](#) | [Backend API](#) -->
+[Live Application](https://aws-exam-prep-frontend.fly.dev/) | [Frontend Demo](#) | [Backend API](#)
+
+## ☁️ Deployment
+
+-   **Frontend**: Deployed on [fly.io](https://fly.io/)
+-   **Backend**: Deployed on [fly.io](https://fly.io/)
 
 ## 📋 Table of Contents
 
@@ -247,27 +252,20 @@ Authorization: Bearer {token}
 ## 📁 Project Structure
 
 ```
-aws-exam-prep/
-├── backend/                    # Laravel backend application
-│   ├── app/
-│   │   ├── Console/Commands/   # Artisan commands for data import
-│   │   ├── Http/Controllers/   # API controllers
-│   │   ├── Models/            # Eloquent models for MongoDB
-│   │   └── Services/          # Business logic services
-│   ├── config/                # Laravel configuration files
-│   ├── database/             # Migrations and seeders
-│   └── routes/api.php        # API routes definition
-├── frontend/                  # Vue.js frontend application
-│   ├── src/
-│   │   ├── components/       # Reusable Vue components
-│   │   ├── views/           # Page-level components
-│   │   ├── stores/          # Pinia state management
-│   │   ├── services/        # API communication
-│   │   └── router/          # Vue Router configuration
-│   └── public/              # Static assets
-├── docker/                   # Docker configuration files
-├── docker-compose.yml       # Multi-container orchestration
-└── data/                    # Sample data and imports
+aws-exam-prep-frontend/
+└── src/
+    ├── components/       # Reusable Vue components
+    ├── views/           # Page-level components
+    ├── stores/          # Pinia state management
+    ├── services/        # API communication
+    └── router/          # Vue Router configuration
+
+aws-exam-prep-backend/
+└── app/
+    ├── Console/Commands/   # Artisan commands for data import
+    ├── Http/Controllers/   # API controllers
+    ├── Models/            # Eloquent models for MongoDB
+    └── Services/          # Business logic services
 ```
 
 ## 🎨 Key Highlights
@@ -317,7 +315,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Your Name** - [your.email@example.com](mailto:your.email@example.com)
 
-Project Link: [https://github.com/yourusername/aws-exam-prep](https://github.com/yourusername/aws-exam-prep)
+Live Demo: [https://aws-exam-prep-frontend.fly.dev/](https://aws-exam-prep-frontend.fly.dev/) • Project Link: [https://github.com/imranctg16/aws-exam-prep](https://github.com/imranctg16/aws-exam-prep)
 
 ---
 

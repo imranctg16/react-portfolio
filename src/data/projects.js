@@ -108,6 +108,7 @@ export const projects = [
     duration: '12 months',
     teamSize: '5 developers',
     status: 'Production',
+    deployment: 'Private corporate infrastructure (Dhaka Bogura server, Bangladesh)',
     overview:
       'Enterprise-grade microservices platform designed for digital workflow automation, featuring 11 independent services with dynamic form building, workflow state machines, regulatory compliance, and multi-tenant architecture.',
     problemStatement:
@@ -390,14 +391,15 @@ export const projects = [
       },
     ],
     technologies: ['Laravel', 'Vue.js', 'MongoDB', 'Docker', 'Nginx', 'Vite'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/imranctg16/aws-exam-prep',
+    liveUrl: 'https://aws-exam-prep-frontend.fly.dev/',
+    githubUrl: 'https://github.com/imranctg16/aws-exam-prep-frontend',
+    githubUrlBackend: 'https://github.com/imranctg16/aws-exam-prep-backend',
     blogPostId: null, // Blog is separate from projects
     featured: true,
     category: 'Full-Stack',
     duration: '4 months',
     teamSize: '1 developer',
-    status: 'Development',
+    status: 'Production',
     overview:
       'Enterprise-grade learning management system for AWS certification preparation with comprehensive question banks, progress tracking, and performance analytics.',
     problemStatement:
@@ -497,6 +499,7 @@ export const projects = [
     duration: '2 months',
     teamSize: '1 developer',
     status: 'Production',
+    deployment: 'Netlify',
     overview:
       'Feature-rich markdown viewer with interactive Mermaid diagrams, multi-tab support, and modern glassmorphism design optimized for developers.',
     problemStatement:

@@ -11,6 +11,10 @@
 
 README Reader Pro is a professional-grade markdown viewer built with React and TypeScript. It transforms plain markdown into beautifully rendered documents with interactive diagrams, syntax-highlighted code blocks, and a modern glassmorphism design. Perfect for developers who want to preview and present their documentation with style.
 
+## ☁️ Deployment
+
+-   **Frontend**: Deployed on [Netlify](https://www.netlify.com/)
+
 ### ✨ Key Features
 
 - **🎨 Modern UI Design** - Clean glassmorphism interface with smooth animations

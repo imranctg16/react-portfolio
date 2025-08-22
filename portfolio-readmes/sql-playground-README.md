@@ -12,6 +12,11 @@ A sophisticated full-stack SQL learning platform that gamifies database educatio
 
 This project demonstrates advanced full-stack development skills with modern web technologies, featuring sophisticated gamification, real-time data processing, and professional-grade architecture. Built as a comprehensive learning platform that combines education with engaging user experience.
 
+## ☁️ Deployment
+
+-   **Frontend**: Deployed on [Netlify](https://www.netlify.com/)
+-   **Backend**: Deployed on [fly.io](https://fly.io/)
+
 ## ✨ Core Features & Technical Achievements
 
 ### 🎓 Advanced Learning System
