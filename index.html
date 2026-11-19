@@ -4,30 +4,38 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO Meta Tags -->
-    <title>Mohammad Imran Hossain - Technical Lead Portfolio</title>
-    <meta name="description" content="Technical Lead with 6.5+ years of experience building enterprise-grade web applications. Specializing in Laravel, Vue.js, React.js, and microservices architecture." />
-    <meta name="keywords" content="technical lead, software engineer, full-stack developer, laravel developer, vue.js, react developer, microservices, web development, portfolio, mohammad imran hossain" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Mohammad Imran Hossain · Senior Full-Stack Engineer</title>
+    <meta name="description" content="Senior full-stack engineer with almost eight years of building web products in Laravel, TypeScript (Next.js, Fastify) and Python (FastAPI). Working inside Norwegian product teams since 2026. Open to relocation." />
     <meta name="author" content="Mohammad Imran Hossain" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Mohammad Imran Hossain - Technical Lead Portfolio" />
-    <meta property="og:description" content="Technical Lead with 6.5+ years of experience building enterprise-grade web applications. Specializing in Laravel, Vue.js, React.js, and microservices architecture." />
+
+    <meta property="og:title" content="Mohammad Imran Hossain · Senior Full-Stack Engineer" />
+    <meta property="og:description" content="I build web products and look after them, from the database to the screen. Working inside Norwegian product teams since 2026. Open to relocation." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://alexchen.dev" />
-    <meta property="og:image" content="/og-image.jpg" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mohammad Imran Hossain - Technical Lead Portfolio" />
-    <meta name="twitter:description" content="Technical Lead with 6.5+ years of experience building enterprise-grade web applications. Specializing in Laravel, Vue.js, React.js, and microservices architecture." />
-    <meta name="twitter:image" content="/og-image.jpg" />
-    
-    <!-- Preconnect to Google Fonts -->
+    <meta property="og:url" content="https://imran-react-portfolio.netlify.app/" />
+    <meta property="og:image" content="https://imran-react-portfolio.netlify.app/headshot.jpg" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Mohammad Imran Hossain · Senior Full-Stack Engineer" />
+    <meta name="twitter:description" content="I build web products and look after them, from the database to the screen. Open to relocation." />
+    <meta name="twitter:image" content="https://imran-react-portfolio.netlify.app/headshot.jpg" />
+
+    <!-- Set the theme before first paint. ?theme=dark|light overrides without being saved. -->
+    <script>
+      (function () {
+        var t = new URLSearchParams(location.search).get('theme');
+        if (t !== 'dark' && t !== 'light') {
+          try { t = localStorage.getItem('theme'); } catch (e) { t = null; }
+        }
+        if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div id="root"></div>
