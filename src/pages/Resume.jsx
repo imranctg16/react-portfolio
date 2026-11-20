@@ -17,7 +17,7 @@ export default function Resume() {
       <Row rail="Résumé" className="title-block">
         <h1>{r.name}</h1>
         <p className="lead">{r.headline}</p>
-        <p className="muted">{r.location}</p>
+        <p className="muted">{r.location.split(' · ')[0]}</p>
         <p>
           <a href={`mailto:${r.contact.email}`}>{r.contact.email}</a>
           <span className="muted"> · </span>

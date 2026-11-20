@@ -103,8 +103,6 @@ li::marker { color: var(--muted); }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
 .btn.solid { background: var(--ink); color: var(--bg); }
 .btn.solid:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-.open { display: inline-flex; gap: 0.55rem; align-items: baseline; }
-.open::before { content: ''; flex: none; width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--accent); transform: translateY(-0.1em); }
 
 /* Project index: the ledger lines */
 .index { list-style: none; margin: 0; padding: 0; }

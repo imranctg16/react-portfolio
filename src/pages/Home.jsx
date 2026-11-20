@@ -26,7 +26,7 @@ export default function Home() {
   const { summary, site } = resume;
   return (
     <>
-      <Row rail={<span className="open">{site.availability}</span>}>
+      <Row rail={null}>
         <div className="hero">
           <div>
             <p className="who">
@@ -111,7 +111,6 @@ export default function Home() {
 
       <Row rail="About">
         <div className="measure">
-          <p>{summary[1]}</p>
           <p>{site.flutter}</p>
         </div>
       </Row>

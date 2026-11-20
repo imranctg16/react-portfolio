@@ -62,7 +62,6 @@ function Footer() {
     <footer className="site-foot">
       <Row rail="Contact">
         <h2>Write to me</h2>
-        <p className="measure muted">{site.availability}.</p>
         <dl className="contact" style={{ marginTop: '1.6rem' }}>
           <div>
             <dt>Email</dt>

@@ -46,9 +46,10 @@ test('no forbidden claims or AI-sounding filler', () => {
   for (const re of FORBIDDEN) assert.ok(!re.test(text), `forbidden: ${re}`);
 });
 
-test('AI tools mentioned only in summary and the AI Coach entry', () => {
-  const { summary, experience, products } = resume;
-  assert.ok(summary.join(' ').includes('Claude Code'));
+test('Claude Code is named once, in the AI Coach entry', () => {
+  const { experience, products } = resume;
+  assert.equal((JSON.stringify(resume).match(/Claude Code/g) || []).length, 1);
+  assert.match(experience[0].sections.find((s) => s.heading.includes('AI Coach')).heading, /Claude Code/);
   const rest = JSON.stringify({ products, other: experience.slice(1) });
   assert.ok(!/AI-assisted|Claude Code/.test(rest));
   const cefalo = experience[0].sections.filter((s) => !s.heading.includes('AI Coach'));
@@ -74,7 +75,7 @@ test('not positioned as a mobile developer, AI kept low-key', () => {
   const top = JSON.stringify([resume.headline, resume.summary, resume.site]);
   assert.doesNotMatch(top, /mobile|enthusiast/i);
   assert.doesNotMatch(top, /every day/i);
-  assert.equal((top.match(/Claude Code/g) || []).length, 1);
+  assert.doesNotMatch(top, /Claude Code/);
 });
 
 test('summary names AI features built for production', () => {
