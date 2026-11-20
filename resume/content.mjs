@@ -15,7 +15,7 @@ export const resume = {
   },
   // Used by the site only. The PDFs ignore it.
   site: {
-    tagline: 'I build web products and look after them, from the database to the screen.',
+    tagline: 'I think like a product owner and build like an engineer, from the database to the screen.',
     availability: 'Open to relocation',
     flutter: 'Outside work I build Flutter apps. Quran Keeper, a Quran reader for Bangla speakers, is live on Google Play.',
     github: 'github.com/imranctg16',
@@ -23,7 +23,7 @@ export const resume = {
   gulfDetails: 'Nationality: Bangladeshi · Open to relocation · Requires visa sponsorship · Notice period: 3 months',
 
   summary: [
-    "I'm a senior full-stack engineer with almost eight years of building web products. I started with Laravel and Vue, and today I also work in TypeScript with Next.js and Fastify, and in Python with FastAPI. Since March 2026 I've worked through Cefalo inside two Norwegian product teams, Zymfonix and Uppercase.",
+    "I'm a senior full-stack engineer with almost eight years of building web products. I started with Laravel and Vue, and today I also work in TypeScript with Next.js and Fastify, and in Python with FastAPI. Today I work through Cefalo inside two Norwegian product teams, Zymfonix and Uppercase. Before that I spent over seven years at Brain Station 23, the last years as Technical Lead on Grameenphone's workflow platform.",
     "I work best as a product engineer. I like owning the whole thing, from the database and API to the front end. I've also built AI features that run in production, such as CV parsing, illustrated story books and narration.",
     'I also coach developers at Cefalo on working with Claude Code.',
   ],
