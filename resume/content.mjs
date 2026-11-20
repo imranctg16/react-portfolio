@@ -17,7 +17,7 @@ export const resume = {
   site: {
     tagline: 'I think like a product owner and build like an engineer, from the database to the screen.',
     background: "Before Cefalo I spent over seven years at Brain Station 23, the last years as Technical Lead on Grameenphone's workflow platform, for Bangladesh's largest telecom operator.",
-    flutter: 'Outside work I build Flutter apps. Quran Keeper, a Quran reader for Bangla speakers, is live on Google Play.',
+    flutter: 'Outside work I build my own products. Quran Keeper, a Quran reader for Bangla speakers, is live on Google Play.',
     github: 'github.com/imranctg16',
   },
   gulfDetails: 'Nationality: Bangladeshi · Open to relocation · Requires visa sponsorship · Notice period: 3 months',
@@ -30,7 +30,7 @@ export const resume = {
     { label: 'Backend', items: 'PHP and Laravel, TypeScript and Node.js (Fastify, Drizzle), Python (FastAPI), REST APIs' },
     { label: 'Frontend', items: 'Vue, Quasar, React, Next.js, TanStack Query' },
     { label: 'Data', items: 'PostgreSQL, MySQL, Redis, DuckDB' },
-    { label: 'Crawling and apps', items: 'Scrapy, Playwright, Pytest, Flutter' },
+    { label: 'Crawling and testing', items: 'Scrapy, Playwright, Pytest' },
     { label: 'Cloud and delivery', items: 'AWS (Lambda, S3, SES), Laravel Cloud, Docker, GitHub Actions, GitLab CI' },
     { label: 'AI in products', items: 'OpenAI, Anthropic, Gemini and Mistral APIs, structured extraction, image and speech generation' },
     { label: 'Practices', items: 'Security review (OWASP Top 10), performance tuning, automated testing, mentoring' },
