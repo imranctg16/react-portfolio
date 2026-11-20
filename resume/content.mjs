@@ -23,7 +23,7 @@ export const resume = {
   gulfDetails: 'Nationality: Bangladeshi · Open to relocation · Requires visa sponsorship · Notice period: 3 months',
 
   summary: [
-    "I'm a senior full-stack engineer with almost eight years of building web products. I work in Laravel and PHP, in TypeScript with Next.js and Fastify, and in Python with FastAPI. I currently work through Cefalo inside two Norwegian product teams, Zymfonix and Uppercase. I like owning the whole product, backend and front end, and I've built AI features that run in production, such as CV parsing, illustrated story books and narration.",
+    "I'm a senior full-stack engineer with almost eight years of building web products. I started with Laravel and PHP, and today I also work in TypeScript with Next.js and Fastify, and in Python with FastAPI. I currently work through Cefalo inside two Norwegian product teams, Zymfonix and Uppercase. I like owning the whole product, backend and front end, and I've built AI features that run in production, such as CV parsing, illustrated story books and narration.",
   ],
 
   skills: [
