@@ -14,7 +14,7 @@ export function useTitle(title) {
 export function Row({ rail, className = '', children }) {
   return (
     <section className={`row ${className}`}>
-      <div className="rail">{rail}</div>
+      <div className="rail">{typeof rail === 'string' && !className ? <h2 className="rail-title">{rail}</h2> : rail}</div>
       <div className="content">{children}</div>
     </section>
   );

@@ -111,6 +111,7 @@ export default function Home() {
 
       <Row rail="About">
         <div className="measure">
+          <p>{site.background}</p>
           <p>{site.flutter}</p>
         </div>
       </Row>

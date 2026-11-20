@@ -68,6 +68,7 @@ li::marker { color: var(--muted); }
 .row.tight { padding: 1.1rem 0; }
 .row.first { border-top: 0; }
 .rail { font: 400 0.75rem/1.6 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); padding-top: 0.35rem; }
+.rail-title { font: inherit; letter-spacing: inherit; text-wrap: initial; }
 .rail a { text-decoration: none; }
 .rail a:hover { text-decoration: underline; }
 .rail strong { color: var(--ink); font-weight: 500; }
@@ -146,6 +147,7 @@ li::marker { color: var(--muted); }
 .job-head .when { font: 400 0.8125rem/1.6 var(--mono); color: var(--muted); white-space: nowrap; }
 .job .ctx { color: var(--muted); font-size: 0.95rem; }
 .job .sec { margin-top: 1.1rem; }
+.as-h2 { font-family: var(--serif); font-size: 1.45rem; letter-spacing: -0.012em; }
 .job .sec h4 { margin: 0; font: 600 1rem/1.4 var(--sans); }
 .job .sec .note { font: 400 0.78rem/1.6 var(--mono); color: var(--muted); margin: 0.15rem 0 0.45rem; }
 .job .sec h4 + ul { margin-top: 0.4rem; }

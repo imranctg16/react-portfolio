@@ -17,8 +17,8 @@ test('project copy has no forbidden claims or filler', () => {
   for (const re of [...FORBIDDEN, /I led\b/i, /test coverage/i, /commits/i]) assert.ok(!re.test(text), `forbidden: ${re}`);
 });
 
-test('Sellora has no live link, and AI tools are not named on products', () => {
-  assert.deepEqual(getProjectById(10).links, []);
+test('Sellora links to the live beta, and AI tools are not named on products', () => {
+  assert.deepEqual(getProjectById(10).links.map((l) => l.href), ['https://campaignflow-1wn.pages.dev']);
   assert.ok(!/Claude/.test(JSON.stringify(projects)));
 });
 

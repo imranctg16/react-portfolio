@@ -16,6 +16,7 @@ export const resume = {
   // Used by the site only. The PDFs ignore it.
   site: {
     tagline: 'I think like a product owner and build like an engineer, from the database to the screen.',
+    background: "Before Cefalo I spent over seven years at Brain Station 23, the last years as Technical Lead on Grameenphone's workflow platform, for Bangladesh's largest telecom operator.",
     flutter: 'Outside work I build Flutter apps. Quran Keeper, a Quran reader for Bangla speakers, is live on Google Play.',
     github: 'github.com/imranctg16',
   },

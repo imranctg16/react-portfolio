@@ -276,13 +276,13 @@ export const projects = [
     group: 'product',
     ...fromProduct('Sellora'),
     stack: ['Laravel', 'Vue 3', 'Quasar', 'Flutter', 'OpenAI', 'Gemini'],
-    links: [],
+    links: [{ label: 'Open Sellora', href: 'https://campaignflow-1wn.pages.dev' }],
     body: [
       {
         h: 'What it is',
         p: [
           'Sellora is for small online sellers. The seller takes a photo of a product. Sellora turns it into a marketing poster and gives them an order page to share with buyers.',
-          'I am the founder and the developer. Sellora is in live beta, so there is no public link yet.',
+          'I am the founder and the developer. Sellora is in live beta.',
         ],
       },
       {

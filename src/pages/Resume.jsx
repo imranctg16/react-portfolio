@@ -50,9 +50,9 @@ export default function Resume() {
           {r.experience.map((j) => (
             <div className="job" key={j.company}>
               <div className="job-head">
-                <h2>
+                <h3 className="as-h2">
                   {j.title}, {j.company}
-                </h2>
+                </h3>
                 <span className="when">{j.period}</span>
               </div>
               <div className="ctx">{j.context}</div>
@@ -83,7 +83,7 @@ export default function Resume() {
           {r.products.map((p) => (
             <div className="job" key={p.name}>
               <div className="job-head">
-                <h2>{pageFor(p.name) ? <Link to={`/project/${pageFor(p.name).id}`}>{p.name}</Link> : p.name}</h2>
+                <h3 className="as-h2">{pageFor(p.name) ? <Link to={`/project/${pageFor(p.name).id}`}>{p.name}</Link> : p.name}</h3>
                 <span className="when">{p.status}</span>
               </div>
               <div className="sec measure" style={{ marginTop: '0.2rem' }}>
